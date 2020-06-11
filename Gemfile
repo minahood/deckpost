@@ -9,6 +9,8 @@ gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 group :production do
   gem 'pg', '1.1.4'
@@ -17,8 +19,7 @@ end
 group :development, :test do
   gem 'sqlite3', '1.4.1'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
-  gem "rspec-rails"
-  gem "factory_bot_rails"
+
 end
 
 group :development do
@@ -32,6 +33,8 @@ group :test do
   gem 'capybara',           '3.28.0'
   gem 'selenium-webdriver', '3.142.4'
   gem 'webdrivers',         '4.1.2'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります

@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
-
-
-
   describe "GET /home" do
     it "returns http success" do
       get root_url
@@ -13,23 +10,29 @@ RSpec.describe "StaticPages", type: :request do
 
   describe "GET /help" do
     it "returns http success" do
-      get static_pages_help_url
+      get help_url
       expect(response).to have_http_status(:success)
     end
   end
   
   describe "GET /contact" do
     it "returns http success" do
-      get static_pages_contact_url
+      get contact_url
       expect(response).to have_http_status(:success)
     end
   end
   
-  describe "GET /contact" do
+  describe "GET /about" do
     it "returns http success" do
-      get static_pages_about_url
+      get about_url
       expect(response).to have_http_status(:success)
     end
   end
 
+  describe "GET /news" do
+    it "returns http success" do
+      get news_url
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
