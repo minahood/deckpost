@@ -8,13 +8,14 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-1">
         <%= link_to((root_path),class: "nav-link") do %>
+        <i class="far fa-edit"></i>
         投稿
         <% end %>
       </li>
 
       <li class="nav-item dropdown mr-1">
         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          設定
+          <i class="fas fa-cog mr-1"></i>設定
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">メニュー1</a>
@@ -24,7 +25,9 @@
         </div>
       </li>
       <li class="nav-item mr-1">
-        <%= link_to "ログイン/新規登録",signup_path,class: "nav-link" %>
+        <%= link_to(signup_path,class: "nav-link") do %>
+          <i class="fas fa-user-plus mr-1"></i>ログイン/新規登録
+        <% end %>
       </li>
     </ul>
     <form class="form-inline my-2 my-md-0">

@@ -1,3 +1,32 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+
+<div id="subtitle" ,class="col-md-6 offset-md-3">新規登録</div>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3 text-secondary form">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <%= f.label :name ,"ニックネーム"%><p class="bg-danger text-light">必須</p>
+      <%= f.text_field :name,class: "bg-light form-control"%>
+
+      <%# f.label :email ,"メールアドレス"%>
+      <%# f.email_field :email,class: "bg-light form-control"  %>
+      
+      <%= f.label :login_id ,"ログインID"%><p class="bg-danger text-light">必須</p>
+      <%= f.text_field :login_id,class: "bg-light form-control"  %>
+
+      <%= f.label :password, "パスワード (4文字以上)" %><p class="bg-danger text-light">必須</p>
+      <%= f.password_field :password ,class: "bg-light form-control" %>
+
+      <%= f.label :password_confirmation, "パスワード確認" %><p class="bg-danger text-light">必須</p>
+      <%= f.password_field :password_confirmation ,class: "bg-light form-control" %>
+      
+      <%= f.label :introduction, "自己紹介 (登録後変更可能)" %>
+      <%= f.text_area :introduction ,class: "auto-resize" %>
+      
+      
+      <%= f.submit "アカウント登録", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

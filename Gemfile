@@ -12,6 +12,7 @@ gem 'bootsnap',   '1.4.5', require: false
 #gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'bcrypt',         '3.1.13'
+gem 'rails-i18n'
 
 group :production do
   gem 'pg', '1.1.4'
