@@ -5,8 +5,12 @@ class User < ApplicationRecord
   #validates :email, presence: true, length: { maximum: 255 },
   #                  format: { with: VALID_EMAIL_REGEX },
   #                  uniqueness: true
-                    
-  validates :login_id, presence: true,length: { maximum: 15 },uniqueness: true
+  
+  before_save { login_id.downcase! }
+  VALID_LOGIN_ID_REGEX = /\A[a-zA-Z0-9]+\z/
+  validates :login_id, presence: true,length: { minimum: 4,maximum: 15 },
+                       format: { with: VALID_LOGIN_ID_REGEX },
+                       uniqueness: true
   has_secure_password
   validates :password, length: { minimum: 4 }
 end

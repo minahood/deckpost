@@ -2,37 +2,35 @@ require 'rails_helper'
 
 
 RSpec.describe "model User /", type: :request do
-  let(:user){User.new(name: "Example User", email: "user@example.com",
+  let(:user){User.new(name: "Example User", login_id: "login",
                       password: "password", password_confirmation: "password")}
   
-  describe "when user has name, email and password," do
+  describe "when user has name, login_id and password," do
     it "user is valid" do
       expect(user).to be_valid
-      user.email= ""
+      user.login_id= ""
       expect(user).to_not be_valid
-      user.email = "user@example.com"
+      user.login_id = "wwwww"
       user.name = ""
       expect(user).to_not be_valid
     end
   end
 
-  describe "email /" do
-    context "when email is not proper," do
+  describe "login_id /" do
+    context "when login_id is not proper," do
       it "user is invalid" do
         #適切でないアドレス
         
-        invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
-                           foo@bar_baz.com foo@bar+baz.com]
-        invalid_addresses.each do |invalid_address|
-          user.email = invalid_address
+        invalid_ids = %w[こふぇこ koｎｎ nnn 15character1over]
+        invalid_ids.each do |invalid_id|
+          user.login_id = invalid_id
           expect(user).to_not be_valid
         end
         #適切なメールアドレス
-        valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
-                         first.last@foo.jp alice+bob@baz.cn]
-        valid_addresses.each do |valid_address|
-          user.email = valid_address
-          expect(user).to be_valid,"#{valid_address.inspect} should be invalid"
+        valid_ids = %w[use11 3473209470 15characterjust]
+        valid_ids.each do |valid_id|
+          user.login_id = valid_id
+          expect(user).to be_valid,"#{valid_id.inspect} should be invalid"
         end
       end
     end
@@ -45,12 +43,12 @@ RSpec.describe "model User /", type: :request do
       end
     end
     
-    context "when user.email save," do
-      it "email remember in downcase" do
-        mixed_email = "groFGvv@FN.com"
-        user.email = mixed_email
+    context "when user.login_id save," do
+      it "login_id remember in downcase" do
+        mixed_login_id = "groFGvFcom"
+        user.login_id = mixed_login_id
         user.save #小文字で保存される model/user.rb参照
-        expect(user.reload.email).to eq(mixed_email.downcase)
+        expect(user.reload.login_id).to eq(mixed_login_id.downcase)
       end
     end
   end

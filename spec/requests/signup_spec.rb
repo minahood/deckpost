@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "Users signup/", type: :request do
   subject { page }
   describe "signup関連" do
-    let(:params_NG){{ name: "",email: "user@invalid",password:"foo",password_confirmation: "bar" }}
-    let(:params_OK){{ name: "jack",email: "user@valid.jp",password:"foobar",password_confirmation: "foobar" }}
+    let(:params_NG){{ name: "",login_id: "tes",password:"foo",password_confirmation: "bar" }}
+    let(:params_OK){{ name: "jack",login_id: "testuser",password:"foobar",password_confirmation: "foobar" }}
     before do
       visit signup_path
     end
@@ -26,8 +26,8 @@ RSpec.describe "Users signup/", type: :request do
     before do
       visit signup_path
       fill_in 'ニックネーム', with: 'testuser'
-      fill_in 'メールアドレス', with: 'testuser@example.com'
-      fill_in 'パスワード (4文字以上)', with: 'password'
+      fill_in 'ログインID', with: 'login'
+      fill_in 'パスワード', with: 'password'
       fill_in 'パスワード確認', with: 'password'
       click_button 'アカウント登録'
     end
@@ -43,8 +43,8 @@ RSpec.describe "Users signup/", type: :request do
     before do
       visit signup_path
       fill_in 'ニックネーム', with: ''
-      fill_in 'メールアドレス', with: ''
-      fill_in 'パスワード (4文字以上)', with: ''
+      fill_in 'ログインID', with: ''
+      fill_in 'パスワード', with: ''
       fill_in 'パスワード確認', with: ''
       click_button 'アカウント登録'
     end
