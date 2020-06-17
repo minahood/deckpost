@@ -1,4 +1,4 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, '新規登録') %>
 
 <div id="subtitle" ,class="col-md-6 offset-md-3">新規登録</div>
 
@@ -13,10 +13,12 @@
       <%# f.label :email ,"メールアドレス"%>
       <%# f.email_field :email,class: "bg-light form-control"  %>
       
-      <%= f.label :login_id ,"ログインID"%><p class="bg-danger text-light">必須</p><p>※半角英数で4～15文字</p>
+      <%= f.label :login_id ,"ログインID"%><p class="bg-danger text-light">必須</p>
+      <p class="careful">※半角英数で4～15文字</p>
       <%= f.text_field :login_id,class: "bg-light form-control"  %>
 
-      <%= f.label :password, "パスワード" %><p class="bg-danger text-light">必須</p><p>※4文字以上</p>
+      <%= f.label :password, "パスワード" %><p class="bg-danger text-light">必須</p>
+      <p class="careful">※4文字以上</p>
       <%= f.password_field :password ,class: "bg-light form-control" %>
 
       <%= f.label :password_confirmation, "パスワード確認" %><p class="bg-danger text-light">必須</p>

@@ -11,12 +11,15 @@
   }
   
   p{
-    color:red;
     float:left;
     margin: 2px 4px 0;
     padding: 0 3px;
     border-radius: 0.5rem;
     font-size: 0.75rem;
+  }
+  
+  p.careful{
+    color:red;  
   }
   
   input, textarea, select, .uneditable-input {
