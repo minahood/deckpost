@@ -25,7 +25,7 @@ RSpec.describe "Users signup/", type: :request do
   context 'when enter an valid values' do
     before do
       visit signup_path
-      fill_in 'ニックネーム', with: 'testuser'
+      fill_in '名前', with: 'testuser'
       fill_in 'ログインID', with: 'login'
       fill_in 'パスワード', with: 'password'
       fill_in 'パスワード確認', with: 'password'
@@ -42,7 +42,7 @@ RSpec.describe "Users signup/", type: :request do
   context 'when enter an invalid values' do
     before do
       visit signup_path
-      fill_in 'ニックネーム', with: ''
+      fill_in '名前', with: ''
       fill_in 'ログインID', with: ''
       fill_in 'パスワード', with: ''
       fill_in 'パスワード確認', with: ''

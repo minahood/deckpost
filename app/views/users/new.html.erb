@@ -4,21 +4,21 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3 text-secondary form">
-    <%= form_with(model: @user, local: true) do |f| %>
+    <%= form_with(model: @user,url:signup_path, local: true) do |f| %>
       <%= render 'shared/error_messages' %>
       
-      <%= f.label :name ,"ニックネーム"%><p class="bg-danger text-light">必須</p>
+      <%= f.label :name ,"名前"%><p class="bg-danger text-light">必須</p>
       <%= f.text_field :name,class: "bg-light form-control"%>
 
       <%# f.label :email ,"メールアドレス"%>
       <%# f.email_field :email,class: "bg-light form-control"  %>
       
       <%= f.label :login_id ,"ログインID"%><p class="bg-danger text-light">必須</p>
-      <p class="careful">※半角英数で4～15文字</p>
+      <p class="">※半角英数で4～15文字</p>
       <%= f.text_field :login_id,class: "bg-light form-control"  %>
 
       <%= f.label :password, "パスワード" %><p class="bg-danger text-light">必須</p>
-      <p class="careful">※4文字以上</p>
+      <p class="">※4文字以上</p>
       <%= f.password_field :password ,class: "bg-light form-control" %>
 
       <%= f.label :password_confirmation, "パスワード確認" %><p class="bg-danger text-light">必須</p>

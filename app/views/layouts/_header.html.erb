@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <%= link_to "デッキポスト",root_path , class: "navbar-brand",id: "logo" %>
+  <%= link_to "デッキポスト",root_path , class: "navbar-brand mr-4",id: "logo" %>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,23 +12,36 @@
         投稿
         <% end %>
       </li>
+      <% if logged_in? %>
+        <li class="nav-item mr-1">
+          <%= link_to(user_path(current_user),class: "nav-link") do %>
+            <i class="fas fa-user mr-1"></i>マイページ
+          <% end %>
+        </li>
+        <li class="nav-item dropdown mr-1">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cog mr-1"></i>設定
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">プロフィール</a>
+            <%= link_to("#",class: "dropdown-item") do %>
+              <i class="fas fa-user-edit mr-1"></i>ユーザー情報を編集
+            <% end %>
+            <a class="dropdown-item" href="#">メニュー2</a>
+            
+            <div class="dropdown-divider"></div>
+            <%= link_to "ログアウト", logout_path,class: "dropdown-item", method: :delete %>
+          </div>
+        </li>
 
-      <li class="nav-item dropdown mr-1">
-        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-cog mr-1"></i>設定
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">メニュー1</a>
-          <a class="dropdown-item" href="#">メニュー2</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">その他</a>
-        </div>
-      </li>
-      <li class="nav-item mr-1">
-        <%= link_to(signup_path,class: "nav-link") do %>
-          <i class="fas fa-user-plus mr-1"></i>ログイン/新規登録
-        <% end %>
-      </li>
+      <% end %>
+      <% if !logged_in? %>
+        <li class="nav-item mr-1">
+          <%= link_to(login_path,class: "nav-link") do %>
+            <i class="fas fa-user-plus mr-1"></i>ログイン/新規登録
+          <% end %>
+        </li>
+      <% end %>
     </ul>
     <form class="form-inline my-2 my-md-0">
       <input type="search" class="form-control mr-2" placeholder="デッキ検索..." aria-label="検索...">
