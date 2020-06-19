@@ -4,7 +4,7 @@ module Test_Login_Helpers
   end
 
   def log_in_as(user, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email: user.email,
+    post login_path, params: { session: { login_id: user.login_id,
                                           password: password,
                                           remember_me: remember_me } }
   end
@@ -16,5 +16,6 @@ module Test_Login_Helpers
     fill_in 'Password', with: user.password
     click_button '新規登録'
   end
+
 
 end

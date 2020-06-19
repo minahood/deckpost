@@ -53,4 +53,49 @@ RSpec.describe "UsersLogin /", type: :request do
       is_expected.to_not have_link 'ログアウト',href: logout_path
     end
   end
+  
+  describe "when not logged_in" do
+    it "logout cause no error" do
+      get root_path
+      expect(response).to have_http_status(:success)
+      delete logout_path
+      expect(response).to redirect_to root_url
+    end
+  end
+  
+  describe "session(cookies) /" do
+
+    it "authenticated? method check" do 
+      pending
+      expect(user.authenticated?(:remember, '')).to eq(false)
+    end
+
+    it "logs in with valid information followed by logout" do
+      log_in_as(user)
+      expect(response).to redirect_to user_path(user)
+      expect(!!session[:user_id]).to eq true
+
+      # ログアウトする
+      delete logout_path
+      expect(response).to redirect_to root_path
+      expect(session[:user_id]).to eq nil
+
+      # 2番目のウィンドウでログアウトする
+      delete logout_path
+      expect(response).to redirect_to root_path
+      expect(session[:user_id]).to eq nil
+    end
+
+    it "remember cookies check" do
+      log_in_as(user,remember_me:'1')
+      expect(response.cookies['remember_token']).to_not eq nil
+      delete logout_path
+      expect(response.cookies['remember_token']).to eq nil
+      log_in_as(user,remember_me:'0')
+      expect(response.cookies['remember_token']).to eq nil
+    end
+    
+
+    
+  end
 end

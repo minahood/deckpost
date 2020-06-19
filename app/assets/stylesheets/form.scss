@@ -59,3 +59,18 @@
     
   }
 }
+
+.checkbox {
+  margin-top: -5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  span {
+    margin-left: 10px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
