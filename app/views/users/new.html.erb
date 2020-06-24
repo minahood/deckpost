@@ -13,7 +13,7 @@
       <%# f.label :email ,"メールアドレス"%>
       <%# f.email_field :email,class: "bg-light form-control"  %>
       
-      <%= f.label :login_id ,"ログインID"%><p class="bg-danger text-light">必須</p>
+      <%= f.label :login_id ,"ユーザーID"%><p class="bg-danger text-light">必須</p>
       <p class="">※半角英数で4～15文字</p>
       <%= f.text_field :login_id,class: "bg-light form-control"  %>
 
@@ -25,7 +25,7 @@
       <%= f.password_field :password_confirmation ,class: "bg-light form-control" %>
       
       
-      <%= f.label :introduction, "自己紹介 (登録後変更可能)" %>
+      <%= f.label :introduction, "自己紹介" %><p class="">※(登録後変更可能)</p>
       <%= f.text_area :introduction ,class: "auto-resize" %>
       
       

@@ -10,14 +10,14 @@ FactoryBot.define do
       sequence(:name, 'a'){|n| "test#{n}"}
       sequence(:login_id) { |n| "login#{n}"}
     end
-=begin
+
     factory :admin_user do
       sequence(:name) {"adminuser"}
       sequence(:login_id) {"adminlogin"}
       admin {true}
     end
 
-    
+=begin    
     factory :mike do
       sequence(:login_id) {"mikelogin"}
     end

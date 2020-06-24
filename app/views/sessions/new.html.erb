@@ -5,7 +5,7 @@
   <div class="col-md-6 offset-md-3 text-secondary form">
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
-      <%= f.label :login_id ,"ログインID"%>
+      <%= f.label :login_id ,"ユーザーID"%>
       <%= f.text_field :login_id,class: "bg-light form-control"  %>
 
       <%= f.label :password,"パスワード" %>
@@ -19,6 +19,6 @@
       <%= f.submit "ログイン", class: "btn btn-primary" %>
     <% end %>
 
-    <p>新規登録は <%= link_to "こちら", signup_path %></p>
+    <h6>新規登録は <%= link_to "こちら", signup_path %></h6>
   </div>
 </div>

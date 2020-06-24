@@ -21,7 +21,7 @@ RSpec.describe "model User /", type: :request do
       it "user is invalid" do
         #適切でないアドレス
         
-        invalid_ids = %w[こふぇこ koｎｎ nnn 15character1over]
+        invalid_ids = %w[こふぇこ koｎｎ nnn 15character1over n-nn]
         invalid_ids.each do |invalid_id|
           user.login_id = invalid_id
           expect(user).to_not be_valid

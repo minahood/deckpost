@@ -1,32 +1,32 @@
-<nav class="navbar navbar-expand flex-wrap navbar-dark bg-dark flex-column flex-md-row">
-  <%= link_to "デッキポスト",root_path , class: "navbar-brand mr-1 mr-sm-4",id: "logo" %>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <%= link_to "デッキポスト",root_path , class: "navbar-brand mr-4",id: "logo" %>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-  <div class="navbar-collapse flex-sm-row flex-column" id="Navber">
-    <ul class="navbar-nav mr-auto head-menu flex-row">
+  <div class="collapse navbar-collapse" id="Navber">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item mr-1">
         <%= link_to((root_path),class: "nav-link") do %>
-        <i class="far fa-edit"></i><span class= "">投稿</span>
-        
+        <i class="far fa-edit"></i>
+        投稿
         <% end %>
       </li>
       <% if logged_in? %>
         <li class="nav-item mr-1">
           <%= link_to(user_path(current_user),class: "nav-link") do %>
-            <i class="fas fa-user mr-1"></i><span class= "" >マイページ</span>
+            <i class="fas fa-user mr-1"></i>マイページ
           <% end %>
         </li>
         <li class="nav-item dropdown mr-1">
           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-cog mr-1"></i><span class= "" >設定</span>
+            <i class="fas fa-cog mr-1"></i>設定
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">プロフィール</a>
-            <%= link_to(users_path,class: "dropdown-item") do %>
-              ユーザーを探す
-            <% end %>
+            <%= link_to "ユーザー一覧" ,users_path,class: "dropdown-item" %>
+            
             <%= link_to(edit_user_path(current_user) ,class: "dropdown-item") do %>
-              <i class="fas fa-user-edit mr-1"></i>ユーザー情報を編集
+              <i class="fas fa-user-edit mr-1"></i>プロフィールを編集
             <% end %>
             <%= link_to(edit_pass_user_path(current_user),class: "dropdown-item") do %>
               パスワード変更
@@ -41,19 +41,14 @@
       <% if !logged_in? %>
         <li class="nav-item mr-1">
           <%= link_to(login_path,class: "nav-link") do %>
-            <i class="fas fa-user-plus mr-1"></i><span class= "" >ログイン/新規登録</span>
+            <i class="fas fa-user-plus mr-1"></i>ログイン/新規登録
           <% end %>
         </li>
       <% end %>
     </ul>
     <form class="form-inline my-2 my-md-0">
-      <input type="search" class="form-control mr-2 head-search" placeholder="デッキ検索..." aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2">
-        <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
-        </button>
+      <input type="search" class="form-control mr-2" placeholder="デッキ検索..." aria-label="検索...">
+      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
     </form>
-
   </div><!-- /.navbar-collapse -->
-
 </nav>
-

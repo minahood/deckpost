@@ -14,6 +14,10 @@ gem 'jquery-rails'
 gem 'bcrypt',         '3.1.13'
 gem 'rails-i18n'
 
+gem 'faker','2.11'
+gem 'will_paginate', '3.3.0'
+gem 'will_paginate-bootstrap4'
+
 group :production do
   gem 'pg', '1.1.4'
 end

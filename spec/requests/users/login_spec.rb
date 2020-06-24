@@ -8,7 +8,7 @@ RSpec.describe "UsersLogin /", type: :request do
       visit root_path
       click_link "ログイン/新規登録"
       is_expected.to have_current_path login_path
-      fill_in 'ログインID', with: ""
+      fill_in 'ユーザーID', with: ""
       fill_in 'パスワード', with: ""
       click_button 'ログイン'
       is_expected.to have_current_path login_path
@@ -25,7 +25,7 @@ RSpec.describe "UsersLogin /", type: :request do
       is_expected.to have_link nil, href: login_path
       click_link "ログイン/新規登録"
       is_expected.to have_current_path login_path
-      fill_in 'ログインID', with: user.login_id
+      fill_in 'ユーザーID', with: user.login_id
       fill_in 'パスワード', with: user.password
       click_button 'ログイン'
       is_expected.to have_current_path user_path(user.id)
@@ -39,12 +39,12 @@ RSpec.describe "UsersLogin /", type: :request do
       is_expected.to have_link 'ログイン/新規登録', href: login_path
       is_expected.to_not have_link 'ログアウト', href: logout_path
       click_link "ログイン/新規登録"
-      fill_in 'ログインID', with: user.login_id
+      fill_in 'ユーザーID', with: user.login_id
       fill_in 'パスワード', with: user.password
       click_button 'ログイン'
       
       is_expected.to have_current_path user_path(user) 
-      is_expected.to_not have_link 'ログインID', href: login_path
+      is_expected.to_not have_link 'ユーザーID', href: login_path
       is_expected.to have_link 'マイページ', href: user_path(user)
       is_expected.to have_link 'ログアウト', href: logout_path
       click_link 'ログアウト'

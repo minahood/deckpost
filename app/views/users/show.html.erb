@@ -6,7 +6,7 @@
         <%# gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <p> <%= @user.introduction %></p>
+      <p> <%= simple_format(@user.introduction) %></p>
     </section>
   </aside>
 </div>

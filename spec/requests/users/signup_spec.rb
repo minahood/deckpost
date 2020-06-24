@@ -26,7 +26,7 @@ RSpec.describe "Users signup/", type: :request do
     before do
       visit signup_path
       fill_in '名前', with: 'testuser'
-      fill_in 'ログインID', with: 'login'
+      fill_in 'ユーザーID', with: 'login'
       fill_in 'パスワード', with: 'password'
       fill_in 'パスワード確認', with: 'password'
       click_button 'アカウント登録'
@@ -43,7 +43,7 @@ RSpec.describe "Users signup/", type: :request do
     before do
       visit signup_path
       fill_in '名前', with: ''
-      fill_in 'ログインID', with: ''
+      fill_in 'ユーザーID', with: ''
       fill_in 'パスワード', with: ''
       fill_in 'パスワード確認', with: ''
       click_button 'アカウント登録'

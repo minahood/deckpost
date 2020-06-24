@@ -13,7 +13,7 @@ class User < ApplicationRecord
                        format: { with: VALID_LOGIN_ID_REGEX },
                        uniqueness: true
   has_secure_password
-  validates :password, length: { minimum: 4 }
+  validates :password, length: { minimum: 4 },allow_nil: true
   
     # 渡された文字列のハッシュ値を返す
   def User.digest(string)
