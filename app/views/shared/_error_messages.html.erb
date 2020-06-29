@@ -1,13 +1,14 @@
-<% if @user.errors.any? %>
+
+
+<% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       エラーを検出しました。入力内容を確認してください。
     </div>
     <ul>
-    
-    <% @user.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
-    <% end %> 
+    <% end %>
     </ul>
   </div>
 <% end %>

@@ -20,5 +20,6 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :microposts,only: [:show,:create, :destroy]
   #asでrootとpath名を指名できる
 end

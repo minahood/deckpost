@@ -66,7 +66,6 @@ RSpec.describe "UsersLogin /", type: :request do
   describe "session(cookies) /" do
 
     it "authenticated? method check" do 
-      pending
       expect(user.authenticated?(:remember, '')).to eq(false)
     end
 

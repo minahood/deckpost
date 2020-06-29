@@ -12,9 +12,9 @@ module Test_Login_Helpers
   def valid_login(user)
     visit root_path
     click_link "ログイン/新規登録"
-    fill_in 'login_id', with: user.email
-    fill_in 'Password', with: user.password
-    click_button '新規登録'
+    fill_in 'ユーザーID', with: user.login_id
+    fill_in 'パスワード', with: user.password
+    click_button 'ログイン'
   end
 
 

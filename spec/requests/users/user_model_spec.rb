@@ -72,4 +72,13 @@ RSpec.describe "model User /", type: :request do
     end
   end
   
+  describe "when user is deleted," do
+    it "users_microposts is destroyed" do
+      user.save
+      user.microposts.create(content: "kokoiti")
+      expect do
+        user.destroy
+      end.to change(User, :count).by(-1)
+    end
+  end
 end

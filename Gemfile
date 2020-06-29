@@ -13,6 +13,10 @@ gem 'bootsnap',   '1.4.5', require: false
 gem 'jquery-rails'
 gem 'bcrypt',         '3.1.13'
 gem 'rails-i18n'
+gem 'active_storage_validations', '0.8.2'
+gem 'carrierwave', '~> 2.0'
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
 
 gem 'faker','2.11'
 gem 'will_paginate', '3.3.0'
