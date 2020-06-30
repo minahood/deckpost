@@ -21,6 +21,8 @@ gem 'mini_magick',                '4.9.5'
 gem 'faker','2.11'
 gem 'will_paginate', '3.3.0'
 gem 'will_paginate-bootstrap4'
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :production do
   gem 'pg', '1.1.4'

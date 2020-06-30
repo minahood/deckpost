@@ -3,10 +3,15 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
     <%= micropost.content %>
-    <%= image_tag micropost.image if micropost.image.attached? %>
+    
+    <% if micropost.image? %>
+      <%=  link_to micropost.image.url, 'data-lightbox': micropost.image do %>
+        <%= image_tag micropost.image.url  %>
+      <% end %>
+    <% end %>
   </span>
   <span class="timestamp">
-    <%= time_ago_in_words(micropost.created_at) %>前.
+    <%= time_ago_in_words(micropost.created_at) %>前
     <% if current_user?(micropost.user) %>
       <%= link_to "削除", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
