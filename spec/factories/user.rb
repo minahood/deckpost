@@ -17,7 +17,7 @@ FactoryBot.define do
       admin {true}
     end
 
-=begin    
+
     factory :mike do
       sequence(:login_id) {"mikelogin"}
     end
@@ -29,6 +29,6 @@ FactoryBot.define do
     factory :aya do
       sequence(:login_id) {"ayalogin"}
     end
-=end
+
   end
 end

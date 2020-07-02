@@ -81,4 +81,18 @@ RSpec.describe "model User /", type: :request do
       end.to change(User, :count).by(-1)
     end
   end
+  
+  include_context "user_setup"
+  describe "method check /" do
+    it "follow and unfollow" do
+      
+      
+      expect(user.following?(other_user)).to eq(false)
+      user.follow(other_user)
+      expect(user.following?(other_user)).to eq(true)
+      expect(other_user.followers.include?(user)).to eq(true)
+      user.unfollow(other_user)
+      expect(user.following?(other_user)).to eq(false)
+    end
+  end
 end
