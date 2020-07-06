@@ -6,8 +6,7 @@
     <ul class="navbar-nav mr-auto head-menu flex-row">
       <li class="nav-item mr-1">
         <%= link_to((root_path),class: "nav-link") do %>
-        <i class="far fa-edit"></i><span class= "">投稿</span>
-        
+          <i class="far fa-edit"></i><span class= "">投稿</span>
         <% end %>
       </li>
       <% if logged_in? %>
@@ -46,12 +45,15 @@
         </li>
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-md-0">
-      <input type="search" class="form-control mr-2 head-search" placeholder="デッキ検索..." aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2">
+    
+    <%= form_with url: microposts_search_url, method: :get, local: true ,class: "form-inline my-2 my-md-0" do |f| %>
+
+      <%= f.text_field :search,class: "form-control mr-2 head-search", placeholder: "デッキ検索..." %>
+      <%# f.submit "検索", class: "" %>
+      <%= button_tag type: 'submit', class: "btn btn-outline-success my-2" do %>
         <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
-        </button>
-    </form>
+      <% end %>
+    <% end %>
 
   </div><!-- /.navbar-collapse -->
 

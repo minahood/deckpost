@@ -14,11 +14,16 @@ class UsersController < ApplicationController
   end
   
   def create
+    
     @user = User.new(user_params)
-    if @user.save
-      log_in @user
-      flash[:success] = "ユーザー登録に成功しました。"
-      redirect_to @user
+    if verify_recaptcha
+      if @user.save
+        log_in @user
+        flash[:success] = "ユーザー登録に成功しました。"
+        redirect_to @user
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -32,13 +37,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def update
+  def update  
     @user=User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "プロフィールを更新"
       redirect_to @user
     else
-      render "edit"
+      if user_params.keys.include?("password")
+        render "edit_pass"
+      else
+        render "edit"
+      end
     end
   end
   

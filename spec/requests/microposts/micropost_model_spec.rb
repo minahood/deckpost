@@ -6,7 +6,7 @@ RSpec.describe Micropost, type: :request do
 
   describe "micropost model" do 
     before do
-      @micropost = user.microposts.build(content: "Lorem insum")
+      @micropost = user.microposts.build(content: "Lorem insum",title: "神デッキ")
     end
 
     it "should be valid" do
@@ -24,7 +24,7 @@ RSpec.describe Micropost, type: :request do
     end
 
     it "content should be at most 140 microppst" do
-      @micropost.content = "a"*141
+      @micropost.content = "a"*401
       expect(@micropost.valid?).to eq(false)
     end
 

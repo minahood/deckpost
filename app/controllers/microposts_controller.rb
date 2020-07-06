@@ -1,6 +1,13 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @micropost = Micropost.paginate(page: params[:page]).search(params[:search])
+    
+  end
+
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -21,9 +28,11 @@ class MicropostsController < ApplicationController
   end
 
   private
+  
+
 
     def micropost_params
-      params.require(:micropost).permit(:content, :image)
+      params.require(:micropost).permit(:content, :image, :title)
     end
     
     def correct_user

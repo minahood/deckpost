@@ -9,3 +9,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         login_id: ユーザーID
+        
+  recaptcha: 
+    errors: 
+      verification_failed: 'reCAPTCHA認証に失敗しました。' 

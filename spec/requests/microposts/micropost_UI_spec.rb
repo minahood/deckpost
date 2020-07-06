@@ -14,7 +14,7 @@ RSpec.describe "Micropost UI /", type: :request do
       other_user_posts #other_userが30投稿 
       valid_login(user)
       visit root_url
-      is_expected.to have_selector 'span', text: '3 post'
+      is_expected.to have_content '3'
       is_expected.to have_selector 'h3', text: 'Micropost Feed'
       is_expected.to have_selector 'a',text: '削除'
       

@@ -2,7 +2,7 @@
   
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= micropost.title %>
     
     <% if micropost.image? %>
       <%=  link_to micropost.image.url, 'data-lightbox': micropost.image do %>
