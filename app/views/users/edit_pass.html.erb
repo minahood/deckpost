@@ -1,9 +1,9 @@
 <% provide(:title, 'パス変更') %>
 
-<div id="subtitle" ,class="col-md-6 offset-md-3">パスワード変更</div>
+<div id="subtitle" ,class="">パスワード変更</div>
 
-<div class="row">
-  <div class="col-md-6 offset-md-3 text-secondary form">
+<div class="col-lg-6 offset-lg-3 col-sm-8 offset-sm-2">
+  <div class="text-secondary form">
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages',object: f.object %>
 

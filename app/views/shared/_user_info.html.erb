@@ -1,3 +1,10 @@
-<h1><%= current_user.name %></h1>
-<span><%= link_to "view my profile", current_user %></span>
-<span>投稿数 : <%= current_user.microposts.count %></span>
+
+<h5 class="m-0"><%= current_user.name %></h5>
+<%= link_to user_path(current_user),class: "btn btn-sm btn-outline-primary float-right mt-2 mr-2" do%>
+  マイページ
+<% end %>
+<span class="text-secondary"><%= current_user.login_id %></span>
+
+
+<span class="mt-2">投稿数 : <%= current_user.microposts.count %></span>
+

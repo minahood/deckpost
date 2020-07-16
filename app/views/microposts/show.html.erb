@@ -1,0 +1,23 @@
+  <div class="">
+    
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <div class="post_content">
+      <div class="border-bottom mb-1">
+        <h5>
+          <%= @micropost.title %>
+        </h5>
+      </div>
+      
+      <% if @micropost.image? %>
+        <div>
+        
+          <%= image_tag @micropost.image.url ,class: "post_show_image"  %>
+        
+        </div>
+      <% end %>
+      <div>
+        <%= @micropost.content %>
+      </div>
+    </div>
+  </div>

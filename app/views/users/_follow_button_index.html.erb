@@ -1,0 +1,11 @@
+    <%= content_tag(:div,class: "m-2 float-right",id: "follow_button_#{user.id}") do %>
+      <% if current_user.following?(user) %>
+        
+        <%= render 'unfollow_at_index',{user: user} %>
+      <% else %>
+        <%= render 'follow_at_index',{user: user} %>
+      <% end %>
+    <% end %>
+    
+    
+    

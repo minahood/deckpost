@@ -1,0 +1,5 @@
+        <%= form_with(model: current_user.active_relationships.build,
+          url: {controller: 'relationships', action: 'create_at_index' },remote: true) do |f| %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+          <%= f.submit "フォローする", class: "btn btn-sm follow_btn_index" %>
+        <% end %>

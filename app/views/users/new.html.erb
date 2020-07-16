@@ -15,7 +15,7 @@
       
       <%= f.label :login_id ,"ユーザーID"%><p class="bg-danger text-light">必須</p>
       <p class="">※半角英数で4～15文字</p>
-      <%= f.text_field :login_id,class: "bg-light form-control"  %>
+      <%= f.text_field :login_id,class: "bg-light form-control"%>
 
       <%= f.label :password, "パスワード" %><p class="bg-danger text-light">必須</p>
       <p class="">※4文字以上</p>
@@ -29,9 +29,22 @@
       <%= f.text_area :introduction ,class: "auto-resize" %>
       
       
-      <%= recaptcha_tags %>
+      <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
       
-      <%= f.submit "アカウント登録", class: "btn btn-primary" %>
+      <%= f.submit "アカウント登録", class: "btn btn-primary",id: "signup_btn",disabled: true %>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+});
+
+var recaptchaCallbackFunction = function() { //コールバック関数の定義
+  
+  $("#signup_btn").prop("disabled", false);
+};
+
+</script>

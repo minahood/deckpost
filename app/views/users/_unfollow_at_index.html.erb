@@ -1,0 +1,15 @@
+        <%= form_with(url: destroy_at_index_relationship_url(current_user.active_relationships.find_by(followed_id: user.id).id),
+                    html: { method: :delete }, remote: true) do |f| %>
+          <%= f.submit "フォロー中", class: "btn btn-sm btn-primary unfollow_btn_index" %>
+        <% end %>
+        
+        
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".unfollow_btn_index").hover(function(){
+      $(this).val("フォロー解除");
+    }, function() {
+      $(this).val("フォロー中");
+    })
+  });
+</script>

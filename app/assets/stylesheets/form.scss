@@ -7,11 +7,11 @@
 .form {
   label{
     margin-bottom: 1px !important;
-    float:left;
+    float: left;
   }
   
   p{
-    float:left;
+    float: left;
     margin: 2px 4px 0;
     padding: 0 3px;
     border-radius: 0.5rem;
@@ -23,23 +23,25 @@
   }
   
   input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  border-radius: 0.25rem;
-  @include box_sizing;  
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 0.25rem;
+    @include box_sizing;  
   
   }
   
-  input {
-  height: auto !important;
+  input{
+    height: auto !important;
   }
   
   textarea{
     resize: vertical;
     font-size: 0.9rem;
-    height: 6rem;
+    min-height: 9rem;
   }
+  
+
 }
 
 #error_explanation {

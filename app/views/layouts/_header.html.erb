@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand flex-wrap navbar-dark bg-dark flex-column flex-md-row">
-  <%= link_to "デッキポスト",root_path , class: "navbar-brand mr-1 mr-sm-4",id: "logo" %>
+  <%= link_to "デッキポスト",root_path , data: {"turbolinks" => false}, class: "navbar-brand mr-1 mr-sm-4",id: "logo" %>
 
 
   <div class="navbar-collapse flex-sm-row flex-column" id="Navber">
     <ul class="navbar-nav mr-auto head-menu flex-row">
       <li class="nav-item mr-1">
-        <%= link_to((root_path),class: "nav-link") do %>
-          <i class="far fa-edit"></i><span class= "">投稿</span>
+        <%= link_to((d_post_url),class: "nav-link") do %>
+          <i class="far fa-edit"></i><span class= "">投稿する</span>
         <% end %>
       </li>
       <% if logged_in? %>

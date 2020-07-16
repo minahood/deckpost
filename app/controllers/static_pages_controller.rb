@@ -18,4 +18,12 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
+  def d_post
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    else
+      @micropost  = User.find(2).microposts.build
+    end
+  end
+  
 end

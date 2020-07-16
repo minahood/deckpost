@@ -25,20 +25,22 @@ User.create!(name:  "guest",
     password_confirmation: "guestuser",
 )
 
-34.times do |n|
+90.times do |n|
   name  = Faker::Name.name
   login = "example#{n+1}"
   password = "password"
   User.create!(name:  name,
                login_id: login,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               introduction: Faker::Lorem.sentence(word_count: 30)
+               )
 end
 
 # ユーザーの一部を対象にマイクロポストを生成する
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
+  content = Faker::Lorem.sentence(word_count: 10)
   title = Faker::Lorem.sentence(word_count: 2)
   users.each { |user| user.microposts.create!(content: content,title: title) }
 end

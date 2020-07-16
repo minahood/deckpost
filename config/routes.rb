@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   
   get '/microposts',to:'static_pages#home'
   get "/microposts/search",to:'microposts#search'
+  get "/d_post",to: 'static_pages#d_post'
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  
+
   
   resources :users do
     member do 
@@ -31,8 +32,24 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :microposts,only: [:show,:create, :destroy]
-  resources :relationships,  only: [:create, :destroy]
+  resources :microposts,only: [:show,:create, :destroy] do
+    collection do
+      post :post_form
+    end
+  end
+  
+  resources :relationships,  only: [:create, :destroy] do
+    member do
+      delete :destroy_at_index
+    end
+    
+    collection do
+      post :create_at_index
+    end
+    
+  end
+
+  
   #asでrootとpath名を指名できる
   
 end

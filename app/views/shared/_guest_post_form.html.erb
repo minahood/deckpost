@@ -1,0 +1,40 @@
+<div class="text-secondary form">
+  <%= form_with(model: @micropost, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="text-secondary form">
+      <%= f.label :title, "デッキ名" %>
+      <%= f.text_field :title, placeholder: "デッキ名を入力..." %>
+  
+      <%= f.label :content, "解説" %>
+      <%= f.text_area :content, placeholder: "解説...(最大400文字)" %>
+    </div>
+    
+    <span class="image">
+      <%= f.file_field :image,accept: "image/jpeg,image/png" %>
+    </span>
+    
+    <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
+    <div>
+      <%= f.submit "投稿する",id: "g_p_form_btn",  class: "btn btn-sm btn-primary",disabled: true %>  
+    </div>
+    
+    
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+$("#micropost_image").bind("change", function() {
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if (size_in_megabytes > 5) {
+    alert("5MB以上の画像はアップロードできません。");
+    $("#micropost_image").val("");
+  }
+});
+  
+var recaptchaCallbackFunction = function() { //コールバック関数の定義
+  
+  $("#g_p_form_btn").prop("disabled", false);
+};
+  
+</script>

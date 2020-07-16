@@ -2,7 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .microposts{
+  
+  list-style: none;
+}
+
+ol.microposts{
+  border-top: 1px solid #dee2e6;
+  padding: 0;
+}
+
+li.micropost{
+  border-bottom: 1px solid #dee2e6;
+  &:hover{
+    background-color:#F5F5F0;
+  }
+}
+
+.index_each_user_box{
+  
+}
+
+//micropost show//
+.post_i_content{
+  a{
+    margin: 0 auto;
+    z-index: 2;
+  }
   img{
-    width: 400px;
+    &.post_index_image{
+      max-height: 150px;
+      max-width: 300px;
+      position: relative;
+      z-index: 2;
+    }
+
+  }
+  
+  
+  list-style: none;
+  position: relative;
+}
+
+
+.post_link{
+  color: black;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.post_info{
+  float: right;
+}
+
+.post_user_link{
+  
+  position: relative;
+  z-index: 2;
+  color: black;
+  &:hover{
+    color: black;
+  }
+}
+
+.post_dust{
+  position: relative;
+  z-index: 2;
+}
+
+img{
+  &.post_show_image{
+  max-width: 100%;
   }
 }

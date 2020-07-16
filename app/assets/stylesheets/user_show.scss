@@ -47,3 +47,24 @@ aside {
   color: black;
 }
 
+.unfollow_btn{
+  color: white;
+  border-color: #007bff;
+  background-color: #007bff;
+  
+  &:hover{
+    background-color: red;
+    border-color: red;
+    color: white;
+  }
+}
+
+.follow_btn{
+  border-color: #007bff;
+  color: #007bff;
+  &:hover{
+    background-color: #E0E0F5;
+    color: #007bff;
+  }
+}
+

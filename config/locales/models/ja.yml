@@ -9,7 +9,11 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         login_id: ユーザーID
+      
+      micropost:
         
+        title: デッキ名
+        content: 解説
   recaptcha: 
     errors: 
       verification_failed: 'reCAPTCHA認証に失敗しました。' 

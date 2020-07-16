@@ -1,21 +1,41 @@
-<li id="micropost-<%= micropost.id %>">
-  
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content">
-    <%= micropost.title %>
+<li class="micropost" id="micropost-<%= micropost.id %>">
+
+  <div class="post_i_content p-1">
+    
+    <%= link_to micropost.title,micropost_path(micropost) ,class: "post_link stretched-link font-weight-bold" %>  
+    
     
     <% if micropost.image? %>
-      <%=  link_to micropost.image.url, 'data-lightbox': micropost.image do %>
-        <%= image_tag micropost.image.url  %>
+      <div class="p-1">
+        <%=  link_to micropost.image.url, 'data-lightbox': micropost.image do %>
+          <%= image_tag micropost.image.url ,class: "post_index_image"  %>
+        <% end %>
+      </div>
+    <% end %>
+  
+    
+    <div class="post_info">
+      <%= link_to micropost.user,class: "font-weight-bold post_user_link" do %>
+        <i class="fas fa-user mr-1"></i><%= micropost.user.name%>
       <% end %>
-    <% end %>
-  </span>
-  <span class="timestamp">
-    <%= time_ago_in_words(micropost.created_at) %>前
-    <% if current_user?(micropost.user) %>
-      <%= link_to "削除", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
+      <span class="font-weight-light">
+        <%= micropost.user.login_id %>
+      </span>
+      <small class="timestamp">
+        <%= time_ago_in_words(micropost.created_at) %>前
+        
+      </small>
+      <small>
+        <% if current_user?(micropost.user) %>
+          <%= link_to micropost, class: "post_dust", method: :delete, data: { confirm: "本当に削除しますか?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>削除
+          <% end %>
+        <% end %>
+      </small>  
+    
+    </div>
+    <br style="clear:both;"/>
+  </div>
   
 </li>
+

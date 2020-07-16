@@ -7,7 +7,7 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true  
   validates :content, presence: true, length: { maximum: 400 }
   validates :title ,presence:true
-  validates :image ,presence: true
+  
   
 =begin
   has_one_attached :image
