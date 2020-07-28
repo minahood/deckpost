@@ -5,12 +5,13 @@
   <div class="navbar-collapse flex-column flex-sm-row" id="Navber">
     <ul class="navbar-nav mr-auto head-menu flex-row">
 
-      <% if logged_in? %>
         <li class="nav-item mr-1">
           <%= link_to(root_url,class: "nav-link", data: {"turbolinks" => false}) do %>
             <i class="fas fa-home mr-1"></i><span class= "">ホーム</span>
           <% end %>
         </li>
+      <% if logged_in? %>
+
         <li class="nav-item mr-1">
           <%= link_to(user_path(current_user),class: "nav-link", data: {"turbolinks" => false}) do %>
             <i class="fas fa-user mr-1"></i><span class= "" >マイページ</span>
@@ -49,7 +50,7 @@
       <% if !logged_in? %>
         <li class="nav-item mr-1">
           <%= link_to(d_post_url,class: "nav-link") do %>
-            <i class="far fa-edit mr-1"></i><span class= "">投稿する</span>
+            <i class="far fa-edit mr-1"></i><span class= "">投稿</span>
           <% end %>
         </li> 
         
