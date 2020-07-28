@@ -1,6 +1,6 @@
-<li class="user_index">
+<li class="user">
 
-  <div class="p-1 index_each_user_box position-relative">
+  <div class="p-1 position-relative">
     <%= link_to user.name, user,class:"user_link stretched-link font-weight-bold" %>
     <% unless current_user?(user) %>
       
@@ -9,13 +9,10 @@
     <% end %>
     <% if current_user.admin? && !current_user?(user) %>
       
-      <%= link_to "delete", user, method: :delete,
+      <%= link_to "delete", user, class: "user_dust",method: :delete,
                                 data: { confirm: "You sure?" } %>
     <% end %>
     <div class="text-secondary"><%= user.login_id%></div>
     <div class="font-weight-light user_intro"><%= user.introduction%></div>
-    
-
   </div>
-  
 </li>

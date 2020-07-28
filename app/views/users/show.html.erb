@@ -22,15 +22,21 @@
       </section>
     </section>
     
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <%= link_to user_url(@user) , class: "nav-link active" do %>
+          投稿(<%= @microposts.count%>)
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to bookmarks_user_url(@user), class: "nav-link" do %>
+          お気に入り(<%= @user.bookmark_microposts.count%>)
+        <% end %>
+      </li>
+    </ul>
     
-    
-    <% if @user.microposts.any? %>
-      <h4>投稿 (<%= @user.microposts.count %>)</h4>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+    <%= render 'users/post_index' , microposts: @microposts %>
   </aside>
   <div class="">
     

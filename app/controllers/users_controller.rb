@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user=User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.page(params[:page]).per_page(10)
   end
 
   def new
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
   
   def create
-    
     @user = User.new(user_params)
     if verify_recaptcha
       if @user.save
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.paginate(page: params[:page],per_page: 50)
+    @users = User.all.page(params[:page]).per_page(50)
     @micropost  = current_user.microposts.build
   end
   
@@ -65,27 +64,27 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page],per_page: 50)
+    @users = @user.following.page(params[:page]).per_page(50)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page],per_page: 50)
+    @users = @user.followers.page(params[:page]).per_page(50)
     render 'show_follow'
   end
   
-
+  def bookmarks
+    @user = User.find(params[:id])
+    @microposts = @user.bookmark_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
+  end
   
   private
-
     def user_params
       params.require(:user).permit(:name, :login_id, :password,
                                    :password_confirmation,:introduction)
     end
-    
-
     
     def correct_user
       @user = User.find(params[:id])

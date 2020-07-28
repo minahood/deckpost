@@ -1,0 +1,9 @@
+    <% if microposts.any? %>
+      
+      <ul class="index mt-up-1">
+        <%= render microposts %>
+      </ul>
+      <div class="page_nav">
+        <%= paginate microposts,window: 2 %>
+      </div>
+    <% end %>

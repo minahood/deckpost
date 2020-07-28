@@ -19,10 +19,17 @@ footer {
   ul {
   float: right;
   list-style: none;
-    li {
-    float: left;
-    margin-left: 15px;
+    @media (min-width: 450px){
+      li {
+      float: left;
+      }
+      li{
+        margin-left: 15px;    
+      }
     }
   }
+  
+  
+  
 }
 

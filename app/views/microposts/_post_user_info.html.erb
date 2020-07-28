@@ -1,0 +1,23 @@
+    <div class="post_info float-left">
+      
+      <%= link_to micropost.user,class: "font-weight-bold post_func_link" do %>
+        <i class="fas fa-user mr-1"></i><%= micropost.user.name%>
+      <% end %>
+      <span class="font-weight-light">
+        <%= micropost.user.login_id %>
+        <%= micropost.kind %>
+      </span>
+    </div>
+    <div class="float-right">
+      <small>
+        <% if current_user?(micropost.user) %>
+          <%= link_to micropost, class: "post_dust", method: :delete, data: { confirm: "この投稿を削除しますか?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>削除
+          <% end %>
+        <% end %>
+      </small>  
+      <%= render 'microposts/bookmark_area', micropost: micropost %>
+      <small><i class="far fa-comment mr-1"></i><%=micropost.comments.count%></small>
+    </div>
+    <br style="clear:both;"/>
+    

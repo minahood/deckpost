@@ -1,0 +1,6 @@
+<small>
+  <%= link_to micropost_bookmarks_path(micropost.id), method: :delete,class: "post_func_link text-success",remote: true do%>
+    <i class="fas fa-star mr-1"></i><span><%= micropost.bookmarks.count %></span>
+  <% end %>
+  
+</small>

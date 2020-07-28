@@ -14,6 +14,7 @@ ja:
         
         title: デッキ名
         content: 解説
+        kind: 分類
   recaptcha: 
     errors: 
       verification_failed: 'reCAPTCHA認証に失敗しました。' 

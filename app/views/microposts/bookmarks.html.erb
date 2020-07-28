@@ -1,0 +1,9 @@
+<% if @microposts.any? %>
+  
+  <ol class="microposts">
+    <%= render @microposts %>
+  </ol>
+  <div class="page_nav">
+    <%= paginate @microposts, window: 2 %>
+  </div>
+<% end %>

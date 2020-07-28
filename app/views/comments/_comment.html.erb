@@ -1,0 +1,25 @@
+
+
+<li class="comment">
+
+  <div class="p-1">
+    <%= link_to comment.user,class: "user_link" do%>
+      <span class= " font-weight-bold"><%= comment.user.name%> </span>
+      <span class="text-secondary"><%= comment.user.login_id%></span>
+    <% end %>
+    
+    <div class= "float-right">
+      <small class= "mr-1"><%= time_ago_in_words(comment.created_at) %>前</small>
+    </div>
+    <% if current_user.admin? || current_user?(comment.user) %>
+    
+      <%= link_to comment_path(comment.id), class: "float-right",method: :delete,
+                                  data: { confirm: "コメントを削除しますか?" } do %>
+        <small><i class="fas fa-eraser"></i>削除</small>
+      <% end %>
+    <% end %>
+    
+    <div class="comment_content mt-1"><%= comment.content %></div>
+  
+  </div>
+</li>

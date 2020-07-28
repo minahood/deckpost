@@ -16,7 +16,7 @@ RSpec.describe "User_profile", type: :request do
     is_expected.to have_content user.microposts.count.to_s
     
     user.microposts.paginate(page: 1).each do |micropost|
-      is_expected.to have_content micropost.content
+      is_expected.to have_content micropost.title
     end
 
   end

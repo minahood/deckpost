@@ -1,0 +1,22 @@
+
+<div class="p-1">
+  <% if logged_in?%>  
+    <div class="mb-1">
+      <%= link_to current_user,class: "user_link font-weight-bold" do%>
+        <%= current_user.name %>
+      <% end %>
+      <small><%= current_user.login_id%></small>
+    </div>
+    
+    <%= form_with(url: comments_url,method: :post,local: true) do |f| %>
+      <%= f.text_area :content,class: "bg-light form-control height-8text", placeholder: "コメント...(最大200文字)" %>
+      <%= f.hidden_field :micropost_id, value: micropost.id %>
+      <%= f.submit "送信",class: "float-right" %>
+      <br style="clear:both;"/>
+    <% end %>
+  <% else %>
+    <div>ログインでコメント可能</div>
+  <% end %>
+</div>
+
+  

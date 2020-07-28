@@ -7,6 +7,7 @@
 .form {
   label{
     margin-bottom: 1px !important;
+    
     float: left;
   }
   
@@ -16,10 +17,18 @@
     padding: 0 3px;
     border-radius: 0.5rem;
     font-size: 0.75rem;
+    &.js-textarea_counter{
+      text-align: right;
+    }
+  }
+  
+  p.essential{
+    color: white;
+    background-color: orangered;
   }
   
   p.careful{
-    color:red;  
+    color: red;  
   }
   
   input, textarea, select, .uneditable-input {
@@ -75,4 +84,10 @@
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.height-8text{
+  resize: vertical;
+  font-size: 0.9rem;
+  min-height: 8rem;
 }

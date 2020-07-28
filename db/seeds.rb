@@ -42,7 +42,8 @@ users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 10)
   title = Faker::Lorem.sentence(word_count: 2)
-  users.each { |user| user.microposts.create!(content: content,title: title) }
+  kind = rand(0..15)
+  users.each { |user| user.microposts.create!(content: content,title: title,kind: kind) }
 end
 
 # 以下のリレーションシップを作成する

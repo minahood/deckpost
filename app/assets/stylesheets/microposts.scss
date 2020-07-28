@@ -1,15 +1,11 @@
 // Place all the styles related to the microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.microposts{
-  
-  list-style: none;
+
+.mt-up-1{
+  margin-top: -1px;
 }
 
-ol.microposts{
-  border-top: 1px solid #dee2e6;
-  padding: 0;
-}
 
 li.micropost{
   border-bottom: 1px solid #dee2e6;
@@ -35,10 +31,7 @@ li.micropost{
       position: relative;
       z-index: 2;
     }
-
   }
-  
-  
   list-style: none;
   position: relative;
 }
@@ -53,12 +46,9 @@ li.micropost{
   }
 }
 
-.post_info{
-  float: right;
-}
 
-.post_user_link{
-  
+
+.post_func_link{
   position: relative;
   z-index: 2;
   color: black;
@@ -76,4 +66,8 @@ img{
   &.post_show_image{
   max-width: 100%;
   }
+}
+
+.micropost_content{
+  font-size: 0.9rem;
 }

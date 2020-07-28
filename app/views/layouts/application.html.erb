@@ -12,7 +12,7 @@
   <body>
     <div class="form_bg d-none"></div>
     <%= render 'layouts/header' %>
-    <div class="container-fluid p-2p">
+    <div class="container-fluid pt-2p">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>

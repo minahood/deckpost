@@ -20,7 +20,9 @@
       <ul class="users follow">
         <%= render @users %>
       </ul>
-      <%= will_paginate %>
+      <div class="page_nav">
+        <%= paginate @microposts, window: 2 %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -7,10 +7,13 @@ RSpec.describe "Micropost controller /", type: :request do
   
   describe "when not logged_in" do
     it "redirect login_url if post" do
+      pending
+      users
       expect do 
-        post microposts_path, params: { micropost: { content: "Lorem ipsum" } }
-      end.to change(Micropost,:count).by(0)
-      expect(response).to redirect_to login_url
+        post microposts_path, params: {  micropost: { title: "de" ,content: "Lorem ipsum" ,kind: 1 } }
+      end.to change(Micropost,:count).by(1)
+      
+      
     end
     
     it "redirect login_url if destroy" do

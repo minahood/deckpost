@@ -1,0 +1,15 @@
+<%= content_tag(:div,id: "bookmark_button_#{micropost.id}" ,class: "d-inline") do %>
+  <% if logged_in? %>
+    <% if micropost.bookmark_by?(current_user) %> 
+      <%= render 'microposts/unbookmark', micropost: micropost %>
+    <% else %>
+      <%= render 'microposts/bookmark', micropost: micropost %>
+    <% end %>
+  <% else %>
+    <small>
+      
+      <i class="far fa-star mr-1"></i><%= micropost.bookmarks.count %>
+      
+    </small>
+  <% end %>
+<% end %>

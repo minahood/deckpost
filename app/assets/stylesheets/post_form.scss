@@ -24,21 +24,18 @@
   box-sizing: border-box;
   pointer-events: none;
   
+  
 }
 
 .post_form_main{
   pointer-events: auto;
-  width: 400px;
+  width: 350px;
   background-color: white;
   padding: 12px;
   margin: auto auto auto;
   border-radius: 5px;
 }
 
-
-
-
-#p_form_btn{
-  float: right;
-  
+.wid_75{
+  width: 75px;
 }

@@ -1,0 +1,55 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+});
+
+$("#micropost_image").bind("change", function() {
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if (size_in_megabytes > 5) {
+    alert("5MB以上の画像はアップロードできません。");
+    $("#micropost_image").val("");
+  }
+});
+
+var recaptchaCallbackFunction = function() { //コールバック関数の定義
+  $("#p_form_btn").prop("disabled", false);
+};
+
+
+// jquery書きはじめ
+$(function (){
+  // 処理（ページが読み込まれた時、フォームに残り何文字入力できるかを数えて表示する）
+
+  //フォームに入力されている文字数を数える
+  //\nは"改行"に変換して2文字にする。オプションフラグgで文字列の最後まで\nを探し変換する
+  var count = $(".js-textarea_count").text().replace(/\n/g, "改行").length;
+  //残りの入力できる文字数を計算
+  count_max = 400
+  
+  var now_count = count_max - count;
+  //文字数がオーバーしていたら文字色を赤にする
+  if (count > count_max) {
+    $(".js-textarea_counter").css("color","red");
+  }
+  //残りの入力できる文字数を表示
+  $(".js-textarea_counter").text( "残り" + now_count + "文字");
+
+  $(".js-textarea_count").on("keyup", function() {
+    // 処理（キーボードを押した時、フォームに残り何文字入力できるかを数えて表示する）
+    //フォームのvalueの文字数を数える
+    var count = $(this).val().replace(/\n/g, "改行").length;
+    var now_count = count_max - count;
+
+    if (count > count_max) {
+      $(".js-textarea_counter").css("color","red");
+    } else {
+      $(".js-textarea_counter").css("color","gray");
+    }
+    $(".js-textarea_counter").text( "残り" + now_count + "文字");
+  });
+});
+
+</script>
+
+

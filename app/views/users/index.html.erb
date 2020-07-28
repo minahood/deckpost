@@ -6,12 +6,13 @@
   </div>
   
   <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2">
-    <%= will_paginate %>
+    
 
-    <ul class="users">
+    <ul class="index">
       <%= render @users %>
     </ul>
-    
-    <%= will_paginate %>
+    <div class="page_nav">
+      <%= paginate @users, window: 2 %>
+    </div>
   </div>
 </div>

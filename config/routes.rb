@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   get 'sessions/new'
   get '/signup',to: 'users#new'
   post '/signup', to: 'users#create'
@@ -23,12 +25,8 @@ Rails.application.routes.draw do
   resources :users do
     member do 
       get :edit_pass
-    end
-  end
-  
-  resources :users do
-    member do
       get :following, :followers
+      get :bookmarks
     end
   end
   
@@ -38,7 +36,10 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :relationships,  only: [:create, :destroy] do
+  resources :comments , only: [:create,:destroy] 
+    
+  
+  resources :relationships, only: [:create, :destroy] do
     member do
       delete :destroy_at_index
     end
@@ -46,10 +47,13 @@ Rails.application.routes.draw do
     collection do
       post :create_at_index
     end
-    
   end
-
   
+  resources :microposts , shallow: true do
+    resource :bookmarks, only: %i[create destroy]
+  end
+  
+  get '/bookmarks', to: 'microposts#bookmarks'
   #asでrootとpath名を指名できる
   
 end
