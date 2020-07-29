@@ -51,8 +51,9 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all.page(params[:page]).per_page(50)
-    @micropost  = current_user.microposts.build
+    @users = User.user_search(params[:word],params[:login_id]).page(params[:page]).per_page(50)
+    @word = params[:word]
+    @login_id = params[:login_id]
   end
   
   def destroy

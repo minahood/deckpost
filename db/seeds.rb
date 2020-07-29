@@ -19,10 +19,23 @@ User.create!(name:  "g",
     admin: true
 )
 
+User.create!(name:  "mina",
+    login_id: "deckpost",
+    password:              ENV["MINA_PASS"],
+    password_confirmation: ENV["MINA_PASS"],
+    admin: true
+)
+
 User.create!(name:  "guest",
     login_id: "guest",
     password:              "guestuser",
     password_confirmation: "guestuser",
+)
+
+User.create!(name:  "test",
+    login_id: "test",
+    password:              "testuser",
+    password_confirmation: "testuser",
 )
 
 90.times do |n|

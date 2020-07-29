@@ -11,14 +11,15 @@
     <div class= "float-right">
       <small class= "mr-1"><%= time_ago_in_words(comment.created_at) %>前</small>
     </div>
-    <% if current_user.admin? || current_user?(comment.user) %>
-    
-      <%= link_to comment_path(comment.id), class: "float-right",method: :delete,
-                                  data: { confirm: "コメントを削除しますか?" } do %>
-        <small><i class="fas fa-eraser"></i>削除</small>
+    <% if logged_in? %>
+      <% if current_user.admin? || current_user?(comment.user) %>
+      
+        <%= link_to comment_path(comment.id), class: "float-right",method: :delete,
+                                    data: { confirm: "コメントを削除しますか?" } do %>
+          <small><i class="fas fa-eraser"></i>削除</small>
+        <% end %>
       <% end %>
     <% end %>
-    
     <div class="comment_content mt-1"><%= comment.content %></div>
   
   </div>

@@ -81,4 +81,11 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  def self.user_search(word,login_id)
+    return User.all if word.blank? && login_id.blank?
+    return User.where(['name LIKE ?', "%#{word}%"]) if login_id.blank?
+    return User.where(['login_id LIKE ?', "%#{login_id}%"]) if word.blank?
+    User.where(['name LIKE ?', "%#{word}%"]).where(login_id: login_id)
+  end
 end

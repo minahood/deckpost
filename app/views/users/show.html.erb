@@ -5,6 +5,12 @@
       
       
       <h1><%= @user.name %></h1>
+      <% if logged_in? %>
+        <% if current_user.admin? && !current_user?(@user) %>
+          <%= link_to "delete", @user, class: "user_dust",method: :delete,
+                                  data: { confirm: "You sure?" } %>
+        <% end %>
+      <% end %>
       <%= link_to "ユーザー設定", edit_user_path(@user),class: "btn btn-sm btn-outline-primary float-right pr-2" if current_user?(@user)%>
       <span class="text-secondary"><%= @user.login_id %></span>
       <div class="mt-2">
@@ -38,8 +44,5 @@
     
     <%= render 'users/post_index' , microposts: @microposts %>
   </aside>
-  <div class="">
-    
 
-  </div>
 </div>

@@ -1,9 +1,7 @@
-  <div class="">
-    
-  </div>
+
   <div class="col-md-6 offset-md-3">
     <div class="post_content">
-      <div class="border-bottom mb-1">
+      <div class="mb-1 border-bottom">
         <div>
           <span class="font-weight-bold"><%= @micropost.title %></span>
           <small class="timestamp float-right mt-1">
@@ -15,21 +13,26 @@
       </div>
       
       <% if @micropost.image? %>
-        <div>
-          <%= image_tag @micropost.image.url ,class: "post_show_image"  %>
+        <div class="pb-1 border-bottom">
+          <%= link_to @micropost.image.url do %>
+            <%= image_tag @micropost.image.url ,class: "post_show_image rounded"%>
+          <% end %>
         </div>
       <% end %>
       <div class="micropost_content">
+        
         <%= simple_format(@micropost.content) %>
       </div>
       
-      <div>
-        <h5>コメントフォーム</h5>
+      <div class="">
+        <div class="border-top pt-2">
+          <h5>コメントフォーム</h5>
+        </div>
+        <ul class="index">
+          <%= render @comments %>
+        </ul>
+        <%= render 'microposts/comment_form',micropost: @micropost %>
       </div>
-      <ul class="index">
-        <%= render @comments %>
-      </ul>
-      <%= render 'microposts/comment_form',micropost: @micropost %>
-      
+
     </div>
   </div>

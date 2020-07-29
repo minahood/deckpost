@@ -23,10 +23,10 @@ class Micropost < ApplicationRecord
     image.variant(resize_to_limit: [500, 500])
   end
 =end
-  def self.search(word,kind)
+  def self.post_search(word,kind)
     return Micropost.all if word.blank? && kind.blank?
-    return Micropost.where(['title LIKE ?', "%#{word}%"]) unless kind
-    return Micropost.where(kind: kind) unless word
+    return Micropost.where(['title LIKE ?', "%#{word}%"]) if kind.blank?
+    return Micropost.where(kind: kind) if word.blank?
     Micropost.where(['title LIKE ?', "%#{word}%"]).where(kind: kind)
   end
 

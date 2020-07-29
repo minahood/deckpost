@@ -1,12 +1,32 @@
 <% provide(:title, 'ユーザー一覧') %>
 
 <div id="subtitle" ,class="">ユーザー一覧</div>
+
+
 <div class ="row">
   <div class="col col-lg-3">
   </div>
   
   <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2">
-    
+    <div class="bg-ghostwhite">
+      <p>検索条件</p>
+      <%= form_with(url: users_path, method: :get, local: true) do |f| %>
+      
+        <%= f.label :word ,"ユーザー名" %>
+        <%= f.text_field :word, placeholder: "ユーザー名を入力...",class: "",value: @word %>
+        <br>
+        <%= f.label :login_id ,"ユーザーID" %>
+        <%= f.text_field :login_id, placeholder: "ユーザーIDを入力...",class: "",value: @login_id%>
+        <br>
+        <%= f.submit "検索", class: "mb-2" %>
+        
+        <%= button_tag type: 'submit', class: "d-none" do %>
+          <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
+        <% end %>
+        <br style="clear:both;"/>
+        
+      <% end %>
+    </div>
 
     <ul class="index">
       <%= render @users %>

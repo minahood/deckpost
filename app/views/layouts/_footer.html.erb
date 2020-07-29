@@ -5,10 +5,17 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "使い方",  help_path %></li>
-      <li><%= link_to "サイトについて",  about_path %></li>
-      <li><%= link_to "お問い合わせ", contact_path %></li>
-      <li><%= link_to "News", news_path %></li>
+      <li>
+        <%= link_to about_path do%>
+          <i class="fas fa-info-circle"></i>サイトについて
+        <% end %>
+      </li>
+      <li>
+        <%= link_to contact_path do %>
+          <i class="fas fa-envelope"></i>お問い合わせ
+        <% end %>
+      </li>
+      <li><%= link_to news_path do %><i class="fas fa-blog"></i>管理人ブログ<% end %></li>
     </ul>
   </nav>
 </footer>

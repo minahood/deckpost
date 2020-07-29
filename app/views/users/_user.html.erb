@@ -2,11 +2,11 @@
 
   <div class="p-1 position-relative">
     <%= link_to user.name, user,class:"user_link stretched-link font-weight-bold" %>
-    <% unless current_user?(user) %>
+    
       
-      <%= render 'follow_button_index',{user: user} %>
+      <%= render 'follow_button_index',{user: user} unless current_user?(user)%>
       
-    <% end %>
+    
     <% if current_user.admin? && !current_user?(user) %>
       
       <%= link_to "delete", user, class: "user_dust",method: :delete,

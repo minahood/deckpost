@@ -4,15 +4,21 @@
         <i class="fas fa-user mr-1"></i><%= micropost.user.name%>
       <% end %>
       <span class="font-weight-light">
-        <%= micropost.user.login_id %>
-        <%= micropost.kind %>
+        <% if micropost.user.admin? %>
+          deckpost_GOD
+        <% else %>
+          <%= micropost.user.login_id %>
+        <% end %>
+        
       </span>
     </div>
     <div class="float-right">
       <small>
-        <% if current_user?(micropost.user) %>
-          <%= link_to micropost, class: "post_dust", method: :delete, data: { confirm: "この投稿を削除しますか?" } do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>削除
+        <% if logged_in? %>
+          <% if current_user?(micropost.user) %>
+            <%= link_to micropost, class: "post_dust", method: :delete, data: { confirm: "この投稿を削除しますか?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>削除
+            <% end %>
           <% end %>
         <% end %>
       </small>  

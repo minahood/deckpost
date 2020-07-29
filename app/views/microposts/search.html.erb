@@ -1,23 +1,39 @@
 
-<%= form_with(url: microposts_search_path, method: :get, local: true) do |f| %>
-  <%= render 'shared/deck_kind' , f: f%>
-  <%= f.text_field :search_word, placeholder: "デッキ名を入力..." %>
-  <%= f.submit "検索", class: "my-3" %>
-
-  <%= button_tag type: 'submit', class: "" do %>
-    <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
-  <% end %>
-
-  
-<% end %>
-
-<% if @microposts.any? %>
-  
-  <ul class="index">
-    <%= render @microposts %>
-  </ul>
-  <div class="page_nav">
-    <%= paginate @microposts, window: 2 %>
+<div class ="row">
+  <div class="col col-lg-3">
   </div>
   
-<% end %>
+  <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2">
+    
+    <div class="bg-ghostwhite">
+      <p>検索条件</p>
+      
+      <%= form_with(url: microposts_search_path, method: :get, local: true) do |f| %>
+        <%= render 'shared/deck_kind', {f: f,search_kind: @kind} %>
+        <br>
+        <%= f.label :search_word ,"デッキ名" %>
+        <%= f.text_field :search_word, placeholder: "デッキ名を入力...",class: "" ,value: @search_word %>
+        <br>
+        <%= f.submit "検索", class: "mb-2" %>
+        
+        <%= button_tag type: 'submit', class: "d-none" do %>
+          <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
+        <% end %>
+        <br style="clear:both;"/>
+        
+      <% end %>
+    
+    </div>
+    
+    <% if @microposts.any? %>
+      
+      <ul class="index">
+        <%= render @microposts %>
+      </ul>
+      <div class="page_nav">
+        <%= paginate @microposts, window: 2 %>
+      </div>
+      
+    <% end %>
+  </div>
+</div>

@@ -13,7 +13,7 @@
       
       <%= f.hidden_field :from,value: "d_post"%>
       
-      <%= render 'shared/deck_kind' ,f: f %>
+      <%= render 'shared/deck_kind' ,{f: f,search_kind: nil} %>
     </div>
     
     <span class="image">
@@ -22,7 +22,7 @@
     
     <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
     <div>
-      <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary",disabled: true %>  
+      <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: true %>  
     </div>
     
     
