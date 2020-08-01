@@ -15,7 +15,7 @@ RSpec.describe "Micropost UI /", type: :request do
       valid_login(user)
       visit root_url
       is_expected.to have_content '3'
-      is_expected.to have_selector 'h3', text: 'Micropost Feed'
+      
       is_expected.to have_selector 'a',text: '削除'
       
       #他のユーザーページにアクセス

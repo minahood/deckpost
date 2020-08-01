@@ -1,0 +1,16 @@
+<li class="notification">
+  <div class="position-relative">
+    <small>
+      <%= notification_form(notification) %>
+    
+      <span class=""><%= " #{time_ago_in_words(notification.created_at)}前" %></span>
+    </small>
+    <% if !@comment.nil? %>
+      <div class="ml-3">
+        <small class="text-secondary"><%= simple_format(@comment.content) %></small>  
+      </div>
+    <% end %>
+  </div>
+  
+</li>
+

@@ -4,6 +4,7 @@ class BookmarksController < ApplicationController
     bookmark = current_user.bookmarks.build(micropost_id: params[:micropost_id])
     bookmark.save!
     @post = Micropost.find(params[:micropost_id])
+    @post.create_notification_by(current_user)
     respond_to do |format|
       format.html { redirect_to microposts_path }
       format.js

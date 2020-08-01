@@ -1,0 +1,23 @@
+<%= render "shared/post_form" %>
+<section class="micropost_form mt-0 pt-0">
+  <%= form_with(model: @micropost, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+  <% end %>
+  <%= form_with(url: {controller: 'microposts', action: 'post_form' },remote: true) do |f| %>
+    <%= button_tag class: "btn btn-primary btn-sm" ,id: "post_form_d_btn" do %>
+      <i class="far fa-edit mr-1"></i>デッキを投稿する
+    <% end %>  
+  <% end %>
+</section>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+
+    $(".form_bg").click(function(){
+      $(".form_bg").addClass("d-none");
+      $(".post_form").addClass("d-none");
+    })
+  });
+  
+</script>

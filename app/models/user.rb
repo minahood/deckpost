@@ -10,9 +10,13 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   
   has_many :microposts, dependent: :destroy
-  has_many :bookmarks,dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   has_many :bookmark_microposts,through: :bookmarks,source: :micropost
   has_many :comments, dependent: :destroy
+  
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
   
   attr_accessor :remember_token
   #before_save { email.downcase! }
@@ -87,5 +91,17 @@ class User < ApplicationRecord
     return User.where(['name LIKE ?', "%#{word}%"]) if login_id.blank?
     return User.where(['login_id LIKE ?', "%#{login_id}%"]) if word.blank?
     User.where(['name LIKE ?', "%#{word}%"]).where(login_id: login_id)
+  end
+  
+   #フォロー時の通知
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end

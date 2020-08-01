@@ -8,8 +8,19 @@
 
 .head-menu{
  
-  
 }
+
+.notice-count{
+  border-radius: 50%;
+  text-align: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: scale(0.6) translate(-1.5rem,-0.5rem);
+  display: inline-block;
+  z-index: 2;
+}
+
+
 
 /*
 .nav-link{

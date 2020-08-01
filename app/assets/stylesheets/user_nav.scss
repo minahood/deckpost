@@ -1,0 +1,26 @@
+.user_nav{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.user_nav-link{
+  display: block;
+  padding: 0.5rem 1rem;
+  
+  color: gray;
+   &:hover{
+    color: black;
+    text-decoration: none;
+   }
+}
+
+li.user_nav-item{
+  .active{
+    color: black; 
+    border-bottom: 1px solid black;
+    
+  }
+}

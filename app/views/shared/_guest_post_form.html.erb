@@ -17,7 +17,7 @@
     </div>
     
     <span class="image">
-      <%= f.file_field :image,accept: "image/jpeg,image/png" %>
+      <%= f.file_field :image,accept: "image/*" %>
     </span>
     
     <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>

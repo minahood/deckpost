@@ -1,41 +1,12 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-6 offset-md-3">
-    <section class="user_info mt-1">
-      
-      
-      <h1><%= @user.name %></h1>
-      <%= link_to "ユーザー設定", edit_user_path(@user),class: "btn btn-sm btn-outline-primary float-right pr-2" if current_user?(@user)%>
-      <span class="text-secondary"><%= @user.login_id %></span>
-      <div class="mt-2">
-        <small>
-          <%= simple_format(@user.introduction) if @user.introduction!=nil %>  
-        </small>
-      </div>
+    
+    <%= render 'shared/user_info' %>
     
     
-      <section class="mt-0 pt-0 float-right">
-        <%= render 'follow_form' if logged_in? %>
-      </section>
-      <section class="mt-0 pt-0">
-        <%= render 'shared/stats' %>
-      </section>
-    </section>
-    
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <%= link_to user_url(@user) , class: "nav-link" do %>
-          投稿(<%= @user.microposts.count%>)
-        <% end %>
-      </li>
+    <%= render 'shared/user_nav' %>
 
-      <li class="nav-item">
-        <%= link_to bookmarks_user_url(@user), class: "nav-link active" do %>
-          お気に入り(<%= @user.bookmark_microposts.count%>)
-        <% end %>
-      </li>
-    </ul>
-    
     <%= render 'users/post_index' , microposts: @microposts %>
   </aside>
   <div class="">
@@ -43,3 +14,7 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $("#user_nav-link-bookmarks").addClass("active");
+</script>

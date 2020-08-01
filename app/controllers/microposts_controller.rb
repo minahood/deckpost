@@ -9,11 +9,6 @@ class MicropostsController < ApplicationController
     @kind = params[:kind]
   end
 
-  def bookmarks
-    @microposts = current_user.bookmark_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
-    
-  end
-
   def show
     @micropost=Micropost.find(params[:id])
     @comments = @micropost.comments.includes([:user,:micropost])

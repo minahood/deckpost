@@ -1,6 +1,6 @@
 <% provide(:title, 'ユーザー一覧') %>
 
-<div id="subtitle" ,class="">ユーザー一覧</div>
+
 
 
 <div class ="row">
@@ -13,10 +13,10 @@
       <%= form_with(url: users_path, method: :get, local: true) do |f| %>
       
         <%= f.label :word ,"ユーザー名" %>
-        <%= f.text_field :word, placeholder: "ユーザー名を入力...",class: "",value: @word %>
+        <%= f.text_field :word, placeholder: "ユーザー名を入力...",class: "mini-select",value: @word %>
         <br>
         <%= f.label :login_id ,"ユーザーID" %>
-        <%= f.text_field :login_id, placeholder: "ユーザーIDを入力...",class: "",value: @login_id%>
+        <%= f.text_field :login_id, placeholder: "ユーザーIDを入力...",class: "mini-select",value: @login_id%>
         <br>
         <%= f.submit "検索", class: "mb-2" %>
         

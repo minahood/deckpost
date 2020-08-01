@@ -1,10 +1,21 @@
+<section class="user_info mt-1">
+  <h5 class="m-0"><%= @user.name %></h5>
+  <%= link_to "ユーザー設定", edit_user_path(@user),class: "btn btn-sm btn-outline-primary float-right pr-2" if current_user?(@user)%>
+  <span class="text-secondary"><%= @user.login_id %></span>
+  <div class="mt-2">
+    <small>
+      <%= simple_format(@user.introduction) if @user.introduction!=nil %>  
+    </small>
+  </div>
 
-<h5 class="m-0"><%= current_user.name %></h5>
-<%= link_to user_path(current_user),class: "btn btn-sm btn-outline-primary float-right mt-2 mr-2" do%>
-  マイページ
+</section>  
+
+<% if !current_user?(@user) %>
+  <section class="mt-0 pt-0 float-right">
+    <%= render 'follow_form' if logged_in? %>
+  </section>
 <% end %>
-<span class="text-secondary"><%= current_user.login_id %></span>
-
-
-<span class="mt-2">投稿数 : <%= current_user.microposts.count %></span>
-
+<section class="mt-0 pt-0">
+  <%= render 'shared/stats' %>
+</section>
+<%= render 'shared/post_button' if current_user?(@user)%>

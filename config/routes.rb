@@ -53,7 +53,13 @@ Rails.application.routes.draw do
     resource :bookmarks, only: %i[create destroy]
   end
   
-  get '/bookmarks', to: 'microposts#bookmarks'
+  
   #asでrootとpath名を指名できる
+  
+  resources :notifications, only: :index do 
+    collection do
+      delete :destroy_all
+    end
+  end
   
 end

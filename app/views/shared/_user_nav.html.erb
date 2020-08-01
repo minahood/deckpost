@@ -1,0 +1,20 @@
+<ul class="user_nav">
+  <% if current_user?(@user) %>
+    <li class="user_nav-item">
+      <%= link_to root_path , class: "user_nav-link",id: "user_nav-link-home" do %>
+        <i class="fas fa-home mr-1"></i><span class= "">ホーム</span>
+      <% end %>
+    </li>
+  <% end %>
+  <li class="user_nav-item">
+    <%= link_to user_url(@user) , class: "user_nav-link",id: "user_nav-link-posts" do %>
+      投稿(<%= @user.microposts.count%>)
+    <% end %>
+  </li>
+
+  <li class="user_nav-item">
+    <%= link_to bookmarks_user_url(@user), class: "user_nav-link",id: "user_nav-link-bookmarks" do %>
+      お気に入り(<%= @user.bookmark_microposts.count%>)
+    <% end %>
+  </li>
+</ul>

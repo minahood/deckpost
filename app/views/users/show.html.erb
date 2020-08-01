@@ -1,48 +1,37 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-6 offset-md-3">
-    <section class="user_info mt-1">
+    
       
-      
-      <h1><%= @user.name %></h1>
-      <% if logged_in? %>
-        <% if current_user.admin? && !current_user?(@user) %>
-          <%= link_to "delete", @user, class: "user_dust",method: :delete,
-                                  data: { confirm: "You sure?" } %>
-        <% end %>
+    <% if logged_in? %>
+      <% if current_user.admin? && !current_user?(@user) %>
+        <%= link_to "delete", @user, class: "user_dust",method: :delete,
+                                data: { confirm: "You sure?" } %>
       <% end %>
-      <%= link_to "ユーザー設定", edit_user_path(@user),class: "btn btn-sm btn-outline-primary float-right pr-2" if current_user?(@user)%>
-      <span class="text-secondary"><%= @user.login_id %></span>
-      <div class="mt-2">
-        <small>
-          <%= simple_format(@user.introduction) if @user.introduction!=nil %>  
-        </small>
-      </div>
-    
-    
-      <section class="mt-0 pt-0 float-right">
-        <%= render 'follow_form' if logged_in? %>
-      </section>
-      <section class="mt-0 pt-0">
-        <%= render 'shared/stats' %>
-      </section>
-    </section>
-    
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <%= link_to user_url(@user) , class: "nav-link active" do %>
-          投稿(<%= @microposts.count%>)
-        <% end %>
-      </li>
+    <% end %>
+    <%= render 'shared/user_info' %>
 
-      <li class="nav-item">
-        <%= link_to bookmarks_user_url(@user), class: "nav-link" do %>
-          お気に入り(<%= @user.bookmark_microposts.count%>)
-        <% end %>
-      </li>
-    </ul>
+    
+    
+
+    <%= render 'shared/user_nav' %>
     
     <%= render 'users/post_index' , microposts: @microposts %>
   </aside>
 
 </div>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+
+    $(".form_bg").click(function(){
+      $(".form_bg").addClass("d-none");
+      $(".post_form").addClass("d-none");
+    })
+    
+    $("#user_nav-link-posts").addClass("active");
+    
+  });
+  
+</script>

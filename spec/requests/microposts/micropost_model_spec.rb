@@ -6,7 +6,7 @@ RSpec.describe Micropost, type: :request do
 
   describe "micropost model" do 
     before do
-      @micropost = user.microposts.build(content: "Lorem insum",title: "神デッキ")
+      @micropost = user.microposts.build(content: "Lorem insum",title: "神デッキ",kind: 2)
     end
 
     it "should be valid" do

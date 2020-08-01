@@ -1,53 +1,25 @@
 <% if logged_in? %>
   <div class="row">
-    <%= render "shared/post_form" %>
     
     <aside class="col-md-4 col-lg-3 right-border-md">
-      <section class="user_info mt-1">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats mt-0 pt-0">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="micropost_form mt-0 pt-0">
-        <%= form_with(model: @micropost, local: true) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
-        <% end %>
-        <%= form_with(url: {controller: 'microposts', action: 'post_form' },remote: true) do |f| %>
-          <%= button_tag class: "btn btn-primary btn-sm" ,id: "post_form_d_btn" do %>
-            <i class="far fa-edit mr-1"></i>デッキを投稿する
-          <% end %>  
-        <% end %>
-      </section>
+      <%= render 'shared/user_info' %>
     </aside>
+    
     <div class="col-md-8 col-lg-6">
-      <h3>Micropost Feed</h3>
+      <%= render 'shared/user_nav' %>
+      
       <%= render 'shared/feed' %>
     </div>
   </div>
   
+
+  
 <% else %>
-  <div class="center jumbotron">
-    <h1>Welcome to the Sample App</h1>
   
-    <h2>
-      This is the home page for the
-      <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
-  
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  </div>
+  <%= render 'shared/search_form' %>
 <% end %>
 
 <script type="text/javascript">
-  
-  $(document).ready(function() {
-
-    $(".form_bg").click(function(){
-      $(".form_bg").addClass("d-none");
-      $(".post_form").addClass("d-none");
-    })
-  });
-  
+  $("#user_nav-link-home").addClass("active");
 </script>
+    

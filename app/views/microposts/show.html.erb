@@ -1,32 +1,32 @@
 
   <div class="col-md-6 offset-md-3">
     <div class="post_content">
-      <div class="mb-1 border-bottom">
+      <div class="mb-4">
         <div>
           <span class="font-weight-bold"><%= @micropost.title %></span>
           <small class="timestamp float-right mt-1">
             <%= @micropost.updated_at.strftime("%Y-%m-%d %H:%M") %>
           </small>  
         </div>
-        
+        <% if @micropost.image? %>
+          <div class="pb-1">
+            <%= link_to @micropost.image.url do %>
+              <%= image_tag @micropost.image.url ,class: "post_show_image rounded"%>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="micropost_content">
+          
+          <%= simple_format(@micropost.content) %>
+        </div>
         <%= render 'microposts/post_user_info',micropost: @micropost %>
       </div>
       
-      <% if @micropost.image? %>
-        <div class="pb-1 border-bottom">
-          <%= link_to @micropost.image.url do %>
-            <%= image_tag @micropost.image.url ,class: "post_show_image rounded"%>
-          <% end %>
-        </div>
-      <% end %>
-      <div class="micropost_content">
-        
-        <%= simple_format(@micropost.content) %>
-      </div>
+      
       
       <div class="">
-        <div class="border-top pt-2">
-          <h5>コメントフォーム</h5>
+        <div class="pb-1">
+          <h5 class="mb-0">コメントフォーム</h5>
         </div>
         <ul class="index">
           <%= render @comments %>
