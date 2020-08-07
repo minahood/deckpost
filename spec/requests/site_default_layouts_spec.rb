@@ -5,7 +5,7 @@ RSpec.describe 'Site layout', type: :request do
   describe 'when aceess root_path /' do
     it "have each link" do
       visit root_path
-      is_expected.to have_link nil, href: root_path
+      is_expected.to have_link nil, href: top_path
       
       is_expected.to have_link 'サイトについて', href: about_path
       is_expected.to have_link 'お問い合わせ', href: contact_path

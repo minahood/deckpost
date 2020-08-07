@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     @users = User.user_search(params[:word],params[:login_id]).page(params[:page]).per_page(50)
     @word = params[:word]
     @login_id = params[:login_id]
+    @current_user_follow_user = current_user.following
   end
   
   def destroy
@@ -83,10 +84,16 @@ class UsersController < ApplicationController
     @microposts = @user.bookmark_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
   end
   
+  def likes
+    @user = User.find(params[:id])
+    @micropost  = @user.microposts.build
+    @microposts = @user.like_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :login_id, :password,
-                                   :password_confirmation,:introduction)
+                                   :password_confirmation,:introduction,:favorite)
     end
     
     def correct_user

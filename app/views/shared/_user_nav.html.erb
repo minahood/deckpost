@@ -14,7 +14,9 @@
 
   <li class="user_nav-item">
     <%= link_to bookmarks_user_url(@user), class: "user_nav-link",id: "user_nav-link-bookmarks" do %>
-      お気に入り(<%= @user.bookmark_microposts.count%>)
+      お気に入り
     <% end %>
   </li>
+  
+  
 </ul>

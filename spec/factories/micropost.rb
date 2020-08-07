@@ -13,6 +13,8 @@ FactoryBot.define do
         end
     end
     
+
+    
     factory :other_micropost,class: Micropost do
         sequence(:content, 'a'){ Faker::Lorem.sentence(word_count: 5)}
         sequence(:kind){2}

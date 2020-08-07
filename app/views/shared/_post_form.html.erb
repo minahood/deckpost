@@ -16,13 +16,20 @@
           <span class="js-textarea_counter"></span>
         </p>
         
-        <%= render 'shared/deck_kind' ,{f: f,search_kind: nil} %>
+        <%= render 'shared/deck_kind' ,{f: f,search_kind: current_user.favorite} %>
+        
        
-
+        <%= render 'shared/deck_intention' ,{f: f,search_intention: nil} %>
       </div>
     
-      <div class="image">
-        <%= f.file_field :image,accept: "image/jpeg,image/png" %>
+      <div class="mb-2">
+        <%= f.label :image,class: "btn btn-sm image_select_btn" do %>
+          <i class="far fa-image mr-1"></i>画像を選択
+        <% end %>
+        <%= f.file_field :image,class:"d-none",accept: "image/jpeg,image/png,image/bmp",onchange: "previewFile()" %>
+        
+        <img src="" class="post_image rounded border" alt=""> <!-- プレビューの表示枠を用意 -->  
+      
       </div>
       
       <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>

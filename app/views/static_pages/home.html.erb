@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="row">
-    
+    <%= render "shared/post_form" %>
     <aside class="col-md-4 col-lg-3 right-border-md">
       <%= render 'shared/user_info' %>
     </aside>
@@ -11,12 +11,15 @@
       <%= render 'shared/feed' %>
     </div>
   </div>
-  
-
-  
 <% else %>
+  <%= render 'shared/deck_search' %>
   
-  <%= render 'shared/search_form' %>
+  <p class ="mb-0">簡易検索</p>
+  <% deck_kind.each do |tcg_name,num| %>
+    <% if num != nil %> 
+      <%= link_to tcg_name,{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
+    <% end %>
+  <% end %> 
 <% end %>
 
 <script type="text/javascript">

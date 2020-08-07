@@ -23,8 +23,8 @@ RSpec.describe Micropost, type: :request do
       expect(@micropost.valid?).to eq(false)
     end
 
-    it "content should be at most 140 microppst" do
-      @micropost.content = "a"*401
+    it "content should be at most 1000 microppst" do
+      @micropost.content = "a"*1001
       expect(@micropost.valid?).to eq(false)
     end
 
@@ -44,4 +44,49 @@ RSpec.describe Micropost, type: :request do
     end.to change(Micropost, :count).by(-1*(user_posts.count + 1 + 1))
   end
   
+  
+  describe "post_search method /" do
+    
+    it "check assumed argument" do
+      word = "s"
+      kind = 2
+      intention = "battle"
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = nil
+      kind = 2
+      intention = "battle"
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = nil
+      kind = nil
+      intention = "battle"
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = nil
+      kind = 3
+      intention = nil
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = nil
+      kind = nil
+      intention = nil
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = "s"
+      kind = nil
+      intention = "battle"
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = "s"
+      kind = 4
+      intention = nil
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+      
+      word = "s"
+      kind = nil
+      intention = nil
+      expect(Micropost.post_search(word , kind ,intention)).to_not eq(nil)
+    end
+  end
 end

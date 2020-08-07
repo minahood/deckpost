@@ -4,10 +4,12 @@
         <i class="fas fa-user mr-1"></i><%= micropost.user.name%>
       <% end %>
       <span class="font-weight-light">
+        <%= micropost.kind %>
         <% if micropost.user.admin? %>
           deckpost_GOD
         <% else %>
           <%= micropost.user.login_id %>
+          
         <% end %>
         
       </span>
@@ -22,8 +24,17 @@
           <% end %>
         <% end %>
       </small>  
-      <%= render 'microposts/bookmark_area', micropost: micropost %>
-      <small><i class="far fa-comment mr-1"></i><%=micropost.comments.count%></small>
+      <div class="d-inline font-08">
+        <div class="d-inline pr-1"></div>
+        <i class="far fa-comment"></i><%=micropost.comments.count%>
+        <div class="d-inline pr-1"></div>
+        <%= render 'microposts/like_area', micropost: micropost %>
+        <div class="d-inline pr-1"></div>
+        <%= render 'microposts/bookmark_area', micropost: micropost %>
+        
+      </div>
+
+      
     </div>
     <br style="clear:both;"/>
     

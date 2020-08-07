@@ -28,7 +28,20 @@ module ApplicationHelper
     'スクコレ': 14,
     'FEサイファ': 15,
     'リセ': 16,
-    '白猫': 17 
+    'プレメモ': 17,
+    'まほエル': 17,
+    '白猫': 19
+    }
+  end
+  
+  def deck_intention
+    {   
+    '---': nil,
+    
+    '大会志向': "battle", 
+    'ファンデッキ': "fan",
+    '大会上位入賞': "winning",
+    '大会優勝': "victory", 
     }
   end
   

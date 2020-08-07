@@ -2,7 +2,9 @@
 
   <div class="post_i_content p-1">
     <div>
-      <%= link_to micropost.title,micropost_path(micropost) ,class: "post_link stretched-link font-weight-bold" %>  
+      <%= link_to micropost.title,micropost_path(micropost) ,class: "post_link stretched-link font-weight-bold" %> 
+      <%= render "shared/post_intention" , intention: micropost.intention if !micropost.intention.nil? %>
+      
       <small class="timestamp float-right">
         <%= time_ago_in_words(micropost.created_at) %>前
       </small>
@@ -17,7 +19,7 @@
     <% end %>
     
 
-    <%= render 'microposts/post_user_info',micropost: micropost%>
+    <%= render 'microposts/post_user_info',micropost: micropost %>
 
   </div>
   

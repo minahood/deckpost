@@ -8,6 +8,7 @@
       <%= render 'shared/error_messages' , object: f.object %>
       
       <%= f.label :name ,"名前"%><p class="bg-danger text-light">必須</p>
+      <p class="">※15文字以内</p>
       <%= f.text_field :name,class: "bg-light form-control"%>
 
       <%# f.label :email ,"メールアドレス"%>
@@ -18,8 +19,10 @@
       <%= f.text_field :login_id,class: "bg-light form-control"  %>
 
       <%= f.label :introduction, "自己紹介" %>
-      <%= f.text_area :introduction ,class: "auto-resize" %>
+      <%= f.text_area :introduction ,class: "auto-resize form-control bg-light" %>
       
+      <%= f.label :favorite, "お気に入りTCG" %>
+      <%= f.select :favorite, deck_kind , {}, {class: 'bg-light mini_select '} %>
       
       <%= f.submit "保存", class: "btn btn-primary" %>
     <% end %>

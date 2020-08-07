@@ -1,8 +1,10 @@
 class Micropost < ApplicationRecord
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :like_users,through: :likes,source: :user
   
   mount_uploader :image, ImageUploader
   
@@ -24,16 +26,29 @@ class Micropost < ApplicationRecord
     image.variant(resize_to_limit: [500, 500])
   end
 =end
-  def self.post_search(word,kind)
-    return Micropost.all if word.blank? && kind.blank?
-    return Micropost.where(['title LIKE ?', "%#{word}%"]) if kind.blank?
-    return Micropost.where(kind: kind) if word.blank?
-    Micropost.where(['title LIKE ?', "%#{word}%"]).where(kind: kind)
+  def self.post_search(word,kind,intention)
+    if intention.blank?
+      return Micropost.all if word.blank? && kind.blank?
+      return Micropost.where(['title LIKE ?', "%#{word}%"]) if kind.blank?
+      return Micropost.where(kind: kind) if word.blank?
+      Micropost.where(kind: kind).where(['title LIKE ?', "%#{word}%"])
+    else
+      return Micropost.where(intention: intention).where(['title LIKE ?', "%#{word}%"]) if kind.blank?
+      return Micropost.where(intention: intention).where(kind: kind) if word.blank?
+      Micropost.where(intention: intention).where(['title LIKE ?', "%#{word}%"]).where(kind: kind)
+    end
   end
 
-  def bookmark_by?(user)
+=begin
+  def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?
   end
+  
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+  
+=end
   
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(

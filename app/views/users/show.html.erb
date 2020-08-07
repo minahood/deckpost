@@ -1,8 +1,9 @@
 <% provide(:title, @user.name) %>
+
+
 <div class="row">
-  <aside class="col-md-6 offset-md-3">
-    
-      
+  <%= render "shared/post_form" if logged_in? %>
+  <aside class="col-md-4 col-lg-3 right-border-md">
     <% if logged_in? %>
       <% if current_user.admin? && !current_user?(@user) %>
         <%= link_to "delete", @user, class: "user_dust",method: :delete,
@@ -10,15 +11,13 @@
       <% end %>
     <% end %>
     <%= render 'shared/user_info' %>
-
-    
-    
-
+  </aside>
+  
+  <div class="col-md-8 col-lg-6">
     <%= render 'shared/user_nav' %>
     
     <%= render 'users/post_index' , microposts: @microposts %>
-  </aside>
-
+  </div>
 </div>
 
 <script type="text/javascript">

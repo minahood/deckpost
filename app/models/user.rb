@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_microposts,through: :bookmarks,source: :micropost
+  
+  has_many :likes, dependent: :destroy
+  has_many :like_microposts,through: :likes,source: :micropost
+  
   has_many :comments, dependent: :destroy
   
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
@@ -20,7 +24,7 @@ class User < ApplicationRecord
   
   attr_accessor :remember_token
   #before_save { email.downcase! }
-  validates :name,presence: true, length: { maximum: 30 }
+  validates :name,presence: true, length: { maximum: 15}
   #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   #validates :email, presence: true, length: { maximum: 255 },
   #                  format: { with: VALID_EMAIL_REGEX },
@@ -84,6 +88,14 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  def liked?(micropost)
+    like_microposts.include?(micropost)
+  end
+  
+  def bookmarked?(micropost)
+    bookmark_microposts.include?(micropost)
   end
   
   def self.user_search(word,login_id)

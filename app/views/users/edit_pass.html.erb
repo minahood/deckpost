@@ -9,17 +9,42 @@
 
       <%= f.label :password, "パスワード" %><p class="bg-danger text-light">必須</p>
       <p class="">※4文字以上</p>
-      <%= f.password_field :password ,class: "bg-light form-control" %>
+      <%= f.password_field :password ,class: "bg-light form-control" ,id: "js-input-able" %>  
+      
 
       <%= f.label :password_confirmation, "パスワード確認" %><p class="bg-danger text-light">必須</p>
       <%= f.password_field :password_confirmation ,class: "bg-light form-control" %>
       
-      <%= f.submit "保存", class: "btn btn-primary" ,id: "submit-btn"%>
+      <%= f.submit "保存", class: "btn btn-primary" ,id: "submit-btn", disabled: true %>
     <% end %>
     
   </div>
 </div>
 
 <script>
-  $('#submit-btn').addClass 'disabled'
+
+$(function() {
+  var $input = $('#js-input-able');
+  $input.on('input', function(event) {
+    $('#submit-btn').prop("disabled", false);
+    var input_count = document.getElementById("js-input-able").value.length;
+    if (input_count < 1) {
+      $('#submit-btn').prop("disabled", true);
+    }
+    
+  });
+  
+  
+  $input.on("keyup", function() {
+  
+  });
+  
+});
+
+/*
+  var input_count = $('#js-input-able').text().length;
+  if (input_count > 1) {
+    $('#submit-btn').prop("disabled", false);
+  }
+*/
 </script>

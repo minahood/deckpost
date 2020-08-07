@@ -4,10 +4,15 @@ class StaticPagesController < ApplicationController
       @user=current_user
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.includes(:user).page(params[:page]).per_page(10)
+      
     else
 
     
     end
+    
+  end
+
+  def top
     
   end
 

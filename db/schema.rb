@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_093438) do
+ActiveRecord::Schema.define(version: 2020_08_06_120906) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2020_07_29_093438) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "micropost_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["micropost_id"], name: "index_likes_on_micropost_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_093438) do
     t.string "image"
     t.string "title"
     t.integer "kind", null: false
+    t.string "intention"
     t.index ["title"], name: "index_microposts_on_title"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
@@ -96,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_093438) do
     t.string "login_id"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.integer "favorite"
     t.index ["login_id"], name: "index_users_on_login_id", unique: true
   end
 
@@ -104,5 +115,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_093438) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "microposts"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "microposts"
+  add_foreign_key "likes", "users"
   add_foreign_key "microposts", "users"
 end

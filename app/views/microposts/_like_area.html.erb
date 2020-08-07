@@ -1,0 +1,11 @@
+<%= content_tag(:div,id: "like_button_#{micropost.id}" ,class: "d-inline") do %>
+  <% if logged_in? %>
+    <% if current_user.liked?(micropost) %> 
+      <%= render 'microposts/like_cancel', micropost: micropost %>
+    <% else %>
+      <%= render 'microposts/like', micropost: micropost %>
+    <% end %>
+  <% else %>
+      <i class="far fa-thumbs-up"></i><%= micropost.likes.count %>
+  <% end %>
+<% end %>

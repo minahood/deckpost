@@ -4,8 +4,10 @@
       <%= form_with(url: microposts_search_path, method: :get, local: true) do |f| %>
         <%= render 'shared/deck_kind', {f: f,search_kind: @kind} %>
         <br>
+        <%= render 'shared/deck_intention', {f: f,search_intention: @intention} %>
+        <br>
         <%= f.label :search_word ,"デッキ名" %>
-        <%= f.text_field :search_word, placeholder: "デッキ名を入力...",class: "mini-search" ,value: @search_word %>
+        <%= f.text_field :search_word, placeholder: "デッキ名を入力...",class: "mini_search" ,value: @search_word %>
         <br>
         <%= f.submit "検索", class: "mb-2" %>
         
@@ -15,5 +17,7 @@
         <br style="clear:both;"/>
         
       <% end %>
-    
+      
+      
+      
     </div>

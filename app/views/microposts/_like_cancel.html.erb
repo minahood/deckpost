@@ -1,0 +1,5 @@
+
+  <%= link_to micropost_likes_path(micropost.id), method: :delete,class: "post_func_link text-primary",remote: true do%>
+    <i class="fas fa-thumbs-up"></i><span><%= micropost.likes.count %></span>
+  <% end %>
+  

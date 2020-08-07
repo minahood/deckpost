@@ -21,8 +21,8 @@ User.create!(name:  "g",
 
 User.create!(name:  "mina",
     login_id: "deckpost",
-    password:              ENV["MINA_PASS"],
-    password_confirmation: ENV["MINA_PASS"],
+    password:              ENV["MINA_KEY"],
+    password_confirmation: ENV["MINA_KEY"],
     admin: true
 )
 
@@ -52,11 +52,22 @@ end
 
 # ユーザーの一部を対象にマイクロポストを生成する
 users = User.order(:created_at).take(6)
-50.times do
+50.times do |n|
   content = Faker::Lorem.sentence(word_count: 10)
   title = Faker::Lorem.sentence(word_count: 2)
   kind = rand(0..15)
-  users.each { |user| user.microposts.create!(content: content,title: title,kind: kind) }
+  if n < 10 then
+    intention = "victory"
+  elsif n < 20 then 
+    intention = "winning"
+  elsif n < 30 then
+    intention = "battle"
+  elsif n < 40 then
+    intention = "fan"
+  else
+  end
+  
+  users.each { |user| user.microposts.create!(content: content,title: title,kind: kind,intention: intention) }
 end
 
 # 以下のリレーションシップを作成する

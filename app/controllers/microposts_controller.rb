@@ -4,9 +4,10 @@ class MicropostsController < ApplicationController
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @microposts = Micropost.post_search(params[:search_word],params[:kind]).includes([:user,:comments,:bookmarks]).page(params[:page]).per_page(10)
+    @microposts = Micropost.post_search(params[:search_word],params[:kind],params[:intention]).includes([:user,:comments,:bookmarks]).page(params[:page]).per_page(10)
     @search_word =params[:search_word]
     @kind = params[:kind]
+    @intention = params[:intention]
   end
 
   def show
@@ -26,7 +27,7 @@ class MicropostsController < ApplicationController
       if logged_in?
         @micropost = current_user.microposts.build(micropost_params)  
         if @micropost.save
-          flash[:success] = "Micropost created!"
+          flash[:success] = "投稿に成功しました!"
           redirect_to root_url
         else
           if params[:micropost][:from]=="d_post"
@@ -41,7 +42,7 @@ class MicropostsController < ApplicationController
         @micropost = User.find_by(login_id: "guest").microposts.build(micropost_params)
         
         if @micropost.save
-          flash[:success] = "Micropost created!"
+          flash[:success] = "投稿に成功しました!"
           redirect_to microposts_search_url
         else
           render 'static_pages/d_post'
@@ -60,7 +61,7 @@ class MicropostsController < ApplicationController
 
   private
     def micropost_params
-      params.require(:micropost).permit(:content, :image, :title,:kind)
+      params.require(:micropost).permit(:content, :image, :title,:kind,:intention)
     end
     
     def correct_user
