@@ -1,7 +1,7 @@
 <%= content_tag(:div,id: "bookmark_button_#{micropost.id}" ,class: "d-inline") do %>
   <% if logged_in? %>
     <% if current_user.bookmarked?(micropost) %> 
-      <%= render 'microposts/unbookmark', micropost: micropost %>
+      <%= render 'microposts/bookmark_cancel', micropost: micropost %>
     <% else %>
       <%= render 'microposts/bookmark', micropost: micropost %>
     <% end %>

@@ -2,7 +2,7 @@
   <%= link_to "ユーザー設定", edit_user_path(@user),class: "btn btn-sm btn-outline-primary float-right mt-2" if current_user?(@user)%>
   <% if !current_user?(@user) %>
     <section class="mt-2 pt-0 float-right">
-      <%= render 'follow_form' if logged_in? %>
+      <%= render 'users/follow_form' if logged_in? %>
     </section>
   <% end %>
   <h5 class="m-0"><%= @user.name %></h5>
