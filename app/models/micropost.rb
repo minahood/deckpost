@@ -28,7 +28,7 @@ class Micropost < ApplicationRecord
 =end
   def self.post_search(word,kind,intention)
     if intention.blank?
-      return Micropost.all if word.blank? && kind.blank?
+      return all if word.blank? && kind.blank?
       return Micropost.where(['title LIKE ?', "%#{word}%"]) if kind.blank?
       return Micropost.where(kind: kind) if word.blank?
       Micropost.where(kind: kind).where(['title LIKE ?', "%#{word}%"])
@@ -36,6 +36,23 @@ class Micropost < ApplicationRecord
       return Micropost.where(intention: intention).where(['title LIKE ?', "%#{word}%"]) if kind.blank?
       return Micropost.where(intention: intention).where(kind: kind) if word.blank?
       Micropost.where(intention: intention).where(['title LIKE ?', "%#{word}%"]).where(kind: kind)
+    end
+  end
+
+  def self.post_sort(sort)
+    case sort 
+    when "new" then
+      reorder(created_at: :DESC)
+    when "old" then
+      reorder(created_at: :ASC)
+    when "likes" then
+      reorder(likecount: :DESC,created_at: :DESC)
+    when "not_likes" then
+      reorder(likecount: :ASC,created_at: :DESC)
+    when "bookmarks" then
+      reorder(bookmarkcount: :DESC,created_at: :DESC)
+    when "not_bookmarks" then
+      reorder(bookmarkcount: :ASC,created_at: :DESC)
     end
   end
 
@@ -57,7 +74,7 @@ class Micropost < ApplicationRecord
       action: "bookmark"
     )
     if notification.visiter_id == notification.visited_id
-      notification.checked = true
+      return
     end
     notification.save if notification.valid?
     

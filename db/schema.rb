@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_120906) do
+ActiveRecord::Schema.define(version: 2020_08_10_213319) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_08_06_120906) do
     t.string "title"
     t.integer "kind", null: false
     t.string "intention"
+    t.integer "bookmarkcount", default: 0, null: false
+    t.integer "likecount", default: 0, null: false
     t.index ["title"], name: "index_microposts_on_title"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"

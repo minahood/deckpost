@@ -2,12 +2,15 @@
       <p>検索条件</p>
       
       <%= form_with(url: microposts_search_path, method: :get, local: true) do |f| %>
-        <%= render 'shared/deck_kind', {f: f,search_kind: @kind} %>
+        <%= render 'shared/deck_kind', {f: f,search_kind: @search_kind} %>
         <br>
-        <%= render 'shared/deck_intention', {f: f,search_intention: @intention} %>
+        <%= render 'shared/deck_intention', {f: f,search_intention: @search_intention} %>
         <br>
-        <%= f.label :search_word ,"デッキ名" %>
-        <%= f.text_field :search_word, placeholder: "デッキ名を入力...",class: "mini_search" ,value: @search_word %>
+        <%= f.label :word ,"デッキ名" %>
+        <%= f.text_field :word, placeholder: "デッキ名を入力...",class: "mini_search" ,value: @search_word %>
+        <br>
+        <%= f.label :sort ,"並び替え" %>
+        <%= f.select :sort, deck_sort ,{selected: @search_sort}, {class: 'mini_select'} %>
         <br>
         <%= f.submit "検索", class: "mb-2" %>
         

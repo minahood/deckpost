@@ -4,8 +4,10 @@ class BookmarksController < ApplicationController
     bookmark = current_user.bookmarks.build(micropost_id: params[:micropost_id])
     bookmark.save!
     @post = Micropost.find(params[:micropost_id])
-    
+    @post.bookmarkcount = @post.bookmarks.count
+    @post.save!
     #お気に入り通知保留
+    
     #@post.create_notification_by(current_user)
     respond_to do |format|
       format.html { redirect_to microposts_path }
@@ -17,6 +19,8 @@ class BookmarksController < ApplicationController
     current_user.bookmarks.find_by(micropost_id: params[:micropost_id]).destroy!
     
     @post = Micropost.find(params[:micropost_id])
+    @post.bookmarkcount = @post.bookmarks.count
+    @post.save!
     respond_to do |format|
       format.html { redirect_to microposts_path }
       format.js

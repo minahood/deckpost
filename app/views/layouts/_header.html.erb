@@ -83,8 +83,9 @@
     
     <%= form_with url: microposts_search_url, method: :get, local: true ,class: "form-inline my-2 my-md-0" do |f| %>
       <%= f.hidden_field :kind ,value: current_user.favorite if logged_in? %>
+      <%= f.hidden_field :sort ,value: "new" %>
       
-      <%= f.text_field :search_word,class: "form-control mr-2 head-search", placeholder: "デッキ検索..." %>
+      <%= f.text_field :word,class: "form-control mr-2 head-search", placeholder: "デッキ検索..." %>
       <%# f.submit "検索", class: "" %>
       <%= button_tag type: 'submit', class: "btn btn-outline-info my-2" do %>
         <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>

@@ -7,5 +7,5 @@ class Notification < ApplicationRecord
   belongs_to :visiter, class_name: 'User', foreign_key: 'visiter_id', optional: true
   belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
 
-  validates :micropost_id, uniqueness: { scope: [:action,:visiter_id] } #これで複数回いいね通知送らない
+  #validates :micropost_id, uniqueness: { scope: [:action,:visiter_id] } #これで[アクションと来た奴]セットの重複禁止
 end

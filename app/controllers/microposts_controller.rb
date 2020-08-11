@@ -4,12 +4,14 @@ class MicropostsController < ApplicationController
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @microposts = Micropost.post_search(params[:search_word],params[:kind],params[:intention]).includes([:user,:comments,:bookmarks,:likes]).page(params[:page]).per_page(10)
+    #@microposts = Micropost.post_search(params[:search_word],params[:kind],params[:intention]).includes([:user,:comments,:bookmarks,:likes]).page(params[:page]).per_page(10)
     
-    
-    @search_word =params[:search_word]
-    @kind = params[:kind]
-    @intention = params[:intention] 
+    @microposts = Micropost.post_search(params[:word],params[:kind],params[:intention]).includes([:user,:comments,:bookmarks,:likes]).post_sort(params[:sort]).page(params[:page]).per_page(10)
+      
+    @search_word =params[:word]
+    @search_kind = params[:kind]
+    @seatch_intention = params[:intention] 
+    @search_sort = params[:sort] 
   end
 
   def show

@@ -17,7 +17,7 @@
         <% end %>
         <div class="micropost_content">
           
-          <%= simple_format(@micropost.content) %>
+          <%= simple_format(text_url_to_link(@micropost.content)) %>
         </div>
         <%= render 'microposts/post_user_info',micropost: @micropost %>
       </div>

@@ -11,7 +11,8 @@
   
   <div class="mt-2">
     <small>
-      <%= simple_format(@user.introduction) if @user.introduction!=nil %>  
+        
+      <%= simple_format(text_url_to_link(@user.introduction)) if @user.introduction!=nil %>  
     </small>
   </div>
   
