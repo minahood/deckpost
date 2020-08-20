@@ -5,9 +5,11 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   
   def show
-    @user=User.find(params[:id])
+    @user = User.find(params[:id])
     @micropost  = @user.microposts.build
     @microposts = @user.microposts.page(params[:page]).per_page(10)
+    
+    @page_title = @user.name
   end
 
   def new
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
   end
   
   def edit_pass
@@ -68,6 +71,8 @@ class UsersController < ApplicationController
     @title = "フォロー中"
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per_page(50)
+    @page_title = @user.name + "のフォロー中ユーザー"
+    
     render 'show_follow'
   end
 
@@ -75,6 +80,7 @@ class UsersController < ApplicationController
     @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per_page(50)
+    @page_title = @user.name + "のフォロワー"
     render 'show_follow'
   end
   
@@ -82,6 +88,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @micropost  = @user.microposts.build
     @microposts = @user.bookmark_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
+    @page_title = @user.name + "のお気に入り"
   end
   
   def likes

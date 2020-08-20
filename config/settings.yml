@@ -1,0 +1,17 @@
+defaults: &defaults
+  site:
+    name: デッキポスト
+    meta:
+      ogp:
+        app_id: Facebook App ID
+        type: article
+        image_path: /images/og-image.png
+        
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

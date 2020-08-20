@@ -7,17 +7,19 @@
   <% end %>
   <h5 class="m-0"><%= @user.name %></h5>
   
-  <span class="text-secondary"><%= @user.login_id %></span>
+  <span class="text-secondary">
+    <% if @user.admin? %>
+      deckpost_GOD
+    <% else %>
+      <%= @user.login_id %>
+    <% end %>
+  </span>
   
   <div class="mt-2">
     <small>
-        
       <%= simple_format(text_url_to_link(@user.introduction)) if @user.introduction!=nil %>  
     </small>
   </div>
-  
-  
-
 </section>  
 
 

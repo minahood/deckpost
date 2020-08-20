@@ -4,15 +4,8 @@ class NotificationsController < ApplicationController
   def index
     #current_userの投稿に紐づいた通知一覧
     notifications = current_user.passive_notifications
-    #すでに見たお気に入り通知を削除
-    #notifications.where(checked: true).where(action: "bookmark").destroy_all
-    
-    #@notificationの中でまだ確認していない(indexに一度も遷移していない)通知のみ
-    notifications.where(checked: false).each do |notification|
-      notification.update_attributes(checked: true)
-    end
-    
     @notifications = notifications.includes(:visiter,:comment,:micropost).page(params[:page]).per_page(20)
+
   end
 
   def destroy_all

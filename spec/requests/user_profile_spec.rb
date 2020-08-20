@@ -10,7 +10,7 @@ RSpec.describe "User_profile", type: :request do
   it "profile display" do
     user_posts  
     visit user_path(user)
-    is_expected.to have_title full_title(user.name)
+    
 
     expect(user.microposts.count).to eq user_posts.count
     is_expected.to have_content user.microposts.count.to_s

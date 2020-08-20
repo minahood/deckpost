@@ -25,6 +25,10 @@ gem 'will_paginate-bootstrap4'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'browser'
+gem 'meta-tags'
+gem 'settingslogic'
+
 
 group :production do
   gem 'pg', '1.1.4'

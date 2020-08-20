@@ -12,9 +12,9 @@
         <%= f.label :sort ,"並び替え" %>
         <%= f.select :sort, deck_sort ,{selected: @search_sort}, {class: 'mini_select'} %>
         <br>
-        <%= f.submit "検索", class: "mb-2" %>
+        <%= f.submit "検索", class: "mb-2 ml-13" %>
         
-        <%= button_tag type: 'submit', class: "d-none" do %>
+        <%= button_tag type: 'submit', class: "d-none " do %>
           <i class="fas fa-search"></i><span class= "d-none d-md-inline">検索</span>
         <% end %>
         <br style="clear:both;"/>

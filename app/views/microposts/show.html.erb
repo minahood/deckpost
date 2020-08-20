@@ -1,15 +1,25 @@
-
-  <div class="col-md-6 offset-md-3">
+<div class="row">
+  <div class="col-md-3">
+    <% if !browser.device.mobile? %>
+      <div class="d-none d-md-block">
+        <ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.com/js/banner_placement.js?affiliate_id=minajjjjj-002&banner_id=276_160_600"></script>  
+      </div>
+      
+    <% end %>
+  </div>
+  
+  <div class="col-md-6">
     <div class="post_content">
-      <div class="mb-4">
+      <div class="mb-4 mt-2">
         <div>
           <span class="font-weight-bold"><%= @micropost.title %></span>
+          <%= render "shared/post_intention" , intention: @micropost.intention if !@micropost.intention.nil? %>
           <small class="timestamp float-right mt-1">
             <%= @micropost.updated_at.strftime("%Y-%m-%d %H:%M") %>
           </small>  
         </div>
         <% if @micropost.image? %>
-          <div class="pb-1">
+          <div class="py-1">
             <%= link_to @micropost.image.url do %>
               <%= image_tag @micropost.image.url ,class: "post_show_image rounded"%>
             <% end %>
@@ -22,17 +32,26 @@
         <%= render 'microposts/post_user_info',micropost: @micropost %>
       </div>
       
-      
-      
-      <div class="">
+      <div class="mb-4">
         <div class="pb-1">
-          <h5 class="mb-0">コメントフォーム</h5>
+          <h5 class="mb-0"><i class="far fa-comments"></i>コメント</h5>
         </div>
-        <ul class="index">
-          <%= render @comments %>
-        </ul>
+        <% if @comments %>
+          <ul class="index">
+            <%= render @comments %>
+          </ul>
+        <% else %>
+          <div>まだコメントはありません</div>
+        <% end %>
+        
         <%= render 'microposts/comment_form',micropost: @micropost %>
       </div>
 
     </div>
   </div>
+  <div class="col-md-3">
+    <div class="mt-2">
+      <script type="text/javascript">amzn_assoc_ad_type ="responsive_search_widget"; amzn_assoc_tracking_id ="minahood-22"; amzn_assoc_marketplace ="amazon"; amzn_assoc_region ="JP"; amzn_assoc_placement =""; amzn_assoc_search_type = "search_widget";amzn_assoc_width ="auto"; amzn_assoc_height ="auto"; amzn_assoc_default_search_category ="Hobbies"; amzn_assoc_default_search_key ="TCG";amzn_assoc_theme ="light"; amzn_assoc_bg_color ="FFFFFF"; </script><script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>  
+    </div>
+  </div>
+</div> 

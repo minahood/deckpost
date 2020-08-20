@@ -1,8 +1,20 @@
-<%= render 'shared/deck_search' %>
+<div class="row">
+  <div class="col-md-7">
+    <%= render 'shared/deck_search' %>    
+  </div>
+  <div class="d-none d-md-block">
+    
+  </div>
+</div>
 
-<p class ="mb-0">簡易検索</p>
-<% deck_kind.each do |tcg_name,num| %>
-  <% if num != nil %> 
-    <%= link_to tcg_name,{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
-  <% end %>
-<% end %> 
+
+<div>
+  <p class ="mb-0">簡易検索</p>
+  <% deck_kind.each do |tcg_name,num| %>
+    <% if num != nil %> 
+      <%= link_to tcg_name,{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
+    <% end %>
+  <% end %> 
+</div>
+
+<%= render 'shared/advertisement' %>

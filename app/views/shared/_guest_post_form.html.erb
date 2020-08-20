@@ -7,7 +7,7 @@
   
       <%= f.label :content, "解説" %>
       <%= f.text_area :content, placeholder: "解説...",class: "form-control js-textarea_count mb-0" %>
-      <P class="float-none ml-auto mt-0 wid_75">
+      <P class="float-none ml-auto mt-0 wid_85">
         <span class="js-textarea_counter"></span>
       </P>
       
@@ -34,14 +34,23 @@
 
     
 
-    
-    <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
-    <div>
-      <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: true %>  
-    </div>
+    <% if logged_in? %>
+      <div>
+        <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: false %>  
+      </div>
+      
+    <% else %>
+      <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
+      <div>
+        <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: true %>  
+      </div>
+      
+    <% end %>
+   
 
     
   <% end %>
-
-
+  
 <%= render 'shared/post_js' %>
+
+

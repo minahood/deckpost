@@ -1,0 +1,23 @@
+<meta charset='UTF-8'>
+
+<%# デスクリプションを不用意に変更されないようにする %>
+<meta content='NOYDIR' name='ROBOTS'>
+<meta content='NOODP' name='ROBOTS'>
+
+<%# モバイル設定 %>
+<link media='handheld' rel='alternate'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<%# Twitter用のTwitter Card対策 %>
+<% set_meta_tags twitter: { card: "summary", site: "@deckpost_mina" } %>
+
+<%# favicon %>
+<% set_meta_tags icon: '/favicon.ico' %>
+
+<%# Noindex/Nofollow %>
+<% if noindex? %>
+  <% set_meta_tags noindex: true, nofollow: true %>
+<% end %>
+
+<%# デフォルト設定 %>
+<%= display_meta_tags(default_meta_tags) %>

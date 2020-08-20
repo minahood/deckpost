@@ -1,2 +1,0 @@
-class AddBookmarkCounterToMicropost < ApplicationRecord
-end

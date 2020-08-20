@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
     @post.save!
     #お気に入り通知保留
     
-    #@post.create_notification_by(current_user)
+    @post.create_notification_bookmark_by(current_user)
     respond_to do |format|
       format.html { redirect_to microposts_path }
       format.js

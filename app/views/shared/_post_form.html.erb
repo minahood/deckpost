@@ -12,7 +12,7 @@
         <%= f.label :content, "解説"%>
         <%= f.text_area :content, placeholder: "解説...",class: "form-control js-textarea_count mb-0" %>
         
-        <p class="float-none ml-auto mt-0 wid_80">
+        <p class="float-none ml-auto mt-0 wid_85">
           <span class="js-textarea_counter"></span>
         </p>
         
@@ -26,16 +26,14 @@
         <%= f.label :image,class: "btn btn-sm image_select_btn" do %>
           <i class="far fa-image mr-1"></i>画像を選択
         <% end %>
-        <%= f.file_field :image,class:"d-none",accept: "image/jpeg,image/png,image/bmp",onchange: "previewFile()" %>
+        <%= f.file_field :image,class:"d-none",accept: "image/jpeg,image/png",onchange: "previewFile()" %>
         
         <img src="" class="post_image rounded border" alt=""> <!-- プレビューの表示枠を用意 -->  
       
       </div>
-      
-      <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
-      
+  
       <div>
-        <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary float-right",disabled: true %>  
+        <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary float-right",disabled: false %>  
       </div>
       <br style="clear:both;"/>
     <% end %>

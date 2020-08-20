@@ -1,13 +1,17 @@
 
+
 <div class ="row">
-  <div class="col col-lg-3">
+  
+  <div class="col col-md-3">
+    <div class="d-none d-md-block">
+      <% if !browser.device.mobile? %>
+        <ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.com/js/banner_placement.js?affiliate_id=minajjjjj-002&banner_id=275_160_600"></script>
+      <% end %>
+    </div>
   </div>
   
-  <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2">
-    
-    
+  <div class="col-md-6">
     <%= render 'shared/deck_search' %>
-    
     <% if @microposts.any? %>
       
       <ul class="index">
@@ -15,8 +19,27 @@
       </ul>
       <div class="page_nav">
         <%= paginate @microposts, window: 2 %>
-      </div>
-      
+        
+      </div>  
+    <% else %> 
+      <div>各当する投稿は見つかりません。</div>
+    
     <% end %>
   </div>
+  <div class="col ">
+    <div class="ad-mt">
+      <% if @search_kind == '3' || @search_kind == '7' %>
+        <a href="https://px.a8.net/svt/ejp?a8mat=3BK8OM+E68I7M+2QOI+1BQJA9" rel="nofollow">
+        <img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=200818678857&wid=001&eno=01&mid=s00000012789008018000&mc=1"></a>
+        <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3BK8OM+E68I7M+2QOI+1BQJA9" alt="">
+      <% else %>
+        
+      <% end %>
+    </div>
+    
+      
+  </div>
+  
+
 </div>
+

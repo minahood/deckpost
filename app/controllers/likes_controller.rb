@@ -3,9 +3,11 @@ class LikesController < ApplicationController
   def create
     like = current_user.likes.build(micropost_id: params[:micropost_id])
     like.save!
+
     @post = Micropost.find(params[:micropost_id])
     @post.likecount = @post.likes.count
     @post.save!
+    @post.create_notification_like_by(current_user)
     respond_to do |format|
       format.html { redirect_to microposts_path }
       format.js

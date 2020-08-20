@@ -1,0 +1,26 @@
+
+.advertisement-u-sm{
+  @media (min-width: 576px){
+    display: none;
+  }
+    margin-top: 1.5rem;
+    text-align: center;
+}      
+
+.advertisement-u-md{
+  @media (min-width: 768px){
+    
+  }
+    display: none;
+    margin-top: 1.5rem;
+    text-align: center;
+}      
+
+.ad-mt{
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.ad{
+  text-align: center;
+}

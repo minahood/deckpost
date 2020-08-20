@@ -4,16 +4,15 @@ class StaticPagesController < ApplicationController
       @user=current_user
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.includes(:user).page(params[:page]).per_page(10)
-      
     else
-
-    
     end
-    
   end
 
   def top
-    
+    if logged_in?
+      @user=current_user
+      @search_kind = current_user.favorite
+    end
   end
 
   def help

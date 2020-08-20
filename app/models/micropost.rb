@@ -41,8 +41,8 @@ class Micropost < ApplicationRecord
 
   def self.post_sort(sort)
     case sort 
-    when "new" then
-      reorder(created_at: :DESC)
+    when "new" ,nil then
+      all
     when "old" then
       reorder(created_at: :ASC)
     when "likes" then
@@ -53,21 +53,26 @@ class Micropost < ApplicationRecord
       reorder(bookmarkcount: :DESC,created_at: :DESC)
     when "not_bookmarks" then
       reorder(bookmarkcount: :ASC,created_at: :DESC)
+    when "hot_1month"
+      to    = Time.current
+      from  = (to - 1.month)
+      where(created_at: from...to).reorder(likecount: :DESC,created_at: :DESC)
+    when "hot_1week"
+      to    = Time.current
+      from  = (to - 1.week)
+      where(created_at: from...to).reorder(likecount: :DESC,created_at: :DESC)
+    when "hot_1day"  
+      to    = Time.current
+      from  = (to - 1.day)
+      where(created_at: from...to).reorder(likecount: :DESC,created_at: :DESC)
     end
   end
 
-=begin
-  def bookmarked_by?(user)
-    bookmarks.where(user_id: user.id).exists?
-  end
-  
-  def liked_by?(user)
-    likes.where(user_id: user.id).exists?
-  end
-  
-=end
-  
-  def create_notification_by(current_user)
+  def create_notification_bookmark_by(current_user)
+    temp = Notification.find_by([" micropost_id = ? and visited_id = ? and action = ? ", id, user_id,'bookmark'])
+    if !temp.blank?
+      temp.destroy
+    end
     notification = current_user.active_notifications.new(
       micropost_id: id,
       visited_id: user_id,
@@ -77,7 +82,22 @@ class Micropost < ApplicationRecord
       return
     end
     notification.save if notification.valid?
-    
+  end
+  
+  def create_notification_like_by(current_user)
+    temp = Notification.find_by([" micropost_id = ? and visited_id = ? and action = ? ", id, user_id ,'like'])
+    if !temp.blank?
+      temp.destroy
+    end
+    notification = current_user.active_notifications.new(
+      micropost_id: id,
+      visited_id: user_id,
+      action: "like"
+    )
+    if notification.visiter_id == notification.visited_id
+      return
+    end
+    notification.save if notification.valid?
   end
 
   def create_notification_comment!(current_user, comment_id)

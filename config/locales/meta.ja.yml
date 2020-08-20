@@ -1,0 +1,85 @@
+ja:
+  users: # view名
+    index:  # action名
+      title: "ユーザー検索"           # このviewの中では t('.title')と記載できる
+      keywords: "デッキ"
+      description: "デッキポストのユーザ検索"
+    new:
+      title: "新規登録"
+      keywords: "デッキ"
+      description: "デッキポストの新規ユーザー登録。TCGのデッキを検索・投稿・共有しよう。気になる人をフォローしてつながろう。"
+    show:
+      title: "ユーザー詳細"
+      keywords: "デッキ"
+      description:
+    edit: 
+      title: "ユーザー編集"
+      keywords: "デッキ"
+      description:
+    edit_pass:
+      title: "パスワード変更"  
+      keywords: "デッキ"
+      description: 
+    following:
+      title: ""
+      keywords: "デッキ"
+      description:
+    follower:
+      title: ""
+      keywords: "デッキ"
+      description:
+    bookmark:
+      title: 
+      keywords: "デッキ"
+      description:
+    likes:
+      title: ""
+      keywords: "デッキ"
+      description:
+  
+  sessions:
+    new:
+      title: "ログイン"
+      keywords: "デッキ"
+      description: "デッキポストにログイン、新規登録。TCGのデッキを検索・投稿・共有しよう。気になる人をフォローしてつながろう。"
+  
+  static_pages:
+    top: 
+      title: ""
+      keywords: "デッキ TCG"
+      description: "TCGのデッキを検索・投稿・共有しよう。画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/プレメモ/まほエル/白猫)"
+    home:
+      title: "ホーム"
+      keywords: "デッキ TCG"
+      description: "TCGのデッキを検索・投稿・共有しよう。画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/プレメモ/まほエル/白猫)"
+    about:
+      title: "サイトについて"
+      keywords: "デッキ"
+      description:
+    contact:
+      title: "お問い合わせ"
+      keywords: "デッキ"
+      description:
+    d_post:
+      title: "デッキを投稿する"
+      keywords: "デッキ"
+      description:
+      
+  microposts:
+    search: 
+      title: "デッキ検索"
+      keywords: "デッキ"
+      description:
+    show: 
+      title: ""
+      keywords: "デッキ"
+      description:
+      
+  notifications:
+    index:
+      title: "通知"
+      keywords: "デッキ"
+      description: 
+  
+      
+    

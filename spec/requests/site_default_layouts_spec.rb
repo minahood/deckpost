@@ -9,7 +9,7 @@ RSpec.describe 'Site layout', type: :request do
       
       is_expected.to have_link 'サイトについて', href: about_path
       is_expected.to have_link 'お問い合わせ', href: contact_path
-      is_expected.to have_link '管理人ブログ', href: news_path
+      #is_expected.to have_link '管理人ブログ', href: news_path
     end
   end
 end

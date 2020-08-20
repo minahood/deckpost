@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand flex-wrap navbar-dark bg-dark flex-column flex-md-row">
-  <%= link_to "デッキポスト",top_path , data: {"turbolinks" => false}, class: "navbar-brand mr-1 mr-sm-4",id: "logo"%>
+  <%= link_to top_path , data: {"turbolinks" => false}, class: "navbar-brand mr-1 mr-sm-4",id: "logo" do %>
+    デッキポスト
+  <% end %>
   
 
   <div class="navbar-collapse flex-column flex-sm-row" id="Navber">
@@ -12,11 +14,18 @@
             <i class="fas fa-home mr-1"></i><span class= "">ホーム</span>
           <% end %>
         </li>
-        
+        <li class="nav-item mr-1">
+          <%= link_to({ controller: :microposts , action: :search, kind: current_user.favorite, sort: "hot_1day"} ,class: "nav-link", data: {"turbolinks" => false}) do %>
+            <i class="fab fa-hotjar"></i><span class= "">人気</span>
+          <% end %>
+        </li>
         <li class="nav-item dropdown mr-1">
           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bars mr-1"></i><span class= "" >案内</span>
           </a>
+          
+          
+          
           <div class="dropdown-menu adjust-left" aria-labelledby="navbarDropdown">
             <%= link_to(user_path(current_user),class: "dropdown-item", data: {"turbolinks" => false}) do %>
               <i class="fas fa-user mr-1"></i><span class= "" >マイページ</span>
@@ -33,9 +42,7 @@
               <i class="fas fa-user-edit mr-1"></i>ユーザー情報を編集
             <% end %>
  
-            <%= link_to(edit_pass_user_path(current_user),class: "dropdown-item") do %>
-              <i class="fas fa-cog mr-1"></i><span class= "" >設定</span>
-            <% end %>
+            
             <%= link_to(edit_pass_user_path(current_user),class: "dropdown-item") do %>
               <i class="fas fa-key mr-1"></i>パスワード変更
             <% end %>
@@ -45,6 +52,7 @@
             <% end %>
           </div>
         </li>
+        
         
         
         <li class="nav-item">
@@ -65,17 +73,23 @@
       <% end %>
       
       <% if !logged_in? %>
-        <li class="nav-item mr-1">
+        <li class="nav-item">
           <%= link_to(d_post_url,class: "nav-link") do %>
             <i class="far fa-edit mr-1"></i><span class= "">投稿する</span>
           <% end %>
         </li> 
         
-        <li class="nav-item mr-1">
+        <li class="nav-item">
           <%= link_to(login_path,class: "nav-link") do %>
             <i class="fas fa-user-plus mr-1"></i><span class= "" >ログイン/新規登録</span>
           <% end %>
         </li>
+        <li class="nav-item" >
+          <%= link_to about_path,class: "nav-link" do%>
+            <i class="fas fa-info-circle"></i>
+          <% end %>
+        </li>
+        
       <% end %>
     </ul>
     
