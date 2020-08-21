@@ -12,9 +12,12 @@
     
     <% if micropost.image? %>
       <div class="p-1">
+        
         <%= link_to micropost.image.url, 'data-lightbox': micropost.image do %>
           <%= image_tag micropost.image.url ,class: "post_index_image rounded border"  %>
         <% end %>
+        <p class="explanation"><%= micropost.content %></p>
+        
       </div>
     <% end %>
     

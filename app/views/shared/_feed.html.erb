@@ -5,4 +5,7 @@
   <div class="page_nav">
     <%= paginate @feed_items,window: 2 %>
   </div>
+<% else %>
+  
+  <p class="border-top mt-up-1">ここはタイムラインです。ユーザーのフォローやデッキの投稿をしてみましょう。</p>
 <% end %>

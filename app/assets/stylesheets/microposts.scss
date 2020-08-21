@@ -71,3 +71,12 @@ img{
 .micropost_content{
   font-size: 0.9rem;
 }
+
+.explanation{
+  margin-bottom: 0;
+  font-size: 90%;
+  color: #606060;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

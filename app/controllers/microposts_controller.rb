@@ -18,6 +18,7 @@ class MicropostsController < ApplicationController
       @page_title = "#{kind}" + "のデッキを検索"
     else
       @page_description = "デッキ検索-デッキポスト"
+      @page_title = "デッキを検索"
     end
       
   end

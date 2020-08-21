@@ -12,7 +12,8 @@
 <% set_meta_tags twitter: { card: "summary", site: "@deckpost_mina" } %>
 
 <%# favicon %>
-<% set_meta_tags icon: '/favicon.ico' %>
+<%# set_meta_tags icon: '/favicon.ico' %>
+<%= favicon_link_tag('favicon.ico') %>
 
 <%# Noindex/Nofollow %>
 <% if noindex? %>
