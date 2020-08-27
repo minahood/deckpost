@@ -1,0 +1,12 @@
+<% if @users.any? %>
+  <ul class="index mt-up-1">
+    <%= render @users %>
+  </ul>
+  <div class="page_nav">
+    <%= paginate @users, window: 2 %>
+  </div>
+<% else %>
+  <div class="border-top mt-up-1">
+    <p>各当するユーザーは存在しません</p>  
+  </div>
+<% end %>

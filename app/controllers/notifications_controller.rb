@@ -7,6 +7,8 @@ class NotificationsController < ApplicationController
     #current_userの投稿に紐づいた通知一覧
     @notifications = current_user.passive_notifications.includes(:visiter,:comment,:micropost).page(params[:page]).per_page(20)
     
+    @action = "notification"
+    render "shared/user_page"
   end
 
   def destroy_all

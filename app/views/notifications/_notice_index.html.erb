@@ -1,0 +1,16 @@
+<% if @notifications.any? %>
+  <ul class="index mt-up-1">
+    <%= render @notifications %>
+  </ul>
+  <div class="page_nav">
+    <%= paginate @notifications, window: 2 %>
+  </div>
+  <%= link_to destroy_all_notifications_path, method: :delete do %>
+    <i class="fas fa-trash" style="color: black;"></i>
+    <h7 style="color: black;">全削除</h7>
+  <% end %>
+<% else %>
+  <ul class="index mt-up-1">
+    <p>通知はありません</p>
+  </ul>
+<% end %>

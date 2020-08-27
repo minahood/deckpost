@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     
     @page_title = @user.name
     @page_description = @user.name + "の投稿"
+    
+    @action= "show"
+    render "shared/user_page"
   end
 
   def new
@@ -76,7 +79,10 @@ class UsersController < ApplicationController
     
     @page_title = @user.name + "のフォローリスト"
     @page_description = @user.name + "がフォロー中のユーザー"
-    render 'show_follow'
+    
+    @action= "following"
+    render "shared/user_page"
+    
   end
 
   def followers
@@ -87,7 +93,9 @@ class UsersController < ApplicationController
     
     @page_title = @user.name + "のフォロワーリスト"
     @page_description = @user.name + "のフォロワー一覧"
-    render 'show_follow'
+    
+    @action= "followers"
+    render "shared/user_page"
   end
   
   def bookmarks
@@ -97,6 +105,9 @@ class UsersController < ApplicationController
     
     @page_title = @user.name + "のお気に入り"
     @page_title = @user.name + "のお気に入り一覧"
+    
+    @action= "bookmarks"
+    render "shared/user_page"
   end
   
   def likes
@@ -106,6 +117,9 @@ class UsersController < ApplicationController
     
     @page_title = @user.name + "の高評価"
     @page_title = @user.name + "の高評価一覧"
+    
+    @action= "likes"
+    render "shared/user_page"
   end
 
   private

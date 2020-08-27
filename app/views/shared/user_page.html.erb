@@ -1,0 +1,46 @@
+<div class="row">
+  <%= render 'shared/user_form' %>
+  
+  <div class="col-md-8 col-lg-6">
+    <%= render 'shared/user_nav' %>
+    
+    <% case @action %>
+    <% when "home" then %>
+      <%= render 'shared/feed' %>
+    <% when "show","likes","bookmarks" then %>
+      <%= render 'users/post_index' , microposts: @microposts %>
+    <% when "notification" then %>
+      <%= render "notifications/notice_index" %>
+    <% when "following","followers" then %>
+      <%= render "users/follow_index" %>
+    <% else %>
+      
+    <% end %>
+  </div>
+  <div class="col-lg-2">
+    <%= render 'advertisement/ad_right' %>
+  </div>
+</div>
+
+<%= render "advertisement/amazon_tcg" %>
+
+
+<script type="text/javascript">
+  <% case @action %>
+  <% when "home" then  %>
+    $("#user_nav-link-home").addClass("active");
+  <% when "show" then %>
+    $("#user_nav-link-posts").addClass("active");
+  <% when "likes" then %>
+    $("#user_nav-link-likes").addClass("active");
+  <% when "bookmarks" then %>
+    $("#user_nav-link-bookmarks").addClass("active");
+  <% when "notification" then %>
+    $("#user_nav-link-notification").addClass("active");
+  <% when "following" then %>
+    $("#user_nav-link-following").addClass("active");
+  <% when "followers" then %>  
+    $("#user_nav-link-followers").addClass("active");
+  <% else %>
+  <% end %>
+</script>
