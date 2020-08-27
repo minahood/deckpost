@@ -13,7 +13,7 @@
       </span>
     </div>
     <div class="float-right">
-      <small>
+      <small class="">
         <% if logged_in? %>
           <% if current_user?(micropost.user) %>
             <%= link_to micropost, class: "post_dust", method: :delete, data: { confirm: "この投稿を削除しますか?" } do %>
@@ -22,16 +22,20 @@
           <% end %>
         <% end %>
       </small>  
-      <div class="d-inline">
-        <div class="d-inline pr-1"></div>
-        <i class="far fa-comment"></i><%=micropost.comments.count%>
-        <div class="d-inline pr-1"></div>
-        <%= render 'microposts/like_area', micropost: micropost %>
-        <div class="d-inline pr-1"></div>
-        <%= render 'microposts/bookmark_area', micropost: micropost %>
+      <div class="d-inline ">
+        <div class="d-inline pl-2">
+          <i class="far fa-comment mr-1"></i><%=micropost.comments.count%>  
+        </div>
+        
+        <div class="d-inline pl-2">
+          <%= render 'microposts/like_area', micropost: micropost %>  
+        </div>
+        
+        <div class="d-inline pl-2">
+          <%= render 'microposts/bookmark_area', micropost: micropost %>  
+        </div>
         
       </div>
-
       
     </div>
     <br style="clear:both;"/>

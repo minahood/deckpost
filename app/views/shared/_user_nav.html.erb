@@ -8,15 +8,65 @@
   <% end %>
   <li class="user_nav-item">
     <%= link_to user_url(@user) , class: "user_nav-link",id: "user_nav-link-posts" do %>
-      投稿(<%= @user.microposts.count%>)
+      投稿<small>(<%= @user.microposts.count%>)</small>
     <% end %>
   </li>
 
   <li class="user_nav-item">
-    <%= link_to bookmarks_user_url(@user), class: "user_nav-link",id: "user_nav-link-bookmarks" do %>
-      お気に入り
+    <%= link_to likes_user_url(@user), class: "user_nav-link",id: "user_nav-link-likes" do %>
+      <i class="fas fa-thumbs-up mr-1"></i><span class="d-none d-sm-inline"><small>いいね</small></span>
     <% end %>
   </li>
   
+  <li class="user_nav-item">
+    <%= link_to bookmarks_user_url(@user), class: "user_nav-link",id: "user_nav-link-bookmarks" do %>
+      <i class="fas fa-star mr-1"></i><span class="d-none d-sm-inline"><small>お気に入り</small></span>
+    <% end %>
+  </li>
+
+  <% if !browser.device.mobile? && current_user?(@user) || @notifications %>
+    <li class="user_nav-item">
+      <%= link_to notifications_path, class: "user_nav-link",id: "user_nav-link-notification" do %>
+        <i class="fas fa-bell mr-1"></i>
+        <small>通知
+          <% if unchecked_notifications.any? %>
+            <span class="">
+              (<%= current_user.passive_notifications.where(checked: false).count %>)  
+            </span>
+          <% end %>
+        </small>
+      <% end %>
+    </li>
+  <% end %>
+    
+  <% if @users && !browser.device.mobile? %>
+    <li class="user_nav-item">
+      <%= link_to following_user_url(@user), class: "user_nav-link",id: "user_nav-link-following" do %>
+        <span class="">フォロー中</span>
+      <% end %>
+    </li>
+    
+    <li class="user_nav-item">
+      <%= link_to followers_user_url(@user), class: "user_nav-link",id: "user_nav-link-followers" do %>
+        <span class="">フォロワー</span>
+      <% end %>
+    </li>
+  <% end %>
   
 </ul>
+
+<% if @users && browser.device.mobile? %>
+  <ul class="user_nav">
+    <li class="user_nav-item">
+      <%= link_to following_user_url(@user), class: "user_nav-link",id: "user_nav-link-following" do %>
+        <span class="">フォロー中</span>
+      <% end %>
+    </li>
+    
+    <li class="user_nav-item">
+      <%= link_to followers_user_url(@user), class: "user_nav-link",id: "user_nav-link-followers" do %>
+        <span class="">フォロワー</span>
+      <% end %>
+    </li>
+  </ul>  
+<% end %>

@@ -1,0 +1,22 @@
+$bookmark-color: #ffb000;
+
+.c-bookmark{
+  color: $bookmark-color !important;
+  
+}
+
+.c-hover-bookmark :hover{
+  color: $bookmark-color !important;
+  
+}
+
+$like-color: dodgerblue;
+
+.c-like{
+  color: $like-color !important;
+}
+
+.c-hover-like :hover{
+  color: $like-color !important;
+  
+}

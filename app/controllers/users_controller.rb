@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.page(params[:page]).per_page(10)
     
     @page_title = @user.name
+    @page_description = @user.name + "の投稿"
   end
 
   def new
@@ -71,8 +72,10 @@ class UsersController < ApplicationController
     @title = "フォロー中"
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per_page(50)
-    @page_title = @user.name + "のフォロー中ユーザー"
+    @micropost  = @user.microposts.build
     
+    @page_title = @user.name + "のフォローリスト"
+    @page_description = @user.name + "がフォロー中のユーザー"
     render 'show_follow'
   end
 
@@ -80,7 +83,10 @@ class UsersController < ApplicationController
     @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per_page(50)
-    @page_title = @user.name + "のフォロワー"
+    @micropost  = @user.microposts.build
+    
+    @page_title = @user.name + "のフォロワーリスト"
+    @page_description = @user.name + "のフォロワー一覧"
     render 'show_follow'
   end
   
@@ -88,13 +94,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @micropost  = @user.microposts.build
     @microposts = @user.bookmark_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
+    
     @page_title = @user.name + "のお気に入り"
+    @page_title = @user.name + "のお気に入り一覧"
   end
   
   def likes
     @user = User.find(params[:id])
     @micropost  = @user.microposts.build
     @microposts = @user.like_microposts.includes([:user,:comments]).page(params[:page]).per_page(10)
+    
+    @page_title = @user.name + "の高評価"
+    @page_title = @user.name + "の高評価一覧"
   end
 
   private

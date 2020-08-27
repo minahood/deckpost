@@ -1,5 +1,5 @@
 
 
-  <%= link_to micropost_bookmarks_path(micropost.id), method: :post, class: "post_func_link hover-success-color",remote: true do%>
+  <%= link_to micropost_bookmarks_path(micropost.id), method: :post, class: "post_func_link",remote: true do%>
     <i class="far fa-star"></i><%= micropost.bookmarks.count %>
   <% end %>    

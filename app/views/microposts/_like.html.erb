@@ -1,4 +1,4 @@
 
-  <%= link_to micropost_likes_path(micropost.id), method: :post, class: "post_func_link hover-success-color",remote: true do%>
+  <%= link_to micropost_likes_path(micropost.id), method: :post, class: "post_func_link",remote: true do%>
     <i class="far fa-thumbs-up"></i><%= micropost.likes.count %>
   <% end %>    

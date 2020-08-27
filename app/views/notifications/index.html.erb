@@ -1,19 +1,30 @@
+<div class="row">
+  <%= render 'shared/user_form' %>
+  <div class="col-md-8 col-lg-6">
+    <%= render 'shared/user_nav' %>
+    
+    <% if @notifications.any? %>
+      <ul class="index mt-up-1">
+        <%= render @notifications %>
+      </ul>
+      <div class="page_nav">
+        <%= paginate @notifications, window: 2 %>
+      </div>
+      <%= link_to destroy_all_notifications_path, method: :delete do %>
+        <i class="fas fa-trash" style="color: black;"></i>
+        <h7 style="color: black;">全削除</h7>
+      <% end %>
+    <% else %>
+      <ul class="index mt-up-1">
+        <p>通知はありません</p>
+      </ul>
+    <% end %>
+  </div>
+</div>
 
 
-<h3 class="text-center">通知</h3>
-  <%= link_to destroy_all_notifications_path, method: :delete do %>
-    <i class="fas fa-trash" style="color: black;"></i>
-    <h7 style="color: black;">全削除</h7>
-  <% end %>
+<script type="text/javascript">
+  $("#user_nav-link-notification").addClass("active");
+</script>
+    
 
-<% if @notifications.exists? %>
-  
-  <ul class="index mt-1">
-    <%= render @notifications %>
-  </ul>
-  
-  <%= paginate @notifications, window: 2 %>
-  
-<% else %>
-  <p>通知はありません</p>
-<% end %>

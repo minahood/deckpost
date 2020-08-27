@@ -26,11 +26,14 @@
           </div>
         <% end %>
         <div class="micropost_content">
-          
           <%= simple_format(text_url_to_link(@micropost.content)) %>
         </div>
         <%= render 'microposts/post_user_info',micropost: @micropost %>
+        <%= link_to "https://twitter.com/share?url=#{request.url}",class: "btn btn-sm btn-outline-primary mt-2", title: 'Twitter', target: '_blank' do %>
+          <i class="fas fa-share-alt mr-1"></i>Twitterで共有
+        <% end %>
       </div>
+      
       
       <div class="mb-4">
         <div class="pb-1">

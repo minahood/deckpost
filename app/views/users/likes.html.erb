@@ -1,14 +1,14 @@
  
+
 <div class="row">
   <%= render 'shared/user_form' %>
   
-  <div class=" col-md-8 col-lg-7">
+  <div class="col-md-8 col-lg-7">
     <%= render 'shared/user_nav' %>
-    
     <%= render 'users/post_index' , microposts: @microposts %>
   </div>
 </div>
 
 <script type="text/javascript">
-  $("#user_nav-link-bookmarks").addClass("active");
+  $("#user_nav-link-likes").addClass("active");
 </script>

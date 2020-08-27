@@ -24,8 +24,6 @@
             <i class="fas fa-bars mr-1"></i><span class= "" >案内</span>
           </a>
           
-          
-          
           <div class="dropdown-menu adjust-left" aria-labelledby="navbarDropdown">
             <%= link_to(user_path(current_user),class: "dropdown-item", data: {"turbolinks" => false}) do %>
               <i class="fas fa-user mr-1"></i><span class= "" >マイページ</span>
@@ -34,17 +32,17 @@
               <i class="fas fa-search mr-1"></i>ユーザーを検索
             <% end %>
             
-            
             <%= link_to(d_post_url,class: "dropdown-item") do %>
               <i class="fas fa-edit mr-1"></i><span class= "">デッキを投稿</span>
             <% end %>
             <%= link_to(edit_user_path(current_user) ,class: "dropdown-item") do %>
               <i class="fas fa-user-edit mr-1"></i>ユーザー情報を編集
             <% end %>
- 
-            
             <%= link_to(edit_pass_user_path(current_user),class: "dropdown-item") do %>
               <i class="fas fa-key mr-1"></i>パスワード変更
+            <% end %>
+            <%= link_to(bookmarks_user_url(current_user),class: "dropdown-item") do %>
+              <i class="fas fa-star mr-1"></i><span class="">お気に入り</span>
             <% end %>
             <div class="dropdown-divider"></div>
             <%= link_to logout_path,class: "dropdown-item", method: :delete do%>
@@ -53,11 +51,8 @@
           </div>
         </li>
         
-        
-        
         <li class="nav-item">
           <%= link_to notifications_path, class: "btn-default nav-link" do %>
-            
             <i class="fas fa-bell mr-1"></i>
             <% if unchecked_notifications.any? %>
               <div class="bg-info notice-count">
@@ -66,8 +61,6 @@
                 </span>
               </div>
             <% end %>
-            
-            
           <% end %>
         </li>
       <% end %>

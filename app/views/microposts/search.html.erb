@@ -1,17 +1,13 @@
-
-
 <div class ="row">
-  
   <div class="col col-md-3">
     <div class="d-none d-md-block">
-      <% if !browser.device.mobile? %>
-        <ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.com/js/banner_placement.js?affiliate_id=minajjjjj-002&banner_id=275_160_600"></script>
-      <% end %>
+      <%= render 'advertisement/search_left' %>
     </div>
   </div>
   
   <div class="col-md-6">
     <%= render 'shared/deck_search' %>
+    
     <% if @microposts.any? %>
       
       <ul class="index">
@@ -25,21 +21,12 @@
       <div>各当する投稿は見つかりません。</div>
     
     <% end %>
-  </div>
-  <div class="col ">
-    <div class="ad-mt">
-      <% if @search_kind == '3' || @search_kind == '7' %>
-        <a href="https://px.a8.net/svt/ejp?a8mat=3BK8OM+E68I7M+2QOI+1BQJA9" rel="nofollow">
-        <img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=200818678857&wid=001&eno=01&mid=s00000012789008018000&mc=1"></a>
-        <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3BK8OM+E68I7M+2QOI+1BQJA9" alt="">
-      <% else %>
-        
-      <% end %>
-    </div>
     
-      
+    
   </div>
-  
-
+  <div class="col col-md-3">
+    <%= render 'advertisement/ad_right' %> 
+  </div>
 </div>
 
+<%= render 'advertisement/amazon_tcg' %>

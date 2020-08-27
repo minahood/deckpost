@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
     @search_intention = params[:intention] 
     @search_sort = params[:sort] 
     
-    if @search_kind
+    if !@search_kind.blank?
       kind = deck_kind.key(@search_kind.to_i) #こうしないとなぜかkey()メソッド使えない
       
       @page_description = "#{kind}" + "のデッキを検索。TCGのデッキを検索・投稿・共有するSNS「デッキポスト」"
@@ -27,7 +27,9 @@ class MicropostsController < ApplicationController
     @micropost=Micropost.find(params[:id])
     @comments = @micropost.comments.includes([:user,:micropost])
     
-    @page_title = @micropost.title
+    @page_title = @micropost.title + " | デッキポスト"
+    @page_description = "投稿者:" + @micropost.user.name + " | 解説:" + @micropost.content if !@micropost.content.blank?
+    @page_image = @micropost.image.url
   end
   
   def post_form

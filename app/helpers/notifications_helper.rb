@@ -10,22 +10,23 @@ module NotificationsHelper
      
       when "bookmark" then
         tag.span(notification.visiter.name, style:"font-weight: bold;")+"が"+
-          tag.a('投稿「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
-          "をお気に入りに追加!("+tag.span(notification.micropost.bookmarks.count)+"人目)"
+          tag.a('「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
+          "をお気に入りに追加 ("+tag.span(notification.micropost.bookmarks.count)+"人目)"
       
       when "like" then
         tag.span(notification.visiter.name, style:"font-weight: bold;")+"が"+
-          tag.a('投稿「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
-          "がいいねしました!("+tag.span(notification.micropost.likes.count)+"人目)"
+          tag.a('「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
+          "にいいねしました ("+tag.span(notification.micropost.likes.count)+"人目)"
+          
       when "comment" then
         @comment = notification.comment
         tag.span(@visiter.name, style:"font-weight: bold;")+"が"+
-          tag.a('投稿「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
+          tag.a('「'+notification.micropost.title+'」', href:micropost_path(notification.micropost_id), style:"font-weight: bold; color:black;",class: "stretched-link")+
           "にコメントしました"
     end
   end
   
   def unchecked_notifications
-    @notifications = current_user.passive_notifications.where(checked: false)
+    @unchecked_notifications = current_user.passive_notifications.where(checked: false)
   end
 end

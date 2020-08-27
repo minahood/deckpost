@@ -45,9 +45,11 @@ module ApplicationHelper
     'FEサイファ'=> 15,
     'リセ'=> 16,
     'chaos'=> 17,
-    'プレメモ'=> 18,
-    'まほエル'=> 19,
-    '白猫'=> 20
+    'Reバース'=> 18,
+    'プレメモ'=> 19,
+    'まほエル'=> 20,
+    '白猫'=> 21
+    
     }
   end
   
@@ -110,5 +112,7 @@ module ApplicationHelper
   def noindex?
     false
   end
+  
+
   
 end
