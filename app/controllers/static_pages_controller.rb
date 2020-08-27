@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed.includes(:user).page(params[:page]).per_page(10)
       @home = true
     else
+      render "top"
     end
   end
 

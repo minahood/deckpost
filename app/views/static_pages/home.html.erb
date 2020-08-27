@@ -12,6 +12,10 @@
     </div>
   </div>
   
+  <%= render "advertisement/amazon_tcg" %>
+  <script type="text/javascript">
+    $("#user_nav-link-home").addClass("active");
+  </script>
 <% else %>
   <%= render 'shared/deck_search' %>
   
@@ -23,7 +27,5 @@
   <% end %> 
 <% end %>
 
-<script type="text/javascript">
-  $("#user_nav-link-home").addClass("active");
-</script>
+
     

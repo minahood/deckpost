@@ -8,9 +8,11 @@
   <% end %>
   <%= render 'shared/user_info' %>
   
-  <div class="my2">
-    <a href="https://px.a8.net/svt/ejp?a8mat=3BK8ON+2P1ODU+49ZW+639IP" rel="nofollow">
-    <img border="0" width="160" height="600" alt="" src="https://www20.a8.net/svt/bgt?aid=200818679163&wid=001&eno=01&mid=s00000019958001023000&mc=1"></a>
-    <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3BK8ON+2P1ODU+49ZW+639IP" alt="">  
-  </div>
+  <% if !browser.device.mobile? %>
+    <div class="my2">
+      <a href="https://px.a8.net/svt/ejp?a8mat=3BK8ON+2P1ODU+49ZW+639IP" rel="nofollow">
+      <img border="0" width="160" height="600" alt="" src="https://www20.a8.net/svt/bgt?aid=200818679163&wid=001&eno=01&mid=s00000019958001023000&mc=1"></a>
+      <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3BK8ON+2P1ODU+49ZW+639IP" alt="">  
+    </div>
+  <% end %>
 </aside>
