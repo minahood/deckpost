@@ -40,4 +40,6 @@
 yarn-debug.log*
 .yarn-integrity
 /public/uploads
+/public/sitemap.xml.gz
 /.env
+

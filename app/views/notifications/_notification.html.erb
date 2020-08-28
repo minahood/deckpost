@@ -1,9 +1,9 @@
 
 <% if notification.checked %>
   <li class="notification">
-    <div class="row">
+    <div class=" ">
       
-      <div class="col-1">
+      <div class="">
         <% if notification.action == "comment" %>
           <i class="fas fa-comment text-secondary"></i>
         <% elsif notification.action == "like" %>
@@ -12,10 +12,10 @@
           <i class="fas fa-star c-bookmark"></i>
         <% elsif notification.action == "follow" %>
           <i class="fas fa-user-friends text-info"></i>
-          
         <% end %>
+        <small class="float-right"><%= " #{time_ago_in_words(notification.created_at)}前" %></small>
       </div>
-      <div class="position-relative col-11">
+      <div class="position-relative ">
         <small>
           <%= notification_form(notification) %>
           <br>
@@ -25,7 +25,7 @@
             <small class="text-secondary"><%= simple_format(@comment.content) %></small>  
           </div>
         <% end %>
-        <small><%= " #{time_ago_in_words(notification.created_at)}前" %></small>
+        
       </div>
     </div>
   </li>

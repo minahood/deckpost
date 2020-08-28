@@ -29,6 +29,8 @@ gem 'browser'
 gem 'meta-tags'
 gem 'settingslogic'
 
+gem 'sitemap_generator'
+gem 'whenever', require: false
 
 group :production do
   gem 'pg', '1.1.4'

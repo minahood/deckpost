@@ -9,6 +9,7 @@
 
 li.micropost{
   border-bottom: 1px solid #dee2e6;
+  padding: 0.3rem;
   &:hover{
     background-color:#F5F5F0;
   }
@@ -52,6 +53,7 @@ li.micropost{
   position: relative;
   z-index: 2;
   color: black;
+  padding: 0.35rem 0.25rem;
   &:hover{
     color: black;
   }

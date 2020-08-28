@@ -1,5 +1,5 @@
 <li class="user">
-  <div class="p-1 position-relative">
+  <div class=" position-relative">
     <div class="">
       <%= link_to user.name, user,class:"user_link stretched-link font-weight-bold" %>  
       <%= render 'follow_button_index',{user: user} unless current_user?(user)%>

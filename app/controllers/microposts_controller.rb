@@ -24,7 +24,9 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @micropost=Micropost.find(params[:id])
+    @micropost=Micropost.find_by(id: params[:id])  #find使うとない時にエラーなるからfind_by
+    return redirect_to root_url if @micropost.nil? #showで削除したとき対策
+    
     @comments = @micropost.comments.includes([:user,:micropost])
     
     @page_title = @micropost.title + " | デッキポスト"

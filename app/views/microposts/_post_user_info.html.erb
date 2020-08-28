@@ -23,15 +23,15 @@
         <% end %>
       </small>  
       <div class="d-inline ">
-        <div class="d-inline pl-2">
+        <div class="d-inline ml-2 mr-1">
           <i class="far fa-comment mr-1"></i><%=micropost.comments.count%>  
         </div>
         
-        <div class="d-inline pl-2">
+        <div class="d-inline">
           <%= render 'microposts/like_area', micropost: micropost %>  
         </div>
         
-        <div class="d-inline pl-2">
+        <div class="d-inline">
           <%= render 'microposts/bookmark_area', micropost: micropost %>  
         </div>
         
