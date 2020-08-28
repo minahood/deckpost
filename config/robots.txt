@@ -1,1 +1,1 @@
-Sitemap: https://www.example.jp/sitemap.xml.gz
+Sitemap: https://www.deckpost.jp/sitemap.xml.gz
