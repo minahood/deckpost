@@ -16,13 +16,28 @@
       
       <%= f.label :login_id ,"ユーザーID"%><p class="bg-danger text-light">必須</p>
       <p class="">※半角英数で4～15文字</p>
-      <%= f.text_field :login_id,class: "bg-light form-control"  %>
+      <%= f.text_field :login_id,class: "bg-light form-control" %>
 
       <%= f.label :introduction, "自己紹介" %>
       <%= f.text_area :introduction ,class: "auto-resize form-control bg-light" %>
       
       <%= f.label :favorite, "お気に入りTCG" %>
       <%= f.select :favorite, deck_kind , {}, {class: 'bg-light mini_select '} %>
+      
+      <div class="mb-4">
+        <div>アイコン</div>
+        <div class="d-inline-block pr-2">
+          <%= render "users/icon" , icon_num: nil %>
+          <%= f.radio_button :icon,  nil,class: "radio_b"%>  
+        </div>
+        
+        <% (1..21).each do |n| %>
+          <div class="d-inline-block pr-2">
+            <%= render "users/icon" , icon_num: n %>
+            <%= f.radio_button :icon, n ,class: "radio_b"%>  
+          </div>
+        <% end %>
+      </div>
       
       <%= f.submit "保存", class: "btn btn-primary" %>
     <% end %>
