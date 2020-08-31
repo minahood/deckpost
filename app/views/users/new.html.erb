@@ -30,8 +30,17 @@
       <%= f.text_area :introduction ,class: "auto-resize bg-light form-control" %>
       
       <%= f.label :favorite, "お気に入りTCG" %><p class="">※(登録後変更可能)</p>
-      
       <%= f.select :favorite, deck_kind , {}, {class: 'bg-light intention_select'} %>
+      
+      <div class="mb-4">
+        <div>アイコン</div>
+        <% (1..31).each do |n| %>
+          <div class="d-inline-block pr-2">
+            <%= render "users/icon" , icon_num: n %>
+            <%= f.radio_button :icon, n ,class: "radio_b"%>  
+          </div>
+        <% end %>
+      </div>
       
       <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
       

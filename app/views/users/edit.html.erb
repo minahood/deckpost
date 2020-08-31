@@ -26,12 +26,8 @@
       
       <div class="mb-4">
         <div>アイコン</div>
-        <div class="d-inline-block pr-2">
-          <%= render "users/icon" , icon_num: nil %>
-          <%= f.radio_button :icon,  nil,class: "radio_b"%>  
-        </div>
         
-        <% (1..21).each do |n| %>
+        <% (1..31).each do |n| %>
           <div class="d-inline-block pr-2">
             <%= render "users/icon" , icon_num: n %>
             <%= f.radio_button :icon, n ,class: "radio_b"%>  

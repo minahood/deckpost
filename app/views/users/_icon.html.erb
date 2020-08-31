@@ -1,52 +1,77 @@
-<div class="d-inline c-purple"> 
-<% case icon_num %>
-<% when nil then %>
-  <i class="fas fa-user"></i>
-<% when 1 then %>
-  <i class="fas fa-user-secret"></i>
-<% when 2 then %>
-  <i class="fas fa-user-nurse"></i>
-<% when 3 then %>
-  <i class="fas fa-user-ninja"></i>
-<% when 4 then %>
-  <i class="fas fa-user-graduate"></i>
-<% when 5 then %>
-  <i class="fas fa-user-astronaut"></i>
-<% when 6 then %>
-  <i class="fas fa-user-tie"></i>  
-<% when 7 then %>
-  <i class="fas fa-ghost"></i>
-<% when 8 then %>
-  <i class="fas fa-skull"></i>
-<% when 9 then %>
-  <i class="fas fa-peace"></i>
-<% when 10 then %>
-  <i class="fas fa-cat"></i>
-<% when 11 then %>
-  <i class="fas fa-paw"></i>
-<% when 12 then %>
-  <i class="fas fa-dragon"></i>
-<% when 13 then %>
-  <i class="fas fa-spider"></i>
-<% when 14 then %>
-  <i class="fas fa-anchor"></i>
-<% when 15 then %>
-  <i class="fas fa-cannabis"></i>
-<% when 16 then %>
-  <i class="fab fa-canadian-maple-leaf"></i>
-<% when 17 then %>
-  <i class="fas fa-star-of-david"></i>
-<% when 18 then %>
-  <i class="fas fa-star-and-crescent"></i>
-<% when 19 then %>
-  <i class="fas fa-sun"></i>
-<% when 20 then %>
-  <i class="fas fa-yin-yang"></i>
-<% when 21 then %>
-  <i class="fas fa-poo"></i>
-<% end %>
 
-</div>
+<%= content_tag(:div,class: "d-inline ", style: "color:##{004400}") do %>
+  <% case icon_num %>
+  <% when 1 then %>
+    <i class="fas fa-user"></i>
+  <% when 2 then %>
+    <i class="fas fa-user-secret"></i>
+    
+  <% when 3 then %>
+    <i class="fas fa-user-tie"></i>
+    
+  <% when 4 then %>
+    <i class="fas fa-user-graduate"></i>
+  <% when 5 then %>
+    <i class="fas fa-user-astronaut"></i>
+  <% when 6 then %>
+    <i class="fas fa-graduation-cap"></i>  
+  <% when 7 then %>
+    <i class="fas fa-carrot"></i>
+    
+  <% when 8 then %>
+    <i class="fas fa-skull"></i>
+  <% when 9 then %>
+    <i class="fas fa-fish"></i>
+    
+  <% when 10 then %>
+    <i class="fas fa-cat"></i>
+  <% when 11 then %>
+    <i class="fas fa-paw"></i>
+  <% when 12 then %>
+    <i class="fas fa-dragon"></i>
+  <% when 13 then %>
+    <i class="fas fa-frog"></i>
+  <% when 14 then %>
+    <i class="fas fa-crow"></i>
+    
+  <% when 15 then %>
+    <i class="fas fa-cannabis"></i>
+  <% when 16 then %>
+    <i class="fab fa-canadian-maple-leaf"></i>
+  <% when 17 then %>
+    <i class="fas fa-star-of-david"></i>
+  <% when 18 then %>
+    <i class="fas fa-star-and-crescent"></i>
+  <% when 19 then %>
+    <i class="fas fa-anchor"></i>
+  <% when 20 then %>
+    <i class="fas fa-yin-yang"></i>
+  <% when 21 then %>
+    <i class="fas fa-poo"></i>
+  <% when 22 then %>  
+    <i class="fas fa-fan"></i>
+  <% when 23 then %>    
+    <i class="fas fa-feather"></i>
+  <% when 24 then %>
+    <i class="fas fa-fighter-jet"></i>
+  <% when 25 then %>
+    <i class="fas fa-feather-alt"></i>
+  <% when 26 then %>
+    <i class="fas fa-broom"></i>
+  <% when 27 then %>
+    <i class="fas fa-burn"></i>
+  <% when 28 then %>
+    <i class="fab fa-ethereum"></i>
+    
+  <% when 29 then %>
+    <i class="fas fa-peace"></i>
+  <% when 30 then %>  
+    
+    <i class="fas fa-sun"></i>
+  <% when 31 then %>  
+    <i class="fas fa-moon"></i>
+  <% end %>
+<% end %>  
 
 
 

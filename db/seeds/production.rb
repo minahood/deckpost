@@ -17,6 +17,6 @@ User.create!(name:  "mina",
 
 User.create!(name:  "guest",
     login_id: "guest",
-    password:              "guestuser0000",
-    password_confirmation: "guestuser0000",
+    password:              ENV["GUEST_USER_KEY"],
+    password_confirmation: ENV["GUEST_USER_KEY"],
 )
