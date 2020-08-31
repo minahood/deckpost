@@ -1,5 +1,5 @@
 
-<%= content_tag(:div,class: "d-inline ", style: "color:##{004400}") do %>
+<%= content_tag(:div,class: "d-inline", style: "color:#{"#00000"}") do %>
   <% case icon_num %>
   <% when 1 then %>
     <i class="fas fa-user"></i>
@@ -27,6 +27,7 @@
     <i class="fas fa-cat"></i>
   <% when 11 then %>
     <i class="fas fa-paw"></i>
+    
   <% when 12 then %>
     <i class="fas fa-dragon"></i>
   <% when 13 then %>
@@ -69,7 +70,17 @@
     
     <i class="fas fa-sun"></i>
   <% when 31 then %>  
+    
     <i class="fas fa-moon"></i>
+  <% when 32 then %>    
+    <i class="fab fa-superpowers"></i>
+  <% when 33 then %>      
+    <i class="fab fa-sketch"></i>
+  <% when 34 then %>
+    <i class="fas fa-bomb"></i>
+  
+  <% else %>
+    <i class="fas fa-user"></i>
   <% end %>
 <% end %>  
 

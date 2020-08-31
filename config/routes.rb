@@ -14,14 +14,12 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get '/microposts',to:'static_pages#home'
-  get "/microposts/search",to:'microposts#search'
+  #get "/microposts/search",to:'microposts#search'
   get "/d_post",to: 'static_pages#d_post'
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  
-
   
   resources :users do
     member do 
@@ -29,19 +27,18 @@ Rails.application.routes.draw do
       get :following, :followers
       get :bookmarks
       get :likes
-
     end
   end
   
   resources :microposts,only: [:show,:create, :destroy] do
     collection do
       post :post_form
+      get :search
     end
   end
   
   resources :comments , only: [:create,:destroy] 
     
-  
   resources :relationships, only: [:create, :destroy] do
     member do
       delete :destroy_at_index
@@ -56,7 +53,6 @@ Rails.application.routes.draw do
     resource :bookmarks, only: %i[create destroy]
     resource :likes, only: %i[create destroy]
   end
-  
   
   #asでrootとpath名を指名できる
   

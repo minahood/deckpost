@@ -88,7 +88,7 @@
     
 
     
-    <%= form_with url: microposts_search_url, method: :get, local: true ,class: "form-inline my-2 my-md-0" do |f| %>
+    <%= form_with url: search_microposts_url, method: :get, local: true ,class: "form-inline my-2 my-md-0" do |f| %>
       <%= f.hidden_field :kind ,value: current_user.favorite if logged_in? %>
       <%= f.hidden_field :sort ,value: "new" %>
       

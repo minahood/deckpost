@@ -1,7 +1,7 @@
     <div class="search_form">
       <p>検索条件</p>
       
-      <%= form_with(url: microposts_search_path, method: :get, local: true) do |f| %>
+      <%= form_with(url: search_microposts_path, method: :get, local: true) do |f| %>
         <%= render 'shared/deck_kind', {f: f,search_kind: @search_kind} %>
         <br>
         <%= render 'shared/deck_intention', {f: f,search_intention: @search_intention} %>
