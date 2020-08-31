@@ -5,7 +5,7 @@ defaults: &defaults
       ogp:
         app_id: Facebook App ID
         type: article
-        image_path: /images/og-image.png
+        image_path: og-image.png
         
 development:
   <<: *defaults
