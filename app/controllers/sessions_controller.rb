@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       #redirect_back_or user
-      redirect_to root_url
+      redirect_to user
     else
       flash.now[:danger] = 'ユーザーIDまたはパスワードが正しくありません。'
       render 'new'

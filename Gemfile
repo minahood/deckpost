@@ -26,6 +26,7 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'browser'
+
 gem 'meta-tags'
 gem 'settingslogic'
 

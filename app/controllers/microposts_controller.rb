@@ -63,7 +63,7 @@ class MicropostsController < ApplicationController
         @micropost = User.find_by(login_id: "guest").microposts.build(micropost_params)
         if @micropost.save
           flash[:success] = "投稿に成功しました!"
-          redirect_to microposts_search_url
+          redirect_to search_microposts_url
         else
           render 'static_pages/d_post'
         end
