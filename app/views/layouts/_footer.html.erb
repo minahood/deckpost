@@ -1,21 +1,24 @@
 <footer class="footer">
-  
-  <small>
-    下記は当サイト独自の著作権を示すものです。<br>© 2020 mina.
-  </small>
-  <nav>
-    <ul>
-      <li>
-        <%= link_to about_path do%>
-          <i class="fas fa-info-circle"></i>サイトについて
-        <% end %>
-      </li>
-      <li>
-        <%= link_to contact_path do %>
-          <i class="fas fa-envelope"></i>お問い合わせ
-        <% end %>
-      </li>
-      <li><%= link_to user_path(2) do %><i class="fas fa-blog"></i>管理人ブログ<% end %></li>
-    </ul>
-  </nav>
+  <div> 
+    <small>
+      デッキポスト © 2020 mina.
+    </small>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to about_path do%>
+            <i class="fas fa-info-circle"></i>サイトについて
+          <% end %>
+        </li>
+        <li>
+          <%= link_to contact_path do %>
+            <i class="fas fa-envelope"></i>お問い合わせ
+          <% end %>
+        </li>
+        <li><%= link_to user_path(2) do %><i class="fas fa-blog"></i>管理人ブログ<% end %></li>
+        <li><%= link_to "https://twitter.com/deckpost_mina", target: :_blank do %><i class="fab fa-twitter"></i>Twitter<% end %></li>
+      </ul>
+    </nav>
+  </div>
+
 </footer>

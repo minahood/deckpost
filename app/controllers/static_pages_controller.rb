@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
       @user=current_user
       @search_kind = current_user.favorite
     end
-    @page_image = "og-image/png"
+    
   end
 
   def help

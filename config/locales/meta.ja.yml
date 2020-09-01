@@ -45,29 +45,29 @@ ja:
   
   static_pages:
     top: 
-      title: "トップ | デッキポスト"
+      title: "top"
       keywords: "デッキ TCG"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     home:
-      title: "ホーム | デッキポスト"
+      title: "ホーム"
       keywords: "デッキ TCG"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     about:
-      title: "サイトについて | デッキポスト"
+      title: "サイトについて"
       keywords: "デッキ"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     contact:
-      title: "お問い合わせ | デッキポスト"
+      title: "お問い合わせ"
       keywords: "デッキ"
       description: "デッキポスト お問い合わせ"
     d_post:
-      title: "デッキを投稿する  | デッキポスト"
+      title: "デッキを投稿する"
       keywords: "デッキ"
       description: "デッキポスト投稿フォーム"
       
   microposts:
     search: 
-      title: "デッキ検索  | デッキポスト"
+      title: "デッキ検索"
       keywords: "デッキ"
       description: 
     show: 

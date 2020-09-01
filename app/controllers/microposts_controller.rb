@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
     if !@search_kind.blank?
       kind = deck_kind.key(@search_kind.to_i) #こうしないとなぜかkey()メソッド使えない
       
-      @page_description = "#{kind}" + "のデッキを検索。TCGのデッキを検索・投稿・共有するSNS「デッキポスト」"
+      @page_description = "#{kind}" + "のデッキを検索。TCGのデッキを検索・投稿・共有する「デッキポスト」"
       @page_title = "#{kind}" + "のデッキを検索"
     else
       @page_description = "デッキ検索-デッキポスト"
