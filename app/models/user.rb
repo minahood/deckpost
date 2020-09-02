@@ -98,11 +98,17 @@ class User < ApplicationRecord
     bookmark_microposts.include?(micropost)
   end
   
-  def self.user_search(word,login_id)
-    return User.all if word.blank? && login_id.blank?
-    return User.where(['name LIKE ?', "%#{word}%"]) if login_id.blank?
-    return User.where(['login_id LIKE ?', "%#{login_id}%"]) if word.blank?
-    User.where(['name LIKE ?', "%#{word}%"]).where(login_id: login_id)
+  def self.user_search(word,login_id,fav)
+    if fav.blank?
+      return User.all if word.blank? && login_id.blank?
+      return User.where(['name LIKE ?', "%#{word}%"]) if login_id.blank?
+      return User.where(['login_id LIKE ?', "%#{login_id}%"]) if word.blank?
+      User.where(['name LIKE ?', "%#{word}%"]).where(['login_id LIKE ?', "%#{login_id}%"])
+    else
+      return User.where(favorite: fav).where(['name LIKE ?', "%#{word}%"]) if login_id.blank?
+      return User.where(favorite: fav).where(['login_id LIKE ?', "%#{login_id}%"]) if word.blank?
+      User.where(favorite: fav).where(['name LIKE ?', "%#{word}%"]).where(['login_id LIKE ?', "%#{login_id}%"])
+    end
   end
   
    #フォロー時の通知

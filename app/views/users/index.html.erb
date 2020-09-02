@@ -15,6 +15,9 @@
         <%= f.label :login_id ,"ユーザーID" %>
         <%= f.text_field :login_id, placeholder: "ユーザーIDを入力...",class: "mini-select",value: @login_id%>
         <br>
+        <%= f.label :favorite ,"お気に入りTCG" %>
+        <%= f.select :favorite, deck_kind , {selected: @favorite}, {class: 'kind_select'} %>
+        <br>
         <%= f.submit "検索", class: "mb-2 ml-13" %>
         
         <%= button_tag type: 'submit', class: "d-none" do %>

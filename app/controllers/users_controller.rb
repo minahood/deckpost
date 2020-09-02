@@ -59,9 +59,10 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.user_search(params[:word],params[:login_id]).page(params[:page]).per_page(50)
+    @users = User.user_search(params[:word],params[:login_id],params[:favorite]).page(params[:page]).per_page(50)
     @word = params[:word]
     @login_id = params[:login_id]
+    @favorite = params[:favorite]
     @current_user_follow_user = current_user.following
   end
   

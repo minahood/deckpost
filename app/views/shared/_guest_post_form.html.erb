@@ -26,6 +26,7 @@
       <%= f.label :image,class: "btn btn-sm image_select_btn" do %>
         <i class="far fa-image mr-1"></i>画像を選択
       <% end %>
+      <small class="text-secondary"> 1枚のみ。画像の編集・合成：<%= link_to "こちら","https://www.peko-step.com/tool/combine-images.html",target: "_blank" %></small>
       <%= f.file_field :image,class:"d-none",accept: "image/jpeg,image/png,image/bmp",onchange: "previewFile()" %>
       
       <img src="" class="post_image rounded border" alt=""> <!-- プレビューの表示枠を用意 -->  

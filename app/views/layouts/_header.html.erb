@@ -41,9 +41,7 @@
             <%= link_to(edit_pass_user_path(current_user),class: "dropdown-item") do %>
               <i class="fas fa-key mr-1"></i>パスワード変更
             <% end %>
-            <%= link_to(bookmarks_user_url(current_user),class: "dropdown-item") do %>
-              <i class="fas fa-star mr-1"></i><span class="">お気に入り</span>
-            <% end %>
+            
             <div class="dropdown-divider"></div>
             <%= link_to logout_path,class: "dropdown-item", method: :delete do%>
               <i class="fas fa-sign-out-alt mr-1"></i>ログアウト
