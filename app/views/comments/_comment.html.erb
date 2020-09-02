@@ -12,7 +12,7 @@
       <small class= "mr-1"><%= time_ago_in_words(comment.created_at) %>前</small>
     </div>
     <% if logged_in? %>
-      <% if current_user.admin? || current_user?(comment.user) %>
+      <% if current_user.admin? || current_user?(@micropost.user) %>
       
         <%= link_to comment_path(comment.id), class: "float-right",method: :delete,
                                     data: { confirm: "コメントを削除しますか?" } do %>

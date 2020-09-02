@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
     redirect_to micropost_path(micropost)
   end
   
+  
   private
   def comment_params
     params.permit(:content,:micropost_id)

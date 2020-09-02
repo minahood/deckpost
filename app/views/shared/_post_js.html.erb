@@ -1,7 +1,5 @@
 <script type="text/javascript">
 
-
-
 $("#micropost_image").bind("change", function() {
   var size_in_megabytes = this.files[0].size/1024/1024;
   if (size_in_megabytes > 5) {
@@ -60,7 +58,12 @@ $(function (){
     $(".js-textarea_counter").text( "残り" + now_count + "文字");
   });
   
- 
+  var $textarea = $('#textarea');
+  var lineHeight = parseInt($textarea.css('lineHeight'));
+  $textarea.on('input', function(e) {
+    var lines = ($(this).val() + '\n').match(/\n/g).length;
+    $(this).height(lineHeight * lines);
+  });
 
 });
 
