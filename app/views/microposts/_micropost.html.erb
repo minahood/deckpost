@@ -1,4 +1,4 @@
-<li class="micropost " id="micropost-<%= micropost.id %>">
+<li class="micropost p-md-2" id="micropost-<%= micropost.id %>">
   <div class="post_i_content">
     <div>
       <%= link_to micropost.title,micropost_path(micropost), data: {"turbolinks" => false} ,class: "post_link stretched-link font-weight-bold" %> 
@@ -10,15 +10,30 @@
     </div>
     
     
-    <div class="p-1">
+    <div class="p-1" style= "">
       <% if micropost.image? %> 
-        <%= link_to micropost.image.url, 'data-lightbox': micropost.image do %>
-          <%= image_tag micropost.image.url ,class: "post_index_image rounded border"  %>
+        <%= link_to micropost.image.url, 'data-lightbox': micropost.image  do %>
+          <% if micropost.image? && micropost.image2? %>
+              <%= image_tag micropost.image.url ,class: "post_index_image_twin rounded border"  %>    
+          <% else %>
+              <%= image_tag micropost.image.url ,class: "post_index_image rounded border"  %>
+          <% end %>
         <% end %>
         
       <% end %>  
-      <p class="explanation"><%= micropost.content %></p>
+      <% if micropost.image2? %> 
+        <%= link_to micropost.image2.url, 'data-lightbox': micropost.image2 do %>
+          <% if micropost.image? && micropost.image2? %>
+              <%= image_tag micropost.image2.url ,class: "post_index_image_twin rounded border"  %>
+          <% else %>
+            <%= image_tag micropost.image2.url ,class: "post_index_image rounded border"  %>
+          <% end %>
+          
+        <% end %>
+      <% end %>  
+      <p class="explanation"><%= micropost.content %></p>  
     </div>
+    
     <%= render 'microposts/post_user_info',micropost: micropost %>
 
   </div>

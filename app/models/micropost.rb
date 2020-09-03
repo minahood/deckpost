@@ -7,6 +7,7 @@ class Micropost < ApplicationRecord
   has_many :like_users,through: :likes,source: :user
   
   mount_uploader :image, ImageUploader
+  mount_uploader :image2, ImageUploader
   
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true  

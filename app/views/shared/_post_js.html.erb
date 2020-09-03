@@ -12,19 +12,92 @@ var recaptchaCallbackFunction = function() { //コールバック関数の定義
   $("#p_form_btn").prop("disabled", false);
 };
 
-function previewFile() {
-  var preview = document.querySelector('img');//どこでプレビューするか指定。'img[name="preview"]'などにすればimg複数あっても指定できます。
-  var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
-  var reader  = new FileReader();
 
-  reader.addEventListener("load", function () {
-    preview.src = reader.result;//めちゃめちゃ長い文字列が引き渡されます。ユーザーのファイルパスに紐付かない画像情報だと思います。
-  }, false);
 
-  if (file) {
-    reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
-  }
-}
+$(function(){
+  //querySelectorでfile_fieldを取得
+  var file_field = document.querySelector('input[type=file]')
+  //fileが選択された時に発火するイベント
+  $('.img-file-1').change(function(){
+    //選択したfileのオブジェクトをpropで取得
+    var file = $('input[type="file"]').prop('files')[0];
+    //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
+    var fileReader = new FileReader();
+    //読み込みが完了すると、srcにfileのURLを格納
+    fileReader.onloadend = function() {
+      var src = fileReader.result
+      var html= 
+      `
+      <div>
+        <div>
+          
+          <img src="${src}" class="rounded border post-img" id="img-1">
+          <div class="img-delete d-inline" id="img-delete-1">
+            <i class="fas fa-times-circle"></i>
+          </div>
+        </div>
+      </div>
+      `
+      
+      var target_image = $('#img-delete-1').parent().parent()
+      target_image.remove();
+      //要素の前にhtmlを差し込む
+      $('div#image-1').before(html);
+      $('#form-img-2').removeClass("d-none");
+      
+    }
+    fileReader.readAsDataURL(file);
+  });
+  
+  $('.img-file-2').change(function(){
+    //選択したfileのオブジェクトをpropで取得
+    var file = $('input[type="file"].img-file-2').prop('files')[0];
+    //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
+    var fileReader = new FileReader();
+    //読み込みが完了すると、srcにfileのURLを格納
+    fileReader.onloadend = function() {
+      var src = fileReader.result
+      var html= 
+      `
+      <div>
+        <div>
+          <img src="${src}" class="rounded border post-img" id="img-2">
+          <div class="img-delete d-inline" id="img-delete-2">
+            <i class="fas fa-times-circle"></i>
+          </div>  
+        </div>
+      </div>
+      `
+      
+      var target_image = $('#img-delete-2').parent().parent()
+      target_image.remove();
+      //要素の前にhtmlを差し込む
+      $('div#image-2').before(html);
+    }
+    fileReader.readAsDataURL(file);
+  });
+  
+  $(document).on("click", '#img-delete-1', function(){
+  //プレビュー要素を取得
+  var target_image = $(this).parent().parent()
+  //プレビューを削除
+  target_image.remove();
+  //inputタグに入ったファイルを削除
+  $('input[type=file].img-file-1').val('');
+  })
+  
+  $(document).on("click", '#img-delete-2', function(){
+  //プレビュー要素を取得
+  var target_image = $(this).parent().parent()
+  //プレビューを削除
+  target_image.remove();
+  //inputタグに入ったファイルを削除
+  $('input[type=file].img-file-2').val('');
+  })
+});
+
+
+
 
 // jquery書きはじめ
 $(function (){

@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
     
     @comments = @micropost.comments.includes([:user,:micropost])
     
-    @page_title = @micropost.title + " | デッキポスト"
+    @page_title = @micropost.title 
     @page_description = "投稿者:" + @micropost.user.name + " | 解説:" + @micropost.content if !@micropost.content.blank?
     @page_image = @micropost.image.url
   end
@@ -80,7 +80,7 @@ class MicropostsController < ApplicationController
 
   private
     def micropost_params
-      params.require(:micropost).permit(:content, :image, :title,:kind,:intention)
+      params.require(:micropost).permit(:content, :image,:image2, :title,:kind,:intention)
     end
     
     def correct_user

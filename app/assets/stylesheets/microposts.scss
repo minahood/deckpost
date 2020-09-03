@@ -27,10 +27,18 @@ li.micropost{
   }
   img{
     &.post_index_image{
-      max-height: 150px;
-      max-width: 300px;
+      height: 200px;
+      width: 300px;
       position: relative;
       z-index: 2;
+      object-fit: cover;
+    }
+    &.post_index_image_twin{
+      height: 200px;
+      width: 49%;
+      position: relative;
+      z-index: 2;
+      object-fit: cover;
     }
   }
   list-style: none;

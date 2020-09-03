@@ -25,6 +25,13 @@
             <% end %>
           </div>
         <% end %>
+        <% if @micropost.image2? %>
+          <div class="py-1">
+            <%= link_to @micropost.image2.url do %>
+              <%= image_tag @micropost.image2.url ,class: "post_show_image rounded"%>
+            <% end %>
+          </div>
+        <% end %>
         <div class="micropost_content">
           <%= simple_format(text_url_to_link(@micropost.content)) %>
         </div>

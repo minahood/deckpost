@@ -82,3 +82,19 @@
     border-color: #6c757d;
   }
 }
+
+.img-delete{
+  cursor: pointer;
+  
+  color: #606060;
+  &:hover{
+    color: black !important;
+  }
+}
+
+.post-img{
+  margin: 0 0 0.5rem 0;
+  max-height: 200px;
+  max-width: 95%;
+}
+
