@@ -1,5 +1,7 @@
 # Set the host name for URL creation
+
 SitemapGenerator::Sitemap.default_host = "https://www.deckpost.jp"
+SitemapGenerator::Sitemap.public_path = 'public/'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -18,7 +20,13 @@ SitemapGenerator::Sitemap.create do
   #  Add '/articles'
   
   #  add articles_path, :priority => 0.7, :changefreq => 'daily'
-  add root_path, :priority => 1, :changefreq => 'daily'
+  add "/top", :priority => 0.7, :changefreq => 'daily'
+  add root_path, :priority => 0.7, :changefreq => 'daily'
+  
+  microposts = Micropost.all
+  microposts.each do |post|
+    add micropost_path(post), :lastmod => post.updated_at
+  end
   #
   #  Add all articles:
   #
