@@ -39,29 +39,29 @@ ja:
   
   sessions:
     new:
-      title: "ログイン | デッキポスト"
+      title: "ログイン"
       keywords: "デッキ"
       description: "デッキポストにログイン、新規登録。TCGのデッキを検索・投稿・共有しよう。気になる人をフォローしてつながろう。"
   
   static_pages:
     top: 
-      title: "top | デッキポスト"
+      title: "top"
       keywords: "デッキ TCG"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     home:
-      title: "ホーム | デッキポスト"
+      title: "ホーム"
       keywords: "デッキ TCG"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     about:
-      title: "サイトについて | デッキポスト"
+      title: "サイトについて"
       keywords: "デッキ"
       description: "デッキポストでTCGのデッキを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/バディファイト/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/まほエル/白猫)"
     contact:
-      title: "お問い合わせ | デッキポスト"
+      title: "お問い合わせ"
       keywords: "デッキ"
       description: "デッキポスト お問い合わせ"
     d_post:
-      title: "デッキを投稿する | デッキポスト"
+      title: "デッキを投稿する"
       keywords: "デッキ"
       description: "デッキポスト投稿フォーム"
       
@@ -77,7 +77,7 @@ ja:
       
   notifications:
     index:
-      title: "通知 | デッキポスト"
+      title: "通知"
       keywords: "デッキ"
       description: "デッキポスト通知"
   

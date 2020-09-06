@@ -15,7 +15,7 @@
           <% end %>
         </li>
         <li class="nav-item mr-1">
-          <%= link_to({ controller: :microposts , action: :search, kind: current_user.favorite, sort: "hot_1day"} ,class: "nav-link", data: {"turbolinks" => false}) do %>
+          <%= link_to({ controller: :microposts , action: :search, kind: current_user.favorite, sort: "hot_1week"} ,class: "nav-link", data: {"turbolinks" => false}) do %>
             <i class="fab fa-hotjar"></i><span class= "">人気</span>
           <% end %>
         </li>
