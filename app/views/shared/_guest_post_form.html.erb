@@ -44,6 +44,7 @@
     <% if logged_in? %>
       <div>
         <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: false %>  
+        <small>(投稿の処理に数秒かかります)</small>
       </div>
       
     <% else %>
@@ -51,6 +52,7 @@
       <div>
         <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: true %>  
       </div>
+      <small>(投稿の処理に数秒かかります)</small>
       
     <% end %>
    

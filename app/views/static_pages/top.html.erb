@@ -5,9 +5,16 @@
       <p class ="mt-2 mb-0">簡易検索</p>
       <% deck_kind.each do |tcg_name,num| %>
         <% if num != nil %> 
-          <%= link_to tcg_name,{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
+          <%= link_to tcg_name +"(" + "#{Micropost.where(kind: num).count}" + ")",{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
         <% end %>
       <% end %> 
+      <div class="mt-2">
+        <p class ="my-1">最新の投稿</p>
+        <ul class="recent-post index">
+          <%= render @recent_posts %>
+        </ul>
+      </div>
+      
       <%= render 'advertisement/yuyutei' %>
     </div>
   </div>
