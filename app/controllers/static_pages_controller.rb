@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
       @action = "home"
       render "shared/user_page"
     else
+      @micropost_all = Micropost.all
       @recent_posts=Micropost.order(:desc).limit(5)
       render "top"
     end
@@ -16,10 +17,10 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user=current_user
       @search_kind = current_user.favorite
+      @micropost_all = Micropost.all
       @recent_posts=Micropost.where(kind: @search_kind).limit(5)
-      
-      
     else
+      @micropost_all = Micropost.all
       @recent_posts=Micropost.order(:desc).limit(5)
     end
     
