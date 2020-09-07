@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
       render "shared/user_page"
     else
       @micropost_all = Micropost.all
-      @recent_posts=Micropost.order(:desc).limit(5)
+      @recent_posts=Micropost.order(id: :DESC).limit(5)
       render "top"
     end
   end
@@ -21,7 +21,7 @@ class StaticPagesController < ApplicationController
       @recent_posts=Micropost.where(kind: @search_kind).limit(5)
     else
       @micropost_all = Micropost.all
-      @recent_posts=Micropost.order(:desc).limit(5)
+      @recent_posts=Micropost.order(id: :DESC).limit(5)
     end
     
   end
