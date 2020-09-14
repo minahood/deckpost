@@ -48,16 +48,15 @@
       </div>
       
     <% else %>
+      <div><small>(ログインして投稿する場合、ロボット防止判定はありません)</small></div>
       <%= recaptcha_tags callback: 'recaptchaCallbackFunction' %>
+    
       <div>
         <%= f.submit "投稿する",id: "p_form_btn",  class: "btn btn-sm btn-primary form-control",disabled: true %>  
+        <small>(投稿の処理に数秒かかります)</small>
       </div>
-      <small>(投稿の処理に数秒かかります)</small>
       
     <% end %>
-   
-
-    
   <% end %>
   
 <%= render 'shared/post_js' %>

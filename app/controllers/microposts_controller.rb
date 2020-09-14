@@ -10,17 +10,50 @@ class MicropostsController < ApplicationController
     @search_kind = params[:kind]
     @search_intention = params[:intention] 
     @search_sort = params[:sort] 
-    
-    if !@search_kind.blank?
-      kind = deck_kind.key(@search_kind.to_i) #こうしないとなぜかkey()メソッド使えない
-      
-      @page_description = "#{kind}" + "のデッキを検索。TCGのデッキを検索・投稿・共有するSNS「デッキポスト」"
+     
+    case @search_kind 
+    when "4" then
+      kind = "遊戯王デュエルリンクス"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "5" then
+      kind = "遊戯王ラッシュデュエル"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"  
+    when "6" then 
+      kind = "ポケモンカード(ポケカ)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "8" then 
+      kind = "ヴァイスシュヴァルツ(ヴァイス)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "10" then
+      kind = "バトルスピリッツ(バトスピ)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "11" then 
+      kind = "デジモンカード(デジカ)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "12" then 
+      kind = "ウィクロス(WIXOSS)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキを検索"
+    when "13" then 
+      kind = "Z/X(ゼクス)"
+      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
       @page_title = "#{kind}" + "のデッキを検索"
     else
-      @page_description = "デッキ検索-デッキポスト"
-      @page_title = "デッキを検索"
+      if !@search_kind.blank? 
+        kind = deck_kind.key(@search_kind.to_i) #こうしないとなぜかkey()メソッド使えない
+        @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+        @page_title = "#{kind}" + "のデッキを検索"
+      else
+        @page_description = "デッキ検索-TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+        @page_title = "デッキを検索"
+      end
     end
-      
   end
 
   def show
