@@ -1,22 +1,25 @@
 <div class="row">
-  <div class="col-lg-7">
-    <%= render 'shared/deck_search' %>    
-    <div>
-      <p class ="mt-2 mb-0">簡易検索</p>
+  <div class="col-lg-7 p-0">
+    <div class ="px-3"> 
+      <%= render 'shared/deck_search' %>    
+    </div>
+    
+    <div class ="px-3">
+      <p class ="mt-3 mb-0">簡易検索</p>
       <% deck_kind.each do |tcg_name,num| %>
         <% if num != nil %> 
           <%= link_to tcg_name +"(" + "#{@micropost_all.where(kind: num).count}" + ")",{ controller: :microposts , action: :search, kind: num},class: "btn btn-sm btn-outline-primary mt-2" %>
         <% end %>
       <% end %> 
-      <div class="mt-2">
-        <p class ="my-1">最新の投稿</p>
-        <ul class="post-recent index">
-          <%= render @recent_posts %>
-        </ul>
-      </div>
-      
-      <%= render 'advertisement/yuyutei' %>
     </div>
+    
+    <div class="mt-3">
+      <p class ="px-3 my-1">最新の投稿</p>
+      <ul class="index">
+        <%= render @recent_posts %>
+      </ul>
+    </div>
+    <%= render 'advertisement/yuyutei' %>
   </div>
   <div class="col-lg-5 d-none d-lg-block">
     <%= render 'advertisement/ad_right' %>

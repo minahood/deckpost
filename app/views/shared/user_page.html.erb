@@ -7,19 +7,21 @@
         <%= render 'shared/user_nav' %>
       </div>
       
-    
-    <% case @action %>
-    <% when "home" then %>
-      <%= render 'shared/feed' %>
-    <% when "show","likes","bookmarks" then %>
-      <%= render 'users/post_index' , microposts: @microposts %>
-    <% when "notification" then %>
-      <%= render "notifications/notice_index" %>
-    <% when "following","followers" then %>
-      <%= render "users/follow_index" %>
-    <% else %>
+      <div class="">
+        <% case @action %>
+        <% when "home" then %>
+          <%= render 'shared/feed' %>
+        <% when "show","likes","bookmarks" then %>
+          <%= render 'users/post_index' , microposts: @microposts %>
+        <% when "notification" then %>
+          <%= render "notifications/notice_index" %>
+        <% when "following","followers" then %>
+          <%= render "users/follow_index" %>
+        <% else %>
+          
+        <% end %>  
+      </div>
       
-    <% end %>
     </div>
     
   </div>

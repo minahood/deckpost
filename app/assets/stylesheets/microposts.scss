@@ -9,7 +9,7 @@
 
 li.micropost{
   border-bottom: 1px solid #dee2e6;
-  padding: 0.3rem 0.7rem;
+  padding: 0.3rem 1rem;
   &:hover{
     background-color:#F5F5F0;
   }
@@ -92,6 +92,7 @@ img{
 }
 
 .post-recent{
+  
   border-radius: 0.25rem;
-  border: 2px solid #dee2e6 !important;;
+  border: 2px solid #dee2e6 !important;
 }
