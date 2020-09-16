@@ -5,24 +5,24 @@
     </div>
   </div>
   
-  <div class="col-md-6 ">
-    <%= render 'shared/deck_search' %>
-    
-    <% if @microposts.any? %>
+  <div class="col-md-6 p-0">
+    <div class="" >
+      <div class=""> 
+        <%= render 'shared/deck_search' %>
+      </div>
       
-      <ul class=" index">
-        <%= render @microposts %>
-      </ul>
-      <div class="page_nav">
-        <%= paginate @microposts, window: 2 %>
-        
-      </div>  
-    <% else %> 
-      <div>各当する投稿は見つかりません。</div>
     
-    <% end %>
-    
-    
+      <% if @microposts.any? %>
+        <ul class="index  y-border-md">
+          <%= render @microposts %>
+        </ul>
+        <div class="page_nav">
+          <%= paginate @microposts, window: 2 %>
+        </div>  
+      <% else %> 
+        <div>各当する投稿は見つかりません。</div>
+      <% end %>  
+    </div>
   </div>
   <div class="col col-md-3">
     <%= render 'advertisement/ad_right' %> 

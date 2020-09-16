@@ -91,16 +91,13 @@ class MicropostsController < ApplicationController
         end
       end
     else
-      if verify_recaptcha
-        @micropost = User.find_by(login_id: "guest").microposts.build(micropost_params)
-        if @micropost.save
-          flash[:success] = "投稿に成功しました!"
-          redirect_to search_microposts_url
-        else
-          render 'static_pages/d_post'
-        end
+      
+      @micropost = User.find_by(login_id: "guest").microposts.build(micropost_params)
+      if @micropost.save
+        flash[:success] = "投稿に成功しました!"
+        redirect_to search_microposts_url
       else
-        render 'static_pages/home'
+        render 'static_pages/d_post'
       end
     end
   end

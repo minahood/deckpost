@@ -24,7 +24,7 @@ gem 'will_paginate', '3.3.0'
 gem 'will_paginate-bootstrap4'
 gem 'fog-aws'
 gem 'dotenv-rails'
-gem 'recaptcha', require: "recaptcha/rails"
+gem 'recaptcha', require: "recaptcha/rails" #これはv3非対応
 gem 'browser'
 
 gem 'meta-tags'

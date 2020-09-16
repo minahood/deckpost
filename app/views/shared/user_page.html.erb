@@ -1,9 +1,12 @@
 <div class="row">
   <%= render 'shared/user_form' %>
   
-  <div class="col-md-8 col-lg-5 y-border-md p-md-0">
+  <div class="col-md-8 col-lg-5 y-border-md p-0">
     <div class=""> 
-      <%= render 'shared/user_nav' %>
+      <div class = ""> 
+        <%= render 'shared/user_nav' %>
+      </div>
+      
     
     <% case @action %>
     <% when "home" then %>

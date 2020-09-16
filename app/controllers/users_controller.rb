@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if verify_recaptcha
       if @user.save
         log_in @user
+        remember(@user)
         flash[:success] = "ユーザー登録に成功しました。"
         redirect_to @user
       else
