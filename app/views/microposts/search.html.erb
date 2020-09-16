@@ -5,15 +5,15 @@
     </div>
   </div>
   
-  <div class="col-md-6 p-0">
+  <div class="col-md-6 p-0 y-border-md">
     <div class="" >
-      <div class="px-3"> 
+      <div class="px-3 p-md-0"> 
         <%= render 'shared/deck_search' %>
       </div>
       
       <div> 
         <% if @microposts.any? %>
-          <ul class="index ">
+          <ul class="index">
             <%= render @microposts %>
           </ul>
           <div class="page_nav">

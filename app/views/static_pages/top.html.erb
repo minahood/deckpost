@@ -1,5 +1,10 @@
 <div class="row">
-  <div class="col-lg-7 p-0">
+  <div class="col col-md-3">
+    <div class="d-none d-md-block">
+      <%= render 'advertisement/search_left' %>
+    </div>
+  </div>
+  <div class="col-md-6 p-0 y-border-md">
     <div class ="px-3"> 
       <%= render 'shared/deck_search' %>    
     </div>
@@ -13,19 +18,19 @@
       <% end %> 
     </div>
     
-    <div class="mt-3">
+    <div class="mt-3 ">
       <p class ="px-3 my-1">最新の投稿</p>
-      <ul class="index">
+      <ul class="index post-recent">
         <%= render @recent_posts %>
       </ul>
     </div>
-    <%= render 'advertisement/yuyutei' %>
+    <%# render 'advertisement/yuyutei' %>
   </div>
-  <div class="col-lg-5 d-none d-lg-block">
+  <div class="col-md-3 d-none d-md-block">
     <%= render 'advertisement/ad_right' %>
   </div>
 </div>
-
+<%= render 'advertisement/amazon_tcg' %>
 
 
 
