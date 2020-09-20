@@ -14,43 +14,43 @@ class MicropostsController < ApplicationController
     case @search_kind 
     when "4" then
       kind = "遊戯王デュエルリンクス"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "5" then
       kind = "遊戯王ラッシュデュエル"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"  
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"  
     when "6" then 
       kind = "ポケモンカード(ポケカ)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "8" then 
       kind = "ヴァイスシュヴァルツ(ヴァイス)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "10" then
       kind = "バトルスピリッツ(バトスピ)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "11" then 
       kind = "デジモンカード(デジカ)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "12" then 
       kind = "ウィクロス(WIXOSS)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     when "13" then 
       kind = "Z/X(ゼクス)"
-      @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-      @page_title = "#{kind}" + "のデッキを検索"
+      @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
+      @page_title = "#{kind}" + "のデッキレシピを検索"
     else
       if !@search_kind.blank? 
         kind = deck_kind.key(@search_kind.to_i) #こうしないとなぜかkey()メソッド使えない
-        @page_description = "#{kind}" + "のデッキを検索 - TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
-        @page_title = "#{kind}" + "のデッキを検索"
+        @page_description = "#{kind}" + "のデッキレシピを検索 - TCGデッキを検索・投稿・共有サイト「デッキポスト」"
+        @page_title = "#{kind}" + "のデッキレシピを検索"
       else
-        @page_description = "デッキ検索-TCGのデッキを検索・投稿・共有サイト「デッキポスト」"
+        @page_description = "デッキ検索-TCGデッキレシピを検索・投稿・共有サイト「デッキポスト」"
         @page_title = "デッキを検索"
       end
     end
