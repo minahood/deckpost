@@ -1,3 +1,5 @@
 User-Agent:*
-Disallow:
+Disallow: /user/
+Disallow: /uses
+
 Sitemap: https://www.deckpost.jp/sitemap.xml.gz
