@@ -2,83 +2,83 @@ ja:
   users: # view名
     index:  # action名
       title: "ユーザー検索"           # このviewの中では t('.title')と記載できる
-      keywords: "デッキ"
-      description: "デッキポスト、ユーザ検索"
+      keywords: ""
+      description: "デッキポスト、ユーザを検索"
     new:
       title: "新規登録"
-      keywords: "デッキ"
-      description: "デッキポストの新規ユーザー登録。TCGのデッキレシピを検索・投稿・共有しよう。気になる人をフォローしてつながろう。"
+      keywords: ""
+      description: "デッキポストの新規ユーザー登録。デッキ投稿や検索。気になる人と交流しよう。"
     show:
       title: "ユーザー詳細"
-      keywords: "デッキ"
+      keywords: ""
       description:
     edit: 
       title: "ユーザー編集"
-      keywords: "デッキ"
-      description: "プロフィール編集フォーム"
+      keywords: ""
+      description: "デッキポスト、ログイン中ユーザーのプロフィール編集"
     edit_pass:
       title: "パスワード変更"  
-      keywords: "デッキ"
-      description: "パスワード編集フォーム"
+      keywords: ""
+      description: "デッキポスト、ログイン中ユーザーのパスワード変更"
     following:
       title: ""
-      keywords: "デッキ"
+      keywords: ""
       description:
     follower:
       title: ""
-      keywords: "デッキ"
+      keywords: ""
       description:
     bookmark:
       title: 
-      keywords: "デッキ"
+      keywords: ""
       description: 
     likes:
       title: ""
-      keywords: "デッキ"
+      keywords: ""
       description:
   
   sessions:
     new:
       title: "ログイン"
-      keywords: "デッキ"
-      description: "デッキポストにログイン、新規登録。TCGのデッキレシピを検索・投稿・共有しよう。気になる人をフォローしてつながろう。"
+      keywords: "デッキポストログイン"
+      description: "デッキポストにログイン。または、新規登録してマイページへ。デッキ投稿やみんなと交流をしよう。"
   
   static_pages:
     top: 
       title: "top"
-      keywords: "デッキ TCG"
-      description: "デッキポストでTCGのデッキレシピを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/白猫TCG)"
+      keywords: "デッキポスト"
+      description: "デッキポストにようこそ。TCGのデッキレシピを検索・投稿・共有しよう。手軽に画像でデッキを発信。"
     home:
       title: "ホーム"
-      keywords: "デッキ TCG"
-      description: "デッキポストでTCGのデッキレシピを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/白猫TCG)"
+      keywords: "デッキポスト"
+      description: "デッキポストのユーザーホーム。デッキレシピを検索・投稿・共有。手軽に画像でデッキを発信。"
     about:
       title: "サイトについて"
-      keywords: "デッキ"
-      description: "デッキポストでTCGのデッキレシピを検索・投稿・共有しよう。手軽に画像でデッキを発信。(遊戯王/デュエマ/MTG/ポケカ/ヴァンガード/バトスピ/デジカ/WIXOSS/ゼクス/スクコレ/FEサイファ/リセ/chaos/Reバース/プレメモ/白猫TCG)"
+      keywords: ""
+      description: "デッキポストを使う上での注意事項、管理人情報など"
     contact:
       title: "お問い合わせ"
-      keywords: "デッキ"
-      description: "デッキポスト お問い合わせ"
+      keywords: ""
+      description: "デッキポストお問い合わせ案内"
     d_post:
       title: "デッキを投稿する"
-      keywords: "デッキ"
-      description: "デッキポスト投稿フォーム"
+      keywords: ""
+      description: "デッキポストのデッキ投稿フォーム。デッキを投稿してみんなと共有しよう。"
       
   microposts:
     search: 
       title: "デッキ検索"
-      keywords: "デッキ"
+      keywords: ""
       description: 
     show: 
       title: ""
-      keywords: "デッキ"
+      keywords: 
       description:
       
   notifications:
     index:
       title: "通知"
-      keywords: "デッキ"
+      keywords: "デッキポスト"
       description: "デッキポスト通知"
   
       
