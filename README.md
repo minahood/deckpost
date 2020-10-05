@@ -1,45 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・Ruby 2.6.3, Rails 6.0.3
+・Javascript・jQuery
+・AWS（EC2,S3）
+・RSpec (factory_bot)
+・本番環境 heroku
 
-Things you may want to cover:
+・webpacker bootstrap
+・recaptcha v2
+・
 
-* Ruby version
+-サイトコンセプト-
+画像で手軽にデッキレシピを共有できるサービス。
 
-* System dependencies
+シンプルな機能、レイアウトで初めて使う人が直感的に使えるように。
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-* 
-
-1　デュエマ
-2  デュエプレ
-3　遊戯王
-4  遊戯王DL
-5  遊戯王RD
-6　ポケカ
-7　ヴァイス
-8　MTG
-9　VG
-10 バトスピ
-11 バディファイト
-12 Wixoss
-13 Z/X
-14 スクコレ
-15 FEサイファ
-16 リセ
-17 白猫
-
- yarn add bootstrap@4.3.1 jquery popper.js　実行
